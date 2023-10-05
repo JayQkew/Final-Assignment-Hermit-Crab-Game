@@ -1,17 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelGenerationManager : MonoBehaviour
 {
     public static LevelGenerationManager Instance { get; private set; }
 
+    public Grid grid;
+
+    #region SEEKERS
+    [Header("Seeker")]
+    public List<GameObject> seekers = new List<GameObject>();
+    [SerializeField] private int maxSeeker;
+    [SerializeField] private GameObject p_seeker;
+    [SerializeField] private Transform seekerParent;
+    #endregion
+
+    #region CHUNKS
     [Header("Chunks")]
-    [SerializeField] private int max_amountOfChunks;
+    public List<GameObject> chunks = new List<GameObject>();
+    [SerializeField] private int maxChunks;
     [SerializeField] private GameObject p_chunk;
-    [SerializeField] private List<GameObject> chunks = new List<GameObject>();
-    [SerializeField] private List<GameObject> selectable_chunks = new List<GameObject>();
     [SerializeField] private Transform chunkParent;
+    #endregion
+
+    #region WALLS
+    [Header("Walls")]
+    public Transform wallParent;
+    #endregion
 
     private void Awake()
     {
@@ -20,74 +37,44 @@ public class LevelGenerationManager : MonoBehaviour
 
     private void Start()
     {
-        ChunkGenerator();
+        SeekerSpawn(grid.GetCellCenterWorld(Vector3Int.zero));
+        ChunkSpawn(grid.GetCellCenterWorld(Vector3Int.zero));
     }
 
     private void Update()
     {
-    }
-
-    private void ChunkGenerator()
-    {
-        for(int i = 0; i < max_amountOfChunks; i++)
+        if (chunks.Count < maxChunks)
         {
-            if(chunks.Count == 0)
+            foreach (GameObject seeker in seekers)
             {
-                GameObject _chunk = Instantiate(p_chunk, Vector3.zero, Quaternion.identity, chunkParent);
-                chunks.Add(_chunk);
+                seeker.GetComponent<SeekerLogic>().MoveSeeker();
+                seeker.GetComponent<SeekerLogic>().ChooseAction();
             }
-            else
+        }
+
+        if (chunks.Count == maxChunks)
+        {
+            foreach(GameObject chunk in chunks)
             {
-                SelectableChunkCheck();
-
-                int randNum = Random.Range(0, selectable_chunks.Count);
-                GameObject selectedChunk = null;
-
-                for (int j = 0; j < selectable_chunks.Count; j++)
-                {
-                    if (j == randNum)
-                    {
-                        selectedChunk = selectable_chunks[j];
-                    }
-                }
-
-                if (selectedChunk != null)
-                {
-                    GameObject _chunk = Instantiate(p_chunk, ChunkDirection(selectedChunk), Quaternion.identity, chunkParent);
-                    chunks.Add(_chunk);
-                }
-
-                SelectableChunkCheck();
+                chunk.GetComponent<ChunkLogic>().ChunkOrWall();
             }
         }
     }
-
-    private void SelectableChunkCheck()
+    public void SeekerSpawn(Vector3 pos)
     {
-        selectable_chunks.Clear();
-
-        foreach(GameObject chunk in chunks)
+        if (seekers.Count < maxSeeker)
         {
-            if (!chunk.GetComponent<ChunkLogic>().locked)
-            {
-                selectable_chunks.Add(chunk);
-            }
+            GameObject seeker = Instantiate(p_seeker, pos, Quaternion.identity, seekerParent);
+            seekers.Add(seeker);
         }
     }
 
-    private Vector3 ChunkDirection(GameObject selectedChunk)
+    public void ChunkSpawn(Vector3 pos)
     {
-        List<Vector3> positions = new List<Vector3>();
-
-        positions.Clear();
-
-        if (!selectedChunk.GetComponent<ChunkLogic>().chunkDirection[0]) positions.Add(selectedChunk.transform.position + new Vector3(0, (selectedChunk.GetComponent<ChunkLogic>().chunkRadius * 2),0));
-        if (!selectedChunk.GetComponent<ChunkLogic>().chunkDirection[1]) positions.Add(selectedChunk.transform.position + new Vector3(0, -(selectedChunk.GetComponent<ChunkLogic>().chunkRadius * 2), 0));
-        if (!selectedChunk.GetComponent<ChunkLogic>().chunkDirection[2]) positions.Add(selectedChunk.transform.position + new Vector3(-(selectedChunk.GetComponent<ChunkLogic>().chunkRadius * 2), 0, 0));
-        if (!selectedChunk.GetComponent<ChunkLogic>().chunkDirection[3]) positions.Add(selectedChunk.transform.position + new Vector3((selectedChunk.GetComponent<ChunkLogic>().chunkRadius * 2), 0, 0));
-
-        int randInt = Random.Range(0,positions.Count);
-
-        return positions[randInt];
+        if (chunks.Count < maxChunks)
+        {
+            GameObject chunk = Instantiate(p_chunk, pos, Quaternion.identity, chunkParent);
+            chunks.Add(chunk);
+        }
     }
 }

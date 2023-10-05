@@ -6,31 +6,67 @@ using UnityEngine;
 
 public class ChunkLogic : MonoBehaviour
 {
-    public float chunkRadius;
-    public bool locked = false;
+    [SerializeField] public LayerMask layerMask; // chunks or walls
+    [SerializeField] private Grid grid;
 
-    [SerializeField] private LayerMask chunkLayer;
+    #region WALLS
+    [Header("Walls")]
+    [SerializeField] private GameObject p_wall;
+    [SerializeField] private Transform wallParent;
+    #endregion
 
-    public bool[] chunkDirection; // 0 = up, 1 = down, 2 = left, 3 = right
-
-    private void Update()
+    private Vector3Int[] checkGrid =
     {
-        ChunkDirecitonCheck();
-        locked = Array.TrueForAll(chunkDirection, x => x == true); // checks if chunk is locked
+        // EDGES
+        Vector3Int.up,
+        Vector3Int.down,
+        Vector3Int.left,
+        Vector3Int.right,
+        Vector3Int.zero,
+
+        // CORNERS
+        new Vector3Int(-1, 1, 0), // top left
+        new Vector3Int(-1, -1, 0), // bot left
+        new Vector3Int(1, -1, 0), // bot right
+        new Vector3Int(1, 1, 0), // top right
+    };
+
+    private void Awake()
+    {
+        grid = LevelGenerationManager.Instance.grid;
+        wallParent = LevelGenerationManager.Instance.wallParent;
     }
 
-    private void ChunkDirecitonCheck()
+    public void ChunkOrWall()
     {
-        chunkDirection[0] = ChunkCheck(Vector2.up);
-        chunkDirection[1] = ChunkCheck(Vector2.down);
-        chunkDirection[2] = ChunkCheck(Vector2.left);
-        chunkDirection[3] = ChunkCheck(Vector2.right);
+        foreach (Vector3Int check in checkGrid)
+        {
+            if (!GridCheck(check))
+            {
+                Instantiate(p_wall, GridPos(check), Quaternion.identity, wallParent);
+            }
+        }
     }
 
-    private bool ChunkCheck(Vector3 direction)
+    private Vector3 GridPos(Vector3Int pos)
     {
-        Vector3 origin = transform.position + direction;
+        Vector3Int gridPos = grid.WorldToCell(transform.position);
 
-        return Physics2D.CircleCast(origin, chunkRadius, direction, 0, chunkLayer);
+        Vector3Int gridCastPos = gridPos + pos;
+
+        return grid.GetCellCenterWorld(gridCastPos);
     }
+
+    private bool GridCheck(Vector3Int direction)
+    {
+
+        Vector3Int gridPos = grid.WorldToCell(transform.position);
+
+        Vector3Int gridCastPos = gridPos + direction;
+
+        Vector3 worldCastPos = grid.GetCellCenterWorld(gridCastPos);
+
+        return Physics2D.CircleCast(worldCastPos, 0.5f, Vector3.zero, 0, layerMask);
+    }
+
 }
