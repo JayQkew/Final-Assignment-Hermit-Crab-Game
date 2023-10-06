@@ -43,7 +43,8 @@ public class ChunkLogic : MonoBehaviour
         {
             if (!GridCheck(check))
             {
-                Instantiate(p_wall, GridPos(check), Quaternion.identity, wallParent);
+                GameObject wall = Instantiate(p_wall, GridPos(check), Quaternion.identity, wallParent);
+                LevelGenerationManager.Instance.walls.Add(wall);
             }
         }
     }

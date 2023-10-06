@@ -23,7 +23,6 @@ public class SeekerLogic : MonoBehaviour
     public void MoveSeeker()
     {
         Vector3Int currentGridPos = grid.WorldToCell(transform.position);
-
         Vector3Int newPos = currentGridPos + moveDirections[Random.Range(0, moveDirections.Length)];
 
         transform.position = grid.GetCellCenterWorld(newPos);

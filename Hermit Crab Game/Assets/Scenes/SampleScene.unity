@@ -241,6 +241,7 @@ MonoBehaviour:
   maxChunks: 100
   p_chunk: {fileID: 3448825556924872629, guid: 883898dd15b22874fad5bf561c696301, type: 3}
   chunkParent: {fileID: 1318652102}
+  walls: []
   wallParent: {fileID: 1973231048}
 --- !u!1 &519420028
 GameObject:
