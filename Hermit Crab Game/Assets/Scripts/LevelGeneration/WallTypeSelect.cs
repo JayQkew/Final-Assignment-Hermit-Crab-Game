@@ -20,6 +20,7 @@ public class WallTypeSelect : MonoBehaviour
     [SerializeField] private Sprite[] typeTen; // 4
     [SerializeField] private Sprite[] typeEleven; // 4
     [SerializeField] private Sprite[] typeTwelve; // 4
+    [SerializeField] private Sprite[] typeThirteen; // 2
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class WallTypeSelect : MonoBehaviour
     }
     public void TypeCheck()
     {
-        #region TYPE FIVE 38:
+        #region TYPE FIVE:
         if ((cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[1] == Space.Chunk &&
             cs_wallLogic.spaceChecks[2] == Space.Chunk &&
@@ -70,7 +71,7 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[7] == Space.Wall))
             TypeFive();
         #endregion
-        #region TYPE ELEVEN 14:
+        #region TYPE ELEVEN:
         else if ((cs_wallLogic.spaceChecks[4] == Space.Chunk &&
             cs_wallLogic.spaceChecks[5] == Space.Chunk &&
             cs_wallLogic.spaceChecks[6] == Space.Empty &&
@@ -97,7 +98,7 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[2] == Space.Wall))
             TypeEleven();
         #endregion
-        #region TYPE NINE 22:
+        #region TYPE NINE:
         else if ((cs_wallLogic.spaceChecks[0] != Space.Chunk &&
             cs_wallLogic.spaceChecks[1] != Space.Chunk &&
             cs_wallLogic.spaceChecks[2] != Space.Chunk &&
@@ -124,14 +125,29 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[5] == Space.Chunk))
             TypeNine();
         #endregion
-        #region TYPE ONE 3:
+        #region TYPE THIRTEEN :
+        else if ((cs_wallLogic.spaceChecks[5] == Space.Chunk &&
+            cs_wallLogic.spaceChecks[7] == Space.Chunk &&
+            cs_wallLogic.spaceChecks[0] == Space.Wall &&
+            cs_wallLogic.spaceChecks[1] == Space.Wall &&
+            cs_wallLogic.spaceChecks[2] == Space.Wall &&
+            cs_wallLogic.spaceChecks[3] == Space.Wall) ||
+            (cs_wallLogic.spaceChecks[4] == Space.Chunk &&
+            cs_wallLogic.spaceChecks[6] == Space.Chunk &&
+            cs_wallLogic.spaceChecks[0] == Space.Wall &&
+            cs_wallLogic.spaceChecks[1] == Space.Wall &&
+            cs_wallLogic.spaceChecks[2] == Space.Wall &&
+            cs_wallLogic.spaceChecks[3] == Space.Wall))
+            TypeThirteen();
+        #endregion
+        #region TYPE ONE :
         else if (cs_wallLogic.spaceChecks[0] != Space.Chunk &&
             cs_wallLogic.spaceChecks[1] != Space.Chunk &&
             cs_wallLogic.spaceChecks[2] != Space.Chunk &&
             cs_wallLogic.spaceChecks[3] != Space.Chunk)
             TypeOne();
         #endregion
-        #region TYPE SIX 6:
+        #region TYPE SIX:
         else if ((cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[1] == Space.Chunk &&
             cs_wallLogic.spaceChecks[2] == Space.Wall &&
@@ -143,7 +159,7 @@ public class WallTypeSelect : MonoBehaviour
             TypeSix();
 
         #endregion
-        #region TYPE TEN 14:
+        #region TYPE TEN:
         else if ((cs_wallLogic.spaceChecks[0] != Space.Chunk &&
             cs_wallLogic.spaceChecks[1] != Space.Chunk &&
             cs_wallLogic.spaceChecks[2] != Space.Chunk &&
@@ -170,7 +186,7 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[6] == Space.Chunk))
             TypeTen();
         #endregion     
-        #region TYPE SEVEN 14:
+        #region TYPE SEVEN:
         else if ((cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[7] == Space.Chunk &&
             cs_wallLogic.spaceChecks[2] == Space.Wall &&
@@ -189,7 +205,7 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[1] == Space.Wall))
             TypeSeven();
         #endregion
-        #region TYPE EIGHT 14:
+        #region TYPE EIGHT:
         else if ((cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[6] == Space.Chunk &&
             cs_wallLogic.spaceChecks[2] == Space.Wall &&
@@ -208,7 +224,7 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[1] == Space.Wall))
             TypeEight();
         #endregion
-        #region TYPE TWO 14:
+        #region TYPE TWO:
         else if ((cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[2] != Space.Chunk &&
             cs_wallLogic.spaceChecks[7] != Space.Chunk &&
@@ -235,7 +251,7 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[1] != Space.Chunk))
             TypeTwo();
         #endregion
-        #region TYPE FOUR 10:
+        #region TYPE FOUR:
         else if ((cs_wallLogic.spaceChecks[2] == Space.Chunk &&
             cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[3] == Space.Chunk) ||
@@ -251,7 +267,7 @@ public class WallTypeSelect : MonoBehaviour
             TypeFour();
 
         #endregion
-        #region TYPE TWELVE 14:
+        #region TYPE TWELVE:
 
         else if ((cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[4] == Space.Chunk &&
@@ -271,7 +287,7 @@ public class WallTypeSelect : MonoBehaviour
             cs_wallLogic.spaceChecks[4] == Space.Chunk))
             TypeTwelve();
         #endregion
-        #region TYPE THREE 6:
+        #region TYPE THREE:
         else if ((cs_wallLogic.spaceChecks[0] == Space.Chunk &&
             cs_wallLogic.spaceChecks[2] == Space.Chunk) ||
             (cs_wallLogic.spaceChecks[0] == Space.Chunk &&
@@ -556,6 +572,18 @@ public class WallTypeSelect : MonoBehaviour
             EdgeChange(typeTwelve[3]);
     }
 
+    private void TypeThirteen()
+    {
+        wallType = WallType.Thirteen;
+
+        if (cs_wallLogic.spaceChecks[5] == Space.Chunk &&
+            cs_wallLogic.spaceChecks[7] == Space.Chunk)
+            EdgeChange(typeThirteen[0]);
+        else if (cs_wallLogic.spaceChecks[4] == Space.Chunk &&
+            cs_wallLogic.spaceChecks[6] == Space.Chunk)
+            EdgeChange(typeThirteen[1]);
+
+    }
     private void EdgeChange(Sprite edge) // change when done prototyping into instantiating instead of sprite change
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = edge;
@@ -573,6 +601,7 @@ public class WallTypeSelect : MonoBehaviour
         Nine,
         Ten,
         Eleven,
-        Twelve
+        Twelve,
+        Thirteen
     }
 }
