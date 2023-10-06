@@ -177,6 +177,39 @@ MonoBehaviour:
   - {fileID: 734942023, guid: bba8d84987f06d045b7bb0d5f8d4b33f, type: 3}
   - {fileID: 115350987, guid: bba8d84987f06d045b7bb0d5f8d4b33f, type: 3}
   typeFive: {fileID: 1969283729, guid: bba8d84987f06d045b7bb0d5f8d4b33f, type: 3}
+  typeSix:
+  - {fileID: 1858854262, guid: bba8d84987f06d045b7bb0d5f8d4b33f, type: 3}
+  - {fileID: 326318740, guid: bba8d84987f06d045b7bb0d5f8d4b33f, type: 3}
+  typeSeven:
+  - {fileID: -1629654366, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -793904190, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -192182799, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -709579541, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  typeEight:
+  - {fileID: -1362261281, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -1294908906, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 864068842, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -510770242, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  typeNine:
+  - {fileID: -551791830, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 953970486, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -124135705, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -65611837, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  typeTen:
+  - {fileID: 917203565, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 1797366445, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 1487994896, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 207168480, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  typeEleven:
+  - {fileID: 1672972340, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -1613866653, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 1358464893, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: -1088866791, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  typeTwelve:
+  - {fileID: -1535179299, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 569087921, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 651530086, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
+  - {fileID: 1509521777, guid: 8467ec8c4749b224b9cbbbd230a1bb0e, type: 3}
 --- !u!50 &-1327441307775507073
 Rigidbody2D:
   serializedVersion: 4

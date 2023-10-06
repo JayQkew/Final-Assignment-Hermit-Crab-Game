@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1318652103}
   seekers: []
-  maxSeeker: 3
+  maxSeeker: 10
   p_seeker: {fileID: 8976168587624371631, guid: aaec42a726f762e4397da9830bd95aa5, type: 3}
   seekerParent: {fileID: 793919606}
   chunks: []
