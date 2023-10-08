@@ -102,7 +102,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   grid: {fileID: 0}
-  p_wall: {fileID: 1255580041254151442, guid: a7f6e81305385494686d008309d06bea, type: 3}
+  p_wall: {fileID: 1599514531717886048, guid: 7530d57161d9ee6488fa096e7ae5aef3, type: 3}
   wallParent: {fileID: 0}
 --- !u!61 &7528254923291171407
 BoxCollider2D:

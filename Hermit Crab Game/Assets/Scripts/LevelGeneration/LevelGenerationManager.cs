@@ -59,7 +59,7 @@ public class LevelGenerationManager : MonoBehaviour
         {
             foreach(GameObject chunk in chunks)
             {
-                chunk.GetComponent<ChunkLogic>().ChunkOrWall();
+                chunk.GetComponentInChildren<ChunkLogic>().ChunkOrWall();
             }
 
             wallsPlaced = true;
@@ -67,22 +67,16 @@ public class LevelGenerationManager : MonoBehaviour
 
         if (wallsPlaced)
         {
-            foreach(GameObject wall in walls)
+            foreach (GameObject wall in walls)
             {
-                wall.GetComponent<WallLogic>().SpaceCheck();
+                wall.GetComponentInChildren<WallLogic>().SpaceCheck();
             }
 
-            spaceChecked = true;
-        }
-
-        if (spaceChecked)
-        {
-            foreach(GameObject wall in walls)
+            foreach (GameObject wall in walls)
             {
-                wall.GetComponent<WallTypeSelect>().TypeCheck();
+                wall.GetComponentInChildren<WallTypeSelect>().TypeCheck();
             }
         }
-
 
     }
     public void SeekerSpawn(Vector3 pos)

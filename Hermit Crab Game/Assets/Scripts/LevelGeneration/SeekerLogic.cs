@@ -30,7 +30,7 @@ public class SeekerLogic : MonoBehaviour
 
     public void ChooseAction()
     {
-        if(Physics2D.CircleCast(transform.position, 0.5f, Vector3.zero, 0, chunks))
+        if(Physics2D.CircleCast(transform.position, 5f, Vector3.zero, 0, chunks))
         {
             LevelGenerationManager.Instance.SeekerSpawn(transform.position);
         }

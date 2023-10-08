@@ -7,6 +7,7 @@ public class WallLogic : MonoBehaviour
     [SerializeField] private Grid grid;
     [SerializeField] private LayerMask chunks;
     [SerializeField] private LayerMask walls;
+    [SerializeField] private Vector3Int currentGridPos;
 
     public Space[] spaceChecks = new Space[8];
     /*
@@ -38,6 +39,10 @@ public class WallLogic : MonoBehaviour
         grid = LevelGenerationManager.Instance.grid;
     }
 
+    private void Start()
+    {
+        currentGridPos = grid.WorldToCell(gameObject.transform.position);
+    }
     public void SpaceCheck()
     {
         for(int i = 0; i < spaceChecks.Length; i++)
@@ -48,26 +53,17 @@ public class WallLogic : MonoBehaviour
 
     public Space SpaceType(Vector3Int spacePos)
     {
-        if (ChunkChecker(spacePos)) return Space.Chunk;
-        else if (WallChecker(spacePos)) return Space.Wall;
-        else return Space.Empty;
+        if (GridChecker(spacePos, chunks)) { Debug.Log("Chunk"); return Space.Chunk; }
+        else if (GridChecker(spacePos, walls)) { Debug.Log("Wall"); return Space.Wall; }
+        else { Debug.Log("Empty"); return Space.Empty; }
     }
 
-    private bool ChunkChecker(Vector3Int spacePos) // returns true if there is a chunk
+    private bool GridChecker(Vector3Int spacePos, LayerMask layer) // returns true if there is a chunk
     {
-        Vector3Int currentGridPos = grid.WorldToCell(gameObject.transform.position);
         Vector3Int checkPos = currentGridPos + spacePos;
         Vector3 worldCheckPos = grid.GetCellCenterWorld(checkPos);
 
-        return Physics2D.CircleCast(worldCheckPos, 0.5f, Vector3.zero, 0, chunks);
-    }
-    private bool WallChecker(Vector3Int spacePos) // returns true if there is a wall
-    {
-        Vector3Int currentGridPos = grid.WorldToCell(gameObject.transform.position);
-        Vector3Int checkPos = currentGridPos + spacePos;
-        Vector3 worldCheckPos = grid.GetCellCenterWorld(checkPos);
-
-        return Physics2D.CircleCast(worldCheckPos, 0.5f, Vector3.zero, 0, walls);
+        return Physics2D.CircleCast(worldCheckPos, 5f, Vector3.zero, 0, layer);
     }
 
 }

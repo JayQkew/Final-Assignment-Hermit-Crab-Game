@@ -234,12 +234,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1318652103}
   seekers: []
-  maxSeeker: 10
+  maxSeeker: 3
   p_seeker: {fileID: 8976168587624371631, guid: aaec42a726f762e4397da9830bd95aa5, type: 3}
   seekerParent: {fileID: 793919606}
   chunks: []
-  maxChunks: 100
-  p_chunk: {fileID: 3448825556924872629, guid: 883898dd15b22874fad5bf561c696301, type: 3}
+  maxChunks: 9
+  p_chunk: {fileID: 1377408044223017332, guid: 6e43e6a829ceeb74bbe9e1b0a29980dc, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
@@ -492,7 +492,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318652101}
   m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellSize: {x: 10, y: 10, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
