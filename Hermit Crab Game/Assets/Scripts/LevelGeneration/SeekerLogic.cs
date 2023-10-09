@@ -23,7 +23,6 @@ public class SeekerLogic : MonoBehaviour
     public void MoveSeeker()
     {
         Vector3Int currentGridPos = grid.WorldToCell(transform.position);
-
         Vector3Int newPos = currentGridPos + moveDirections[Random.Range(0, moveDirections.Length)];
 
         transform.position = grid.GetCellCenterWorld(newPos);
@@ -31,7 +30,7 @@ public class SeekerLogic : MonoBehaviour
 
     public void ChooseAction()
     {
-        if(Physics2D.CircleCast(transform.position, 0.5f, Vector3.zero, 0, chunks))
+        if(Physics2D.CircleCast(transform.position, 5f, Vector3.zero, 0, chunks))
         {
             LevelGenerationManager.Instance.SeekerSpawn(transform.position);
         }

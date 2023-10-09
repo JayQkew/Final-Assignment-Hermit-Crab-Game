@@ -43,7 +43,8 @@ public class ChunkLogic : MonoBehaviour
         {
             if (!GridCheck(check))
             {
-                Instantiate(p_wall, GridPos(check), Quaternion.identity, wallParent);
+                GameObject wall = Instantiate(p_wall, GridPos(check), Quaternion.identity, wallParent);
+                LevelGenerationManager.Instance.walls.Add(wall);
             }
         }
     }
@@ -66,7 +67,7 @@ public class ChunkLogic : MonoBehaviour
 
         Vector3 worldCastPos = grid.GetCellCenterWorld(gridCastPos);
 
-        return Physics2D.CircleCast(worldCastPos, 0.5f, Vector3.zero, 0, layerMask);
+        return Physics2D.CircleCast(worldCastPos, 5f, Vector3.zero, 0, layerMask, -5f, 5f);
     }
 
 }

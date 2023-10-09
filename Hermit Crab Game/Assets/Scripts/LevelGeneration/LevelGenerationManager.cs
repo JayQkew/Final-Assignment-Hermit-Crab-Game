@@ -27,7 +27,10 @@ public class LevelGenerationManager : MonoBehaviour
 
     #region WALLS
     [Header("Walls")]
+    public List<GameObject> walls = new List<GameObject>();
     public Transform wallParent;
+    private bool wallsPlaced = false;
+    private bool spaceChecked = false;
     #endregion
 
     private void Awake()
@@ -56,9 +59,25 @@ public class LevelGenerationManager : MonoBehaviour
         {
             foreach(GameObject chunk in chunks)
             {
-                chunk.GetComponent<ChunkLogic>().ChunkOrWall();
+                chunk.GetComponentInChildren<ChunkLogic>().ChunkOrWall();
+            }
+
+            wallsPlaced = true;
+        }
+
+        if (wallsPlaced)
+        {
+            foreach (GameObject wall in walls)
+            {
+                wall.GetComponentInChildren<WallLogic>().SpaceCheck();
+            }
+
+            foreach (GameObject wall in walls)
+            {
+                wall.GetComponentInChildren<WallTypeSelect>().TypeCheck();
             }
         }
+
     }
     public void SeekerSpawn(Vector3 pos)
     {
