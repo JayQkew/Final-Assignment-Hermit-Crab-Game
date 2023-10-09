@@ -39,7 +39,8 @@ public class PlayerAttack : MonoBehaviour
 
             if(unit != null)
             {
-                if(unit.gameObject.CompareTag("chunk"))
+                if (unit.gameObject.CompareTag("chunk"))
+                    Debug.Log("Fuck");
                 unit.TakeDamage(5);
             }
         }
