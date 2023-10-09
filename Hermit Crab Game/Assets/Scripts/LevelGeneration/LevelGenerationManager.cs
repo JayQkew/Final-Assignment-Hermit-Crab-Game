@@ -21,7 +21,7 @@ public class LevelGenerationManager : MonoBehaviour
     [Header("Chunks")]
     public List<GameObject> chunks = new List<GameObject>();
     [SerializeField] private int maxChunks;
-    [SerializeField] private GameObject p_chunk;
+    [SerializeField] private GameObject[] p_chunk; // Unathi changed this to an array
     [SerializeField] private Transform chunkParent;
     #endregion
 
@@ -96,7 +96,9 @@ public class LevelGenerationManager : MonoBehaviour
     {
         if (chunks.Count < maxChunks)
         {
-            GameObject chunk = Instantiate(p_chunk, pos, Quaternion.identity, chunkParent);
+            //Unathi Added random pick of chunk
+            int rand = Random.Range(0, p_chunk.Length);
+            GameObject chunk = Instantiate(p_chunk[rand], pos, Quaternion.identity, chunkParent);
             chunks.Add(chunk);
         }
     }
