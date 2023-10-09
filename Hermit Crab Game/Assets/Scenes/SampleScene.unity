@@ -234,11 +234,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1318652103}
   seekers: []
-  maxSeeker: 3
+  maxSeeker: 20
   p_seeker: {fileID: 8976168587624371631, guid: aaec42a726f762e4397da9830bd95aa5, type: 3}
   seekerParent: {fileID: 793919606}
   chunks: []
-  maxChunks: 9
+  maxChunks: 100
   p_chunk: {fileID: 1377408044223017332, guid: 6e43e6a829ceeb74bbe9e1b0a29980dc, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
@@ -477,7 +477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318652101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
