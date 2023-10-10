@@ -276,6 +276,7 @@ MonoBehaviour:
   - {fileID: 1377408044223017332, guid: 54a7cfea5474fcf408cdf6c5035b92e7, type: 3}
   - {fileID: 1377408044223017332, guid: f2257683dd9e6a042b257f8a47b5be93, type: 3}
   - {fileID: 1377408044223017332, guid: d85a5c197dd699340ae2d8940c0b2df0, type: 3}
+  - {fileID: 1377408044223017332, guid: a77f0633494870e45ba461bf1a3862e3, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
