@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     {
         level = GameObject.Find("LevelGenerationManager").GetComponent<LevelGenerationManager>();
 
-        StartCoroutine(SpawnPlayer());
+        // StartCoroutine(SpawnPlayer());
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
 
         // Can Add Some Load Screen Logic
 
-        int randChunk = Random.Range(0, level.chunks.Count);
+        int randChunk = Random.Range(0, LevelGenerationManager.Instance.chunks.Count);
 
         Transform chunk = level.chunks[randChunk].transform;
 

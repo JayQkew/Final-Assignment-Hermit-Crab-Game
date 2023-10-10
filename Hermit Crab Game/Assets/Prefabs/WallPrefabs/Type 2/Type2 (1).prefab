@@ -1222,7 +1222,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7268135023303712850}
   m_BodyType: 1
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -1277,6 +1277,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8519731064041030840}
     m_Modifications:
+    - target: {fileID: -2461232554071954242, guid: a7f6e81305385494686d008309d06bea, type: 3}
+      propertyPath: typeTwo.Array.data[1]
+      value: 
+      objectReference: {fileID: 3019928503228019128}
     - target: {fileID: 1255580041254151442, guid: a7f6e81305385494686d008309d06bea, type: 3}
       propertyPath: m_Name
       value: Wall

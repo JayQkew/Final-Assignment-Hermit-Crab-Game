@@ -39,10 +39,14 @@ public class PlayerAttack : MonoBehaviour
 
             if(unit != null)
             {
-                if (unit.gameObject.CompareTag("chunk"))
-                    Debug.Log("Fuck");
+                if(unit.gameObject.CompareTag("chunk"))
                 unit.TakeDamage(5);
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
