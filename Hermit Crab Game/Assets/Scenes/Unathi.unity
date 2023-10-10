@@ -265,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &29159428
 Transform:
   m_ObjectHideFlags: 0
@@ -453,6 +453,7 @@ MonoBehaviour:
   - {fileID: 1115417538734722780, guid: fe547d0071ab7ed408ccadc7aa267238, type: 3}
   - {fileID: 3448825556924872629, guid: 883898dd15b22874fad5bf561c696301, type: 3}
   chunkParent: {fileID: 1318652102}
+  walls: []
   wallParent: {fileID: 1973231048}
 --- !u!1 &519420028
 GameObject:
@@ -621,7 +622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &774933909
 Transform:
   m_ObjectHideFlags: 0
