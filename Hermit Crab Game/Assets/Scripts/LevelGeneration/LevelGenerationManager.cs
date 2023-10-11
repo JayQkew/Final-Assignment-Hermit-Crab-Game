@@ -72,12 +72,16 @@ public class LevelGenerationManager : MonoBehaviour
                 wall.GetComponentInChildren<WallLogic>().SpaceCheck();
             }
 
+            spaceChecked = true;
+        }
+
+        if (spaceChecked)
+        {
             foreach (GameObject wall in walls)
             {
                 wall.GetComponentInChildren<WallTypeSelect>().TypeCheck();
             }
         }
-
     }
     public void SeekerSpawn(Vector3 pos)
     {
