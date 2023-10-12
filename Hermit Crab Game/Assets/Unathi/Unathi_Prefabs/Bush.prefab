@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6646001571460150816}
   - component: {fileID: 4185646662200292621}
-  - component: {fileID: 1224875052199651600}
+  - component: {fileID: 8829833606807184276}
+  - component: {fileID: 392224193377708339}
   m_Layer: 6
   m_Name: Bush
   m_TagString: chunk
@@ -86,8 +87,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1224875052199651600
-PolygonCollider2D:
+--- !u!114 &8829833606807184276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945028073349102399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84d6cb5d8c291b45b255f67d4bffbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentAlpha: 0.5
+--- !u!58 &392224193377708339
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,27 +113,9 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.030319735, y: 0.2278671}
-      - {x: -0.66119665, y: 0.16235971}
-      - {x: -0.7119397, y: -0.07726893}
-      - {x: -0.7740545, y: -0.21859014}
-      - {x: -0.7556275, y: -0.3959146}
-      - {x: 0.28098905, y: -0.3931203}
-      - {x: 0.26231596, y: -0.17310812}
-      - {x: 0.28798535, y: -0.04889428}
-      - {x: 0.27898663, y: 0.04222357}
+  m_Offset: {x: -0.2798283, y: 0.5689849}
+  serializedVersion: 2
+  m_Radius: 0.5777305
 --- !u!1 &4333830124235954298
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,8 +141,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4333830124235954298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2451, y: 0.2902, z: 0}
-  m_LocalScale: {x: 1.5903394, y: 1.5803255, z: 1}
+  m_LocalPosition: {x: -0.26, y: 0.601, z: 0}
+  m_LocalScale: {x: 2.2881804, y: 2.2737722, z: 1.4388}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 311134724509118042}
@@ -192,8 +188,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 783a334ca5f37e145b7e8196e0a56bc9, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 5be6d35de61c1a84fbc12e9c72987577, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

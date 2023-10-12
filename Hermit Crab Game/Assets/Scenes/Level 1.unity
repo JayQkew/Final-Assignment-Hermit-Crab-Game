@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 157126209}
   m_Layer: 8
   m_Name: GFX
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,10 +273,10 @@ MonoBehaviour:
   maxChunks: 5
   p_chunk:
   - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
-  - {fileID: 1377408044223017332, guid: b5f99ed6c2ccb50499a4887ae40a6f15, type: 3}
-  - {fileID: 1377408044223017332, guid: 895fe40f45d08b040bb7a23ebfd8c97f, type: 3}
-  - {fileID: 1377408044223017332, guid: 7ad0875b7c1903d4398c160753eb0c5a, type: 3}
-  - {fileID: 1377408044223017332, guid: 6e43e6a829ceeb74bbe9e1b0a29980dc, type: 3}
+  - {fileID: 1377408044223017332, guid: aa1d77c9d543605448e6e5e44c08524a, type: 3}
+  - {fileID: 1377408044223017332, guid: 67420af0fd0ad2247a44849c57a44d65, type: 3}
+  - {fileID: 1377408044223017332, guid: fff68a89c1330a34d929fd3309c0f479, type: 3}
+  - {fileID: 1377408044223017332, guid: 56e535a65de76294680b1b24c8967cab, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1806038770}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 9
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -388,7 +388,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1981132, g: 0.04422056, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -405,7 +405,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 907277723}
   m_Layer: 8
   m_Name: AttackPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 1199063409}
   m_Layer: 8
   m_Name: crab_Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 1300960026}
   m_Layer: 8
   m_Name: Pot_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 1642841796}
   m_Layer: 8
   m_Name: Shell_container
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
