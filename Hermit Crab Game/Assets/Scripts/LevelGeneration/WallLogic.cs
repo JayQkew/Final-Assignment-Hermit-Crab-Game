@@ -53,9 +53,9 @@ public class WallLogic : MonoBehaviour
 
     public Space SpaceType(Vector3Int spacePos)
     {
-        if (GridChecker(spacePos, chunks)) { Debug.Log("Chunk"); return Space.Chunk; }
-        else if (GridChecker(spacePos, walls)) { Debug.Log("Wall"); return Space.Wall; }
-        else { Debug.Log("Empty"); return Space.Empty; }
+        if (GridChecker(spacePos, chunks)) return Space.Chunk;
+        else if (GridChecker(spacePos, walls)) return Space.Wall;
+        else return Space.Empty;
     }
 
     private bool GridChecker(Vector3Int spacePos, LayerMask layer) // returns true if there is a chunk

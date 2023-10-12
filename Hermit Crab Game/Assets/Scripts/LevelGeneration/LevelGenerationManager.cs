@@ -31,8 +31,20 @@ public class LevelGenerationManager : MonoBehaviour
     public Transform wallParent;
     private bool wallsPlaced = false;
     private bool spaceChecked = false;
+    private bool typeChecked = false;
     #endregion
 
+    #region INGREDIENTS AND OBJECTS
+    [Header("Ingredients and OBjects")]
+    private bool objectsSelected = false;
+    [SerializeField] private int maxSpawnAmount;
+    [SerializeField] private int minSpawnAmount;
+    [SerializeField] private int spawnAmount;
+    [SerializeField] private GameObject[] ingredients;
+    [SerializeField] private GameObject[] interactableObjects;
+    [SerializeField] private List<GameObject> selectedObjects = new List<GameObject>();
+
+    #endregion
     private void Awake()
     {
         Instance = this;
@@ -57,7 +69,7 @@ public class LevelGenerationManager : MonoBehaviour
 
         if (chunks.Count == maxChunks)
         {
-            foreach(GameObject chunk in chunks)
+            foreach (GameObject chunk in chunks)
             {
                 chunk.GetComponentInChildren<ChunkLogic>().ChunkOrWall();
             }
@@ -81,7 +93,17 @@ public class LevelGenerationManager : MonoBehaviour
             {
                 wall.GetComponentInChildren<WallTypeSelect>().TypeCheck();
             }
+
+            typeChecked = true;
         }
+
+        if (typeChecked)
+        {
+            interactableObjects = GameObject.FindGameObjectsWithTag("interactableObject");
+
+            if (!objectsSelected) SelectObjects();
+        }
+
     }
     public void SeekerSpawn(Vector3 pos)
     {
@@ -102,4 +124,51 @@ public class LevelGenerationManager : MonoBehaviour
             chunks.Add(chunk);
         }
     }
+
+    private void SelectObjects()
+    {
+        spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
+
+        int[] randNumbers = new int[spawnAmount];
+
+        #region Random Number Check
+        bool exists = false;
+        int randomNumber = Random.Range(0, interactableObjects.Length);
+
+        for(int i = 0; i < randNumbers.Length; i++) // checks if number already exists
+        {
+            if (randNumbers[i] == randomNumber)
+            {
+                exists = true;
+                break;
+            }
+            if (!exists) randNumbers[i] = randomNumber;
+        }
+
+        #endregion
+
+        for (int i = 0; i < spawnAmount; i++)
+        {
+            selectedObjects.Add(interactableObjects[randNumbers[i]]);
+        }
+
+        objectsSelected = true;
+    }
+
+    private void AddIngredients()
+    {
+        foreach(GameObject _object in selectedObjects)
+        {
+            ObjectLogic objectLogic = _object.GetComponent<ObjectLogic>();
+
+            foreach(GameObject ingredient in ingredients)
+            {
+                if(ingredient.GetComponent<IngredientLogic>().objectType == objectLogic.objectType)
+                {
+
+                }
+            }
+        }
+    }
 }
+
