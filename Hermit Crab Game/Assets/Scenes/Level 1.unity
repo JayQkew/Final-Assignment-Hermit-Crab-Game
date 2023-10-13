@@ -271,12 +271,13 @@ MonoBehaviour:
   seekerParent: {fileID: 793919606}
   chunks: []
   maxChunks: 5
-  p_chunk:
+  p_chunk_level_1:
   - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
   - {fileID: 1377408044223017332, guid: aa1d77c9d543605448e6e5e44c08524a, type: 3}
   - {fileID: 1377408044223017332, guid: 67420af0fd0ad2247a44849c57a44d65, type: 3}
   - {fileID: 1377408044223017332, guid: fff68a89c1330a34d929fd3309c0f479, type: 3}
   - {fileID: 1377408044223017332, guid: 56e535a65de76294680b1b24c8967cab, type: 3}
+  p_chunk_level_2: []
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}

@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class WallTypeSelect : MonoBehaviour
 {
+    // Make it so when LevelManager.Instance.sceneLevel == 0-4, 0 is level 1, 4 is level 5
+    // it selects the correct wall type, maybe make multiple
+    // arrays for each wall type, check LevelGenerationManager
+    // for example maybe, or make it your
+    // own way
+
     private WallLogic cs_wallLogic;
     [SerializeField] private bool childChosen = false;
     [SerializeField] private WallType wallType;

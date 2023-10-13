@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    [SerializeField] int sceneLevel;
+    public int sceneLevel;
 
     public Transform[] locations;
 
@@ -55,15 +55,18 @@ public class LevelManager : MonoBehaviour
                 case 3:
                     player.position = new Vector2(locations[3].position.x, locations[3].position.y);
                     break;
+                case 4:
+                    player.position = new Vector2(locations[4].position.x, locations[4].position.y);
+                    break;
             }
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                if (sceneLevel < 3)
+                if (sceneLevel < 4)
                 {
                     sceneLevel++;
                 }
-                else if (sceneLevel == 3)
+                else if (sceneLevel == 4)
                 {
                     sceneLevel = 0;
                 }
@@ -77,7 +80,7 @@ public class LevelManager : MonoBehaviour
                 }
                 else if (sceneLevel == 0)
                 {
-                    sceneLevel = 3;
+                    sceneLevel = 4;
                 }
             }
         }
@@ -116,6 +119,9 @@ public class LevelManager : MonoBehaviour
                 break;
             case 3:
                 SceneManager.LoadScene("Level 4");
+                break;
+            case 4:
+                SceneManager.LoadScene("Level 5");
                 break;
         }
     }
