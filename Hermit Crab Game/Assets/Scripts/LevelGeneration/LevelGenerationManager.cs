@@ -35,16 +35,32 @@ public class LevelGenerationManager : MonoBehaviour
     #endregion
 
     #region INGREDIENTS AND OBJECTS
-    [Header("Ingredients and OBjects")]
-    private bool objectsSelected = false;
+    [Header("Ingredients")]
     [SerializeField] private int maxSpawnAmount;
     [SerializeField] private int minSpawnAmount;
     [SerializeField] private int spawnAmount;
     [SerializeField] private GameObject[] ingredients;
+    private bool ingredientsPlaced = false;
+
+    [Header("Object")]
+    [SerializeField] private float digPercentage; //use 0.___ for percentages
+    [SerializeField] private float shakePercentage;
+    [SerializeField] private float openPercentage;
+    [Space(10)]
+    [SerializeField] private int digAmount;
+    [SerializeField] private int shakeAmount;
+    [SerializeField] private int openAmount;
+    [Space(10)]
     [SerializeField] private GameObject[] interactableObjects;
     [SerializeField] private List<GameObject> selectedObjects = new List<GameObject>();
-
+    [SerializeField] private List<GameObject> digObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> shakeObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> openObjects = new List<GameObject>();
+    private bool objectsSelected = false;
+    private bool objectsOrganised = false;
     #endregion
+
+
     private void Awake()
     {
         Instance = this;
@@ -101,7 +117,11 @@ public class LevelGenerationManager : MonoBehaviour
         {
             interactableObjects = GameObject.FindGameObjectsWithTag("interactableObject");
 
-            if (!objectsSelected) SelectObjects();
+            if (!objectsOrganised) OrganizeObjects();
+
+            if (!objectsSelected) SelectObjectsMain();
+
+            if (!ingredientsPlaced) AddIngredients();
         }
 
     }
@@ -125,50 +145,91 @@ public class LevelGenerationManager : MonoBehaviour
         }
     }
 
-    private void SelectObjects()
+    private void SelectObjectsMain()
     {
-        spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
+        int _spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
 
-        int[] randNumbers = new int[spawnAmount];
+        float _digAmount = _spawnAmount * digPercentage;
+        float _shakeAmount = _spawnAmount * shakePercentage;
+        float _openAmount = _spawnAmount * openPercentage;
 
-        #region Random Number Check
-        bool exists = false;
-        int randomNumber = Random.Range(0, interactableObjects.Length);
+        digAmount = Mathf.RoundToInt(_digAmount);
+        shakeAmount = Mathf.RoundToInt(_shakeAmount);
+        openAmount = Mathf.RoundToInt(_openAmount);
 
-        for(int i = 0; i < randNumbers.Length; i++) // checks if number already exists
-        {
-            if (randNumbers[i] == randomNumber)
-            {
-                exists = true;
-                break;
-            }
-            if (!exists) randNumbers[i] = randomNumber;
-        }
+        spawnAmount = digAmount + shakeAmount + openAmount; //recalculates spawnAmount so that it always adds up
 
-        #endregion
-
-        for (int i = 0; i < spawnAmount; i++)
-        {
-            selectedObjects.Add(interactableObjects[randNumbers[i]]);
-        }
+        SelectObjectSpecific(digObjects, digAmount);
+        SelectObjectSpecific(shakeObjects, shakeAmount);
+        SelectObjectSpecific(openObjects, openAmount);
 
         objectsSelected = true;
     }
 
+    private void SelectObjectSpecific(List<GameObject> _objects, int amount)
+    {
+        int[] randomNumbers = new int[amount]; //make an array of random numbers
+
+        for (int j = 0; j < amount; j++)
+        {
+            bool exists = false;
+            int randNum = Random.Range(0, _objects.Count); //random number for objects
+
+            for (int i = 0; i < amount; i++)
+            {
+                if (randNum == randomNumbers[i])
+                {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) randomNumbers[j] = randNum;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+            selectedObjects.Add(_objects[randomNumbers[i]]);
+        }
+    }
+
+    private void OrganizeObjects()
+    {
+        foreach (GameObject _object in interactableObjects)
+        {
+            switch (_object.GetComponent<ObjectLogic>().objectType)
+            {
+                case ObjectType.Dig:
+                    digObjects.Add(_object);
+                    break;
+                case ObjectType.Shake:
+                    shakeObjects.Add(_object);
+                    break;
+                case ObjectType.Open:
+                    openObjects.Add(_object);
+                    break;
+            }
+        }
+
+        objectsOrganised = true;
+    }
     private void AddIngredients()
     {
-        foreach(GameObject _object in selectedObjects)
+        foreach (GameObject _object in selectedObjects)
         {
             ObjectLogic objectLogic = _object.GetComponent<ObjectLogic>();
 
-            foreach(GameObject ingredient in ingredients)
+            foreach (GameObject ingredient in ingredients)
             {
-                if(ingredient.GetComponent<IngredientLogic>().objectType == objectLogic.objectType)
+                if (ingredient.GetComponent<IngredientLogic>().objectType == objectLogic.objectType)
                 {
-
+                    objectLogic.ingredient = ingredient;
+                    break;
                 }
             }
         }
+
+        ingredientsPlaced = true;
     }
+
 }
 
