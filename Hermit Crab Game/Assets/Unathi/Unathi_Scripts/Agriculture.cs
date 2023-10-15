@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Agriculture : MonoBehaviour
 {
+    [SerializeField] AudioSource bushAmbiance;
+
     [SerializeField] private SpriteRenderer[] childRenderers;
     private float defaultAlpha = 1.0f;
     public float transparentAlpha = 0.5f;
@@ -12,16 +14,32 @@ public class Agriculture : MonoBehaviour
     {
         // Get all SpriteRenderer components in the children
         childRenderers = GetComponentsInChildren<SpriteRenderer>();
+        bushAmbiance = GameObject.Find("Bush_Sound").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            if(gameObject.CompareTag("Bush"))
+            bushAmbiance.Play();
+
             Debug.Log("Fuck yeah!");
 
             // Player entered the collider, change the alpha of child SpriteRenderers
             SetChildRenderersAlpha(transparentAlpha);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if(Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.D))
+            {
+                if (gameObject.CompareTag("Bush"))
+                    bushAmbiance.Play();
+            }
         }
     }
 

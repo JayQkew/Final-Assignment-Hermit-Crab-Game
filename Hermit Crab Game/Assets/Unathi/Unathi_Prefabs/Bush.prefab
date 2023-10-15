@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 392224193377708339}
   m_Layer: 6
   m_Name: Bush
-  m_TagString: chunk
+  m_TagString: Bush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84d6cb5d8c291b45b255f67d4bffbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childRenderers: []
   transparentAlpha: 0.5
 --- !u!58 &392224193377708339
 CircleCollider2D:
