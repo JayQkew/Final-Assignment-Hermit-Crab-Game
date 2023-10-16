@@ -7,6 +7,11 @@ TagManager:
   - chunk
   - wall
   - Bush
+  - Knysna
+  - Plettenberg
+  - Mossel
+  - George
+  - Oudtshoorn
   layers:
   - Default
   - TransparentFX
