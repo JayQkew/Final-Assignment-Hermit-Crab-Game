@@ -30,7 +30,8 @@ public class ObjectLogic : MonoBehaviour
     {
         switch (objectType)
         {
-            case ObjectType.Open: 
+            case ObjectType.Open:
+                Open();
                 break;
             case ObjectType.Shake:
                 Shake();
@@ -39,6 +40,7 @@ public class ObjectLogic : MonoBehaviour
                 TakeHit();
                 break;
             case ObjectType.Dig:
+                Dig();
                 break;
         }
     }
@@ -57,7 +59,26 @@ public class ObjectLogic : MonoBehaviour
     {
         if (ingredient != null)
         {
-            Debug.Log("Theres an Item here !!!");
+            Debug.Log(ingredient.name + " here");
+            Instantiate(ingredient, transform.position, Quaternion.identity, gameObject.transform);
+        }
+    }
+
+    private void Dig()
+    {
+        if (ingredient != null)
+        {
+            Debug.Log(ingredient.name + " here");
+            Instantiate(ingredient, transform.position, Quaternion.identity, gameObject.transform);
+        }
+    }
+
+    private void Open()
+    {
+        if (ingredient != null)
+        {
+            Debug.Log(ingredient.name + " here");
+            Instantiate(ingredient, transform.position, Quaternion.identity, gameObject.transform);
         }
     }
 
@@ -66,6 +87,7 @@ public class ObjectLogic : MonoBehaviour
         //GameObject particle = Instantiate(wallParticle, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
 }
 
 public enum ObjectType

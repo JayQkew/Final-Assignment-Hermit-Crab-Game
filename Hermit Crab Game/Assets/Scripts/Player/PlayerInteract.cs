@@ -1,44 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerInteract : MonoBehaviour
 {
+    public static PlayerInteract Instance { get; private set; }
+
     public Animator anim;
+
+    [Header("Mouse Ray")]
+    [SerializeField] private float rayRadius;
+    [SerializeField] private LayerMask interactableObject;
 
     [Header("Interaction")]
     [SerializeField] private Transform interactionPoint;
     [SerializeField] private float interactionRange = 0.5f;
-    [SerializeField] private LayerMask interactableObject;
+    [SerializeField] private GameObject[] hitObjects;
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        MouseHit();
+        InteractionCircle();
+
+        if (Input.GetMouseButtonDown(0))
         {
-            InteractWithObject();
+            anim.SetTrigger("Attack");
+
+            foreach (var hitObject in hitObjects)
+            {
+                if(MouseHit() == hitObject)
+                {
+                    hitObject.GetComponent<ObjectLogic>().Interact();
+                }
+            }
         }
     }
 
-    void InteractWithObject()
+    private void InteractionCircle()
     {
-        anim.SetTrigger("Attack");
+        Collider2D[] _hitObjects = Physics2D.OverlapCircleAll(interactionPoint.position, interactionRange, interactableObject);
+        hitObjects = new GameObject[_hitObjects.Length];
 
-        Collider2D[] hitObject = Physics2D.OverlapCircleAll(interactionPoint.position, interactionRange, interactableObject);
-
-        foreach(Collider2D objectHit in hitObject)
+        for (int i = 0;  i < _hitObjects.Length; i++)
         {
-            ObjectLogic unit = objectHit.GetComponent<ObjectLogic>();
-
-            if(unit != null)
-            {
-                unit.Interact();
-            }
+            hitObjects[i] = _hitObjects[i].gameObject;
         }
+    }
+
+    private Vector2 MousePos()
+    {
+        Vector2 screenPos = Input.mousePosition;
+        return Camera.main.ScreenToWorldPoint(screenPos);
+    }
+
+    private GameObject MouseHit()
+    {
+        Vector2 screenPos = Input.mousePosition;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(screenPos);
+
+        Ray ray = new Ray(mousePos, Vector3.forward);
+        return Physics2D.OverlapCircle(mousePos, rayRadius, interactableObject).gameObject;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(interactionPoint.position, interactionRange);
+        Gizmos.DrawWireSphere(MousePos(), rayRadius);
     }
+
 }
