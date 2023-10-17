@@ -7,6 +7,12 @@ TagManager:
   - chunk
   - wall
   - interactableObject
+  - Bush
+  - Knysna
+  - Mossel
+  - George
+  - Oudtshoorn
+  - Plettenberg
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - wall
   - Player
   - interactable
-  - 
+  - ingredients
   - 
   - 
   - 

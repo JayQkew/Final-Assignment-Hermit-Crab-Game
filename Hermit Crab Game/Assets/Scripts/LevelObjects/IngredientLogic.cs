@@ -14,6 +14,8 @@ public class IngredientLogic : MonoBehaviour
 }
 public enum IngredientType
 {
+    Empty,
+
     Potato,
     Tomato,
     Onion,

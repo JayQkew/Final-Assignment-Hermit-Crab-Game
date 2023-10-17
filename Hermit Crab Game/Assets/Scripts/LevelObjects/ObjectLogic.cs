@@ -59,8 +59,8 @@ public class ObjectLogic : MonoBehaviour
     {
         if (ingredient != null)
         {
-            Debug.Log(ingredient.name + " here");
             Instantiate(ingredient, transform.position, Quaternion.identity, gameObject.transform);
+            ingredient = null;
         }
     }
 
@@ -68,8 +68,8 @@ public class ObjectLogic : MonoBehaviour
     {
         if (ingredient != null)
         {
-            Debug.Log(ingredient.name + " here");
             Instantiate(ingredient, transform.position, Quaternion.identity, gameObject.transform);
+            ingredient = null;
         }
     }
 
@@ -77,8 +77,8 @@ public class ObjectLogic : MonoBehaviour
     {
         if (ingredient != null)
         {
-            Debug.Log(ingredient.name + " here");
             Instantiate(ingredient, transform.position, Quaternion.identity, gameObject.transform);
+            ingredient = null;
         }
     }
 

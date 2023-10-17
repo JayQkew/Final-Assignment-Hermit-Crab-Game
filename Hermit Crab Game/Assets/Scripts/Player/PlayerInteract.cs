@@ -34,10 +34,8 @@ public class PlayerInteract : MonoBehaviour
 
             foreach (var hitObject in hitObjects)
             {
-                if(MouseHit() == hitObject)
-                {
-                    hitObject.GetComponent<ObjectLogic>().Interact();
-                }
+                if (MouseHit() == hitObject && hitObject.GetComponent<IngredientLogic>() != null) PlayerInventory.Instance.SortIngredient(hitObject);
+                else if (MouseHit() == hitObject) hitObject.GetComponent<ObjectLogic>().Interact();
             }
         }
     }
