@@ -271,15 +271,26 @@ MonoBehaviour:
   seekerParent: {fileID: 793919606}
   chunks: []
   maxChunks: 5
-  p_chunk:
-  - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
-  - {fileID: 1377408044223017332, guid: b5f99ed6c2ccb50499a4887ae40a6f15, type: 3}
-  - {fileID: 1377408044223017332, guid: 895fe40f45d08b040bb7a23ebfd8c97f, type: 3}
-  - {fileID: 1377408044223017332, guid: 7ad0875b7c1903d4398c160753eb0c5a, type: 3}
-  - {fileID: 1377408044223017332, guid: 6e43e6a829ceeb74bbe9e1b0a29980dc, type: 3}
+  p_chunk_level_1: []
+  p_chunk_level_2: []
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
+  maxSpawnAmount: 0
+  minSpawnAmount: 0
+  spawnAmount: 0
+  ingredients: []
+  digPercentage: 0
+  shakePercentage: 0
+  openPercentage: 0
+  digAmount: 0
+  shakeAmount: 0
+  openAmount: 0
+  interactableObjects: []
+  selectedObjects: []
+  digObjects: []
+  shakeObjects: []
+  openObjects: []
 --- !u!1 &511685128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,11 +1179,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1199063408}
-  attackPoint: {fileID: 907277723}
-  attackRange: 0.5
-  wallLayer:
+  rayRadius: 0
+  interactableObject:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 512
+  interactionPoint: {fileID: 907277723}
+  interactionRange: 0.5
+  hitObjects: []
 --- !u!58 &1806038767
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1202,7 +1215,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  acceleration: 0
+  deceleration: 0
+  currentVelocity: {x: 0, y: 0}
+  maxSpeed: 0
   rb: {fileID: 1806038769}
+  movement: {x: 0, y: 0}
+  stopTime: 0
   playerSprite: {fileID: 1806038770}
 --- !u!50 &1806038769
 Rigidbody2D:

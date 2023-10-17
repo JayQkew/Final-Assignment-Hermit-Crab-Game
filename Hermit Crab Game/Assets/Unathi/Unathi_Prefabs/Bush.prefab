@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4185646662200292621}
   - component: {fileID: 8829833606807184276}
   - component: {fileID: 392224193377708339}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Bush
   m_TagString: Bush
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84d6cb5d8c291b45b255f67d4bffbfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bushAmbiance: {fileID: 0}
   childRenderers: []
   transparentAlpha: 0.5
 --- !u!58 &392224193377708339
@@ -127,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465245235152741325}
   - component: {fileID: 3206156201952733353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bush_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 311134724509118042}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
