@@ -16,14 +16,6 @@ public class ObjectLogic : MonoBehaviour
 
     private void Start()
     {
-        switch (objectType)
-        {
-            case ObjectType.Shake:
-                break;
-            case ObjectType.Break:
-                currentHP = maxHP;
-                break;
-        }
     }
 
     public void Interact()
@@ -36,22 +28,9 @@ public class ObjectLogic : MonoBehaviour
             case ObjectType.Shake:
                 Shake();
                 break;
-            case ObjectType.Break:
-                TakeHit();
-                break;
             case ObjectType.Dig:
                 Dig();
                 break;
-        }
-    }
-
-    private void TakeHit() // always just do 1 damage (focus not on combat)
-    {
-        currentHP -= 1;
-
-        if (currentHP <= 0)
-        {
-            DestroyItem();
         }
     }
 
@@ -94,6 +73,5 @@ public enum ObjectType
 {
     Open,
     Shake,
-    Break,
     Dig
 }
