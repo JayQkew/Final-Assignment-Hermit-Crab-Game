@@ -542,6 +542,8 @@ MonoBehaviour:
   digObjects: []
   shakeObjects: []
   openObjects: []
+  objectsSelected: 0
+  objectsOrganised: 0
 --- !u!1 &726550696
 GameObject:
   m_ObjectHideFlags: 0

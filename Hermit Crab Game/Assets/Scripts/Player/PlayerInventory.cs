@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -93,35 +94,50 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha8)) Debug.Log(ingredientInventory[7][0]);
         if (Input.GetKeyDown(KeyCode.Alpha9)) Debug.Log(ingredientInventory[8][0]);
         if (Input.GetKeyDown(KeyCode.Alpha0)) Debug.Log(ingredientInventory[9][0]);
+
+        if (Input.GetKeyDown(KeyCode.Keypad1)) Debug.Log(StackCount(ingredientInventory[0]));
+        if (Input.GetKeyDown(KeyCode.Keypad2)) Debug.Log(StackCount(ingredientInventory[1]));
+        if (Input.GetKeyDown(KeyCode.Keypad3)) Debug.Log(StackCount(ingredientInventory[2]));
+        if (Input.GetKeyDown(KeyCode.Keypad4)) Debug.Log(StackCount(ingredientInventory[3]));
+        if (Input.GetKeyDown(KeyCode.Keypad5)) Debug.Log(StackCount(ingredientInventory[4]));
+        if (Input.GetKeyDown(KeyCode.Keypad6)) Debug.Log(StackCount(ingredientInventory[5]));
+        if (Input.GetKeyDown(KeyCode.Keypad7)) Debug.Log(StackCount(ingredientInventory[6]));
+        if (Input.GetKeyDown(KeyCode.Keypad8)) Debug.Log(StackCount(ingredientInventory[7]));
+        if (Input.GetKeyDown(KeyCode.Keypad9)) Debug.Log(StackCount(ingredientInventory[8]));
+        if (Input.GetKeyDown(KeyCode.Keypad0)) Debug.Log(StackCount(ingredientInventory[9]));
+
+
+
         #endregion
     }
 
     private void SyncTempInventory()
     {
-        slot1 = EnumToGameObject(inventory.slot1);
-        slot2 = EnumToGameObject(inventory.slot2);
-        slot3 = EnumToGameObject(inventory.slot3);
-        slot4 = EnumToGameObject(inventory.slot4);
-        slot5 = EnumToGameObject(inventory.slot5);
-        slot6 = EnumToGameObject(inventory.slot6);
-        slot7 = EnumToGameObject(inventory.slot7);
-        slot8 = EnumToGameObject(inventory.slot8);
-        slot9 = EnumToGameObject(inventory.slot9);
-        slot10 = EnumToGameObject(inventory.slot10);
+        slot1 = PrefabToGameObject(inventory.slot1);
+        slot2 = PrefabToGameObject(inventory.slot2);
+        slot3 = PrefabToGameObject(inventory.slot3);
+        slot4 = PrefabToGameObject(inventory.slot4);
+        slot5 = PrefabToGameObject(inventory.slot5);
+        slot6 = PrefabToGameObject(inventory.slot6);
+        slot7 = PrefabToGameObject(inventory.slot7);
+        slot8 = PrefabToGameObject(inventory.slot8);
+        slot9 = PrefabToGameObject(inventory.slot9);
+        slot10 = PrefabToGameObject(inventory.slot10);
     }
 
     private void SyncPermInventory()
     {
-        inventory.slot1 = GameObjectToEnum(slot1);
-        inventory.slot2 = GameObjectToEnum(slot2);
-        inventory.slot3 = GameObjectToEnum(slot3);
-        inventory.slot4 = GameObjectToEnum(slot4);
-        inventory.slot5 = GameObjectToEnum(slot5);
-        inventory.slot6 = GameObjectToEnum(slot6);
-        inventory.slot7 = GameObjectToEnum(slot7);
-        inventory.slot8 = GameObjectToEnum(slot8);
-        inventory.slot9 = GameObjectToEnum(slot9);
-        inventory.slot10 = GameObjectToEnum(slot10);
+        inventory.slot1 = GameObjectToPrefab(slot1);
+        inventory.slot2 = GameObjectToPrefab(slot2);
+        inventory.slot3 = GameObjectToPrefab(slot3);
+        inventory.slot4 = GameObjectToPrefab(slot4);
+        inventory.slot5 = GameObjectToPrefab(slot5);
+        inventory.slot6 = GameObjectToPrefab(slot6);
+        inventory.slot7 = GameObjectToPrefab(slot7);
+        inventory.slot8 = GameObjectToPrefab(slot8);
+        inventory.slot9 = GameObjectToPrefab(slot9);
+        inventory.slot10 = GameObjectToPrefab(slot10);
+        Debug.Log("Synced");
     }
 
     public void SortIngredient(GameObject ingredient)
@@ -135,7 +151,7 @@ public class PlayerInventory : MonoBehaviour
                 break;
             }
 
-            else if (ingredientInventory[i][0] == ingredient)
+            else if (ingredientInventory[i][0].GetComponent<IngredientLogic>().ingredient == ingredient.GetComponent<IngredientLogic>().ingredient )
             {
                 for (int j = 0; j < inventory.stackSize; j++)
                 {
@@ -150,26 +166,26 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private IngredientType[] GameObjectToEnum(GameObject[] slot) // converts gameObject_array to enum_array
+    private GameObject[] GameObjectToPrefab(GameObject[] slot) // converts gameObject_array to enum_array
     {
-        IngredientType[] enumArray = new IngredientType[slot.Length];
+        GameObject[] prefabArray = new GameObject[slot.Length];
 
         for (int i = 0; i < slot.Length; i++)
         {
-            if (slot[i] != null) enumArray[i] = slot[i].GetComponent<IngredientLogic>().ingredient;
-            else enumArray[i] = IngredientType.Empty;
+            if (slot[i] != null) prefabArray[i] = slot[i];
+            else prefabArray[i] = null;
         }
 
-        return enumArray;
+        return prefabArray;
     }
 
-    private GameObject[] EnumToGameObject(IngredientType[] slot) // converts enum_array to gameObjecy_array
+    private GameObject[] PrefabToGameObject(GameObject[] slot) // converts enum_array to gameObjecy_array
     {
         GameObject[] gameObjectArray = new GameObject[slot.Length];
 
         for (int i = 0; i < slot.Length; i++)
         {
-            if (slot[i] == IngredientType.Empty) gameObjectArray[i] = null;
+            if (slot[i] == null) gameObjectArray[i] = null;
             else
             {
                 gameObjectArray[i] = PrefabMatch(slot[i]);
@@ -179,11 +195,11 @@ public class PlayerInventory : MonoBehaviour
         return gameObjectArray;
     }
 
-    private GameObject PrefabMatch(IngredientType ingredient)
+    private GameObject PrefabMatch(GameObject ingredient)
     {
         GameObject _ingredient = null;
 
-        switch (ingredient)
+        switch (ingredient.GetComponent<IngredientLogic>().ingredient)
         {
             case IngredientType.Empty:
                 _ingredient = null;
@@ -249,4 +265,18 @@ public class PlayerInventory : MonoBehaviour
         return _ingredient;
     }
 
+    private int StackCount(GameObject[] itemSlot)
+    {
+        int stackCount = 0;
+
+        if (itemSlot[0] != null)
+        {
+            for (int i = 0; i < itemSlot.Length; i++)
+            {
+                if (itemSlot[i] != null) stackCount++;
+            }
+        }
+
+        return stackCount;
+    }
 }
