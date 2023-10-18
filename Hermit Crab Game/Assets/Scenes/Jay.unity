@@ -450,6 +450,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: c0fa6569f46aac24caf09b5c0a9375fe, type: 2}
+  Tomato: {fileID: 9104311376946822795, guid: 405b5ce9541d236489314165c647c4ae, type: 3}
+  Onion: {fileID: 1036283469977623290, guid: 3518ba46b6e6d8b4a953e1d7c4d6e701, type: 3}
+  Mushrooms: {fileID: 1362279169152758846, guid: 1987f9a1f768c3b47a4a6e2dc0b86c63, type: 3}
+  Potato: {fileID: 3166085514468062330, guid: 89c0c7258e0ceb84aab8efec910fd56e, type: 3}
+  Herbs: {fileID: 0}
+  Mielies: {fileID: 0}
+  Carrots: {fileID: 0}
+  Beans: {fileID: 0}
+  Garlic: {fileID: 0}
+  Chillies: {fileID: 0}
 --- !u!1 &415109488
 GameObject:
   m_ObjectHideFlags: 0

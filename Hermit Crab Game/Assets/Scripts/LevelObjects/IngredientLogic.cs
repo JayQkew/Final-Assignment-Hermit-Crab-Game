@@ -16,15 +16,16 @@ public enum IngredientType
 {
     Empty,
 
-    Potato,
     Tomato,
     Onion,
-    Herbs,
     Mushrooms,
+    Potato,
+    Herbs,
     Mielies,
     Carrots,
     Beans,
     Garlic,
+    Chillies,
 
     Meat,
     Vors,
