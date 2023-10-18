@@ -357,7 +357,7 @@ MonoBehaviour:
   rayRadius: 0.1
   interactableObject:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   interactionPoint: {fileID: 1520257695}
   interactionRange: 1
   hitObjects: []
@@ -450,6 +450,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: c0fa6569f46aac24caf09b5c0a9375fe, type: 2}
+  Tomato: {fileID: 9104311376946822795, guid: 405b5ce9541d236489314165c647c4ae, type: 3}
+  Onion: {fileID: 1036283469977623290, guid: 3518ba46b6e6d8b4a953e1d7c4d6e701, type: 3}
+  Mushrooms: {fileID: 1362279169152758846, guid: 1987f9a1f768c3b47a4a6e2dc0b86c63, type: 3}
+  Potato: {fileID: 3166085514468062330, guid: 89c0c7258e0ceb84aab8efec910fd56e, type: 3}
+  Herbs: {fileID: 0}
+  Mielies: {fileID: 0}
+  Carrots: {fileID: 0}
+  Beans: {fileID: 0}
+  Garlic: {fileID: 0}
+  Chillies: {fileID: 0}
 --- !u!1 &415109488
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,10 +511,16 @@ MonoBehaviour:
   seekerParent: {fileID: 793919606}
   chunks: []
   maxChunks: 9
-  p_chunk:
+  p_chunk_level_1:
   - {fileID: 2258794315167547349, guid: 87936732c93b82f4cb96271612b33e63, type: 3}
   - {fileID: 6527102429031107347, guid: b5bcb88ed55223d4aadd45573c2a5cff, type: 3}
   - {fileID: 5372596374668825131, guid: ffa9f0345227032439bdaf8dbdf4421e, type: 3}
+  p_chunk_level_2:
+  - {fileID: 1377408044223017332, guid: a0080dd8e9d07394f881f87288127ad1, type: 3}
+  - {fileID: 1377408044223017332, guid: 86e752ab4c6454a46977fc8dca5c8fd7, type: 3}
+  - {fileID: 1377408044223017332, guid: 49d793d5665edb64c8e9d1ebe1b9cba6, type: 3}
+  - {fileID: 1377408044223017332, guid: 2cd5a06c83353854e955b823d87a5f62, type: 3}
+  - {fileID: 1377408044223017332, guid: 56e535a65de76294680b1b24c8967cab, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}

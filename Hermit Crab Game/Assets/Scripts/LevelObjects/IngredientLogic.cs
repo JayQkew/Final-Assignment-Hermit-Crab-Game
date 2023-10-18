@@ -14,15 +14,18 @@ public class IngredientLogic : MonoBehaviour
 }
 public enum IngredientType
 {
-    Potato,
+    Empty,
+
     Tomato,
     Onion,
-    Herbs,
     Mushrooms,
+    Potato,
+    Herbs,
     Mielies,
     Carrots,
     Beans,
     Garlic,
+    Chillies,
 
     Meat,
     Vors,
