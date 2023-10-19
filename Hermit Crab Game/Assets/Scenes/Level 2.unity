@@ -274,10 +274,10 @@ MonoBehaviour:
   p_chunk_level_1: []
   p_chunk_level_2:
   - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
-  - {fileID: 1377408044223017332, guid: aa1d77c9d543605448e6e5e44c08524a, type: 3}
-  - {fileID: 1377408044223017332, guid: 67420af0fd0ad2247a44849c57a44d65, type: 3}
-  - {fileID: 1377408044223017332, guid: fff68a89c1330a34d929fd3309c0f479, type: 3}
-  - {fileID: 1377408044223017332, guid: 56e535a65de76294680b1b24c8967cab, type: 3}
+  - {fileID: 1377408044223017332, guid: 8b08c5f7ef2a1444ba4215af64ee25df, type: 3}
+  - {fileID: 1377408044223017332, guid: 6bf69a2fd1b53e54c989398708b5c568, type: 3}
+  - {fileID: 1377408044223017332, guid: 3c5818e16eadf094e95b53321c9012eb, type: 3}
+  - {fileID: 1377408044223017332, guid: b03879933b5c35a4786b15c3581df7ac, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
@@ -1000,7 +1000,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318652101}
   m_Enabled: 1
-  m_CellSize: {x: 30, y: 30, z: 0}
+  m_CellSize: {x: 20, y: 20, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0

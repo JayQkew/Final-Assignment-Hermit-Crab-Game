@@ -137,7 +137,7 @@ public class LevelGenerationManager : MonoBehaviour
 
     public void ChunkSpawn(Vector3 pos)
     {
-        if (chunks.Count < maxChunks /*&& LevelManager.Instance.sceneLevel==0*/)
+        if (chunks.Count < maxChunks && LevelManager.Instance.sceneLevel==0)
         {
             //Unathi Added random pick of chunk
             int rand = Random.Range(0, p_chunk_level_1.Length);
@@ -145,13 +145,13 @@ public class LevelGenerationManager : MonoBehaviour
             chunks.Add(chunk);
         }
 
-        //if (chunks.Count < maxChunks && LevelManager.Instance.sceneLevel==1)
-        //{
-        //    //Unathi Added random pick of chunk
-        //    int rand = Random.Range(0, p_chunk_level_2.Length);
-        //    GameObject chunk = Instantiate(p_chunk_level_2[rand], pos, Quaternion.identity, chunkParent);
-        //    chunks.Add(chunk);
-        //}
+        if (chunks.Count < maxChunks && LevelManager.Instance.sceneLevel==1)
+        {
+           //Unathi Added random pick of chunk
+            int rand = Random.Range(0, p_chunk_level_2.Length);
+           GameObject chunk = Instantiate(p_chunk_level_2[rand], pos, Quaternion.identity, chunkParent);
+          chunks.Add(chunk);
+        }
     }
 
     private void SelectObjectsMain()
