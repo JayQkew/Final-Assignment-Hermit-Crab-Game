@@ -70,10 +70,10 @@ public class PlayerInteract : MonoBehaviour
         return Physics2D.OverlapCircle(mousePos, rayRadius, interactableObject).gameObject;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(interactionPoint.position, interactionRange);
-        Gizmos.DrawWireSphere(MousePos(), rayRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(interactionPoint.position, interactionRange);
+    //    Gizmos.DrawWireSphere(MousePos(), rayRadius);
+    //}
 
 }
