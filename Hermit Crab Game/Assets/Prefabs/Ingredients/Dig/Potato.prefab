@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredient: 4
-  objectType: 3
+  objectType: 2
 --- !u!50 &-9169600222374723869
 Rigidbody2D:
   serializedVersion: 4

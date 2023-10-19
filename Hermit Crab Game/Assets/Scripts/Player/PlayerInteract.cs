@@ -34,7 +34,11 @@ public class PlayerInteract : MonoBehaviour
 
             foreach (var hitObject in hitObjects)
             {
-                if (MouseHit() == hitObject && hitObject.GetComponent<IngredientLogic>() != null) PlayerInventory.Instance.SortIngredient(hitObject);
+                if (MouseHit() == hitObject && hitObject.GetComponent<IngredientLogic>() != null)
+                {
+                    PlayerInventory.Instance.SortIngredient(hitObject);
+                    hitObject.gameObject.SetActive(false);
+                }
                 else if (MouseHit() == hitObject) hitObject.GetComponent<ObjectLogic>().Interact();
             }
         }
@@ -66,10 +70,10 @@ public class PlayerInteract : MonoBehaviour
         return Physics2D.OverlapCircle(mousePos, rayRadius, interactableObject).gameObject;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(interactionPoint.position, interactionRange);
-        Gizmos.DrawWireSphere(MousePos(), rayRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(interactionPoint.position, interactionRange);
+    //    Gizmos.DrawWireSphere(MousePos(), rayRadius);
+    //}
 
 }

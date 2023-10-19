@@ -57,8 +57,8 @@ public class LevelGenerationManager : MonoBehaviour
     [SerializeField] private List<GameObject> digObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> shakeObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> openObjects = new List<GameObject>();
-    private bool objectsSelected = false;
-    private bool objectsOrganised = false;
+    [SerializeField] private bool objectsSelected = false;
+    [SerializeField] private bool objectsOrganised = false;
     #endregion
 
 
