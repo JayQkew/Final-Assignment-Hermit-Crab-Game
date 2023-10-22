@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,18 +12,7 @@ public class LevelManager : MonoBehaviour
 
     public bool level = false;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    public LevelProperties[] levelProperties;
 
     // Start is called before the first frame update
     void Start()
@@ -107,5 +97,60 @@ public class LevelManager : MonoBehaviour
     public void LevelSelect()
     {
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    // Example function to unlock the next level
+    public void TryToUnlockNextLevel(int currentLevel)
+    {
+        if (levelProperties.CanUnlockNextLevel(currentLevel))
+        {
+            levelProperties.UnlockNextLevel();
+            Debug.Log("Next level unlocked!");
+        }
+        else
+        {
+            Debug.Log("Can't unlock the next level yet. Complete more requests.");
+        }
+    }
+
+    // Example function to reset the level progression
+    public void ResetLevelProgress()
+    {
+        switch (sceneLevel)
+        {
+            case 0:
+                levelProperties[0].ResetProgress();
+                Debug.Log("Level progression reset.");
+                break;
+            case 1:
+                levelProperties[1].ResetProgress();
+                Debug.Log("Level progression reset.");
+                break;
+            case 2:
+                levelProperties[2].ResetProgress();
+                Debug.Log("Level progression reset.");
+                break;
+            case 3:
+                levelProperties[3].ResetProgress();
+                Debug.Log("Level progression reset.");
+                break;
+            case 4:
+                levelProperties[4].ResetProgress();
+                Debug.Log("Level progression reset.");
+                break;
+        }
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

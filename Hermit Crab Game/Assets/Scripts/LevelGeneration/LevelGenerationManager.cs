@@ -136,7 +136,7 @@ public class LevelGenerationManager : MonoBehaviour
 
     public void ChunkSpawn(Vector3 pos)
     {
-        if (chunks.Count < maxChunks && LevelManager.Instance.sceneLevel==0)
+        if (chunks.Count < maxChunks /*&& LevelManager.Instance.sceneLevel==0*/)
         {
             //Unathi Added random pick of chunk
             int rand = Random.Range(0, p_chunk.Length);
