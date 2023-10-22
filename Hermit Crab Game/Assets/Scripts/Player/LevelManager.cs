@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -99,6 +98,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
+    // This is all temporary, I'll fix it up
     // Example function to unlock the next level
     public void TryToUnlockNextLevel(int currentLevel)
     {
