@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public bool level = false;
 
-    public LevelProperties[] levelProperties;
+    public LevelProperties levelProperties;
 
     // Start is called before the first frame update
     void Start()
@@ -98,7 +98,6 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
     }
 
-    // This is all temporary, I'll fix it up
     // Example function to unlock the next level
     public void TryToUnlockNextLevel(int currentLevel)
     {
@@ -116,29 +115,8 @@ public class LevelManager : MonoBehaviour
     // Example function to reset the level progression
     public void ResetLevelProgress()
     {
-        switch (sceneLevel)
-        {
-            case 0:
-                levelProperties[0].ResetProgress();
+                levelProperties.ResetProgress();
                 Debug.Log("Level progression reset.");
-                break;
-            case 1:
-                levelProperties[1].ResetProgress();
-                Debug.Log("Level progression reset.");
-                break;
-            case 2:
-                levelProperties[2].ResetProgress();
-                Debug.Log("Level progression reset.");
-                break;
-            case 3:
-                levelProperties[3].ResetProgress();
-                Debug.Log("Level progression reset.");
-                break;
-            case 4:
-                levelProperties[4].ResetProgress();
-                Debug.Log("Level progression reset.");
-                break;
-        }
     }
 
     private void Awake()

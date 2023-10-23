@@ -453,13 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLevel: 0
-  locations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  player: {fileID: 0}
+  level: 0
+  levelProperties: {fileID: 11400000, guid: cba18eaaaf7b6114aaf04bdfcd8ba639, type: 2}
 --- !u!1 &395537247
 GameObject:
   m_ObjectHideFlags: 0
