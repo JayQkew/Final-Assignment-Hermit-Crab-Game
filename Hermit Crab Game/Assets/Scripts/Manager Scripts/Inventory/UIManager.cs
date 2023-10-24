@@ -26,9 +26,13 @@ public class UIManager : MonoBehaviour
                 InventoryLogic.Instance.DataToVisual();
             }
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X)) // Throw items one by one
         {
             InventoryLogic.Instance.ThrowItems();
+        }
+        if (Input.GetKeyDown(KeyCode.C)) // Sort the whole inventory
+        {
+            InventoryLogic.Instance.SortInventory();
         }
     }
 

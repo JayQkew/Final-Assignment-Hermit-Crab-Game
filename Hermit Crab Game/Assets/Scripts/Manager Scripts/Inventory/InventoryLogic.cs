@@ -85,4 +85,37 @@ public class InventoryLogic : MonoBehaviour
         }
     }
 
+    public void SortInventory()
+    {
+        List<IngredientType[]> availableSlots = inventory.ingredientInventory;
+
+        foreach (IngredientType[] stack in inventory.ingredientInventory)
+        {
+            if (stack[0] != IngredientType.Empty && PlayerInventory.Instance.StackCount(stack) != inventory.stackSize)
+            {
+                availableSlots.Add(stack);
+            }
+        }
+
+        for (int i = availableSlots.Count - 1; i >= 0; i--)
+        {
+            int spaceLeft_1 = inventory.stackSize - PlayerInventory.Instance.StackCount(availableSlots[i]);
+
+            for (int j = 0; j < availableSlots.Count; j++)
+            {
+                if (availableSlots[i][0] == availableSlots[j][0])
+                {
+                    int stackCount1 = PlayerInventory.Instance.StackCount(availableSlots[i]);
+                    int stackCount2 = PlayerInventory.Instance.StackCount(availableSlots[j]);
+                    for (int k = 1; k < spaceLeft_1; k++)
+                    {
+                        availableSlots[i][stackCount1 + (k - 1)] = availableSlots[j][stackCount2 - k];
+                        availableSlots[j][stackCount2 - k] = IngredientType.Empty;
+                    }
+                }
+            }
+        }
+
+        DataToVisual();
+    }
 }
