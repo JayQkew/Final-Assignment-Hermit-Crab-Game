@@ -13,6 +13,12 @@ public class LevelManager : MonoBehaviour
 
     public LevelProperties levelProperties;
 
+    //Locked Levels
+    public bool level2a;
+    public bool level2b;
+    public bool level3;
+    public bool level4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,16 +85,20 @@ public class LevelManager : MonoBehaviour
                 SceneManager.LoadScene("Level 1");
                 break;
             case 1:
-                SceneManager.LoadScene("Level 2");
+                if (level2a)
+                SceneManager.LoadScene("Level 2a");
                 break;
             case 2:
-                SceneManager.LoadScene("Level 3");
+                if(level2b)
+                SceneManager.LoadScene("Level 2b");
                 break;
             case 3:
-                SceneManager.LoadScene("Level 4");
+                if(level3)
+                SceneManager.LoadScene("Level 3");
                 break;
             case 4:
-                SceneManager.LoadScene("Level 5");
+                if (level4)
+                SceneManager.LoadScene("Level 4");
                 break;
         }
     }

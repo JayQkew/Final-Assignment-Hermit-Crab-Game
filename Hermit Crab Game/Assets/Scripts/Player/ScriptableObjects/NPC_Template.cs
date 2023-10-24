@@ -7,4 +7,6 @@ using UnityEngine;
 public class NPC_Template : ScriptableObject
 {
     public string nPCName;
+    public Animator anim;
+    public List<bool> ingredients = new List<bool>();
 }
