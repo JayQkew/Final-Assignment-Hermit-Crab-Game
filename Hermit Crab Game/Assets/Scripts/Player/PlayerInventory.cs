@@ -85,7 +85,7 @@ public class PlayerInventory : MonoBehaviour
         else return false;
     }
 
-    private int StackCount(IngredientType[] itemSlot)
+    public int StackCount(IngredientType[] itemSlot)
     {
         int stackCount = 0;
 
@@ -109,5 +109,7 @@ public class PlayerInventory : MonoBehaviour
                 inventory.ingredientInventory[i][j] = IngredientType.Empty;
             }
         }
+        InventoryLogic.Instance.DataToVisual();
+
     }
 }

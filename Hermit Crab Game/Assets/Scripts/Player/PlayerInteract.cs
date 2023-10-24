@@ -40,6 +40,8 @@ public class PlayerInteract : MonoBehaviour
                     hitObject.gameObject.SetActive(false);
                 }
                 else if (MouseHit() == hitObject) hitObject.GetComponent<ObjectLogic>().Interact();
+
+                InventoryLogic.Instance.DataToVisual();
             }
         }
     }
