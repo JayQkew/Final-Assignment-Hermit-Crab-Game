@@ -87,9 +87,9 @@ public class InventoryLogic : MonoBehaviour
 
     public void SortInventory()
     {
-        List<IngredientType[]> availableSlots = inventory.ingredientInventory;
+        List<IngredientType[]> availableSlots = new List<IngredientType[]>();
 
-        foreach (IngredientType[] stack in inventory.ingredientInventory)
+        foreach (IngredientType[] stack in inventory.ingredientInventory) // isolates the ones we're looking for
         {
             if (stack[0] != IngredientType.Empty && PlayerInventory.Instance.StackCount(stack) != inventory.stackSize)
             {
@@ -97,25 +97,59 @@ public class InventoryLogic : MonoBehaviour
             }
         }
 
-        for (int i = availableSlots.Count - 1; i >= 0; i--)
+        foreach (IngredientType[] slot_a in availableSlots)
         {
-            int spaceLeft_1 = inventory.stackSize - PlayerInventory.Instance.StackCount(availableSlots[i]);
-
-            for (int j = 0; j < availableSlots.Count; j++)
+            foreach (IngredientType[] slot_b in availableSlots)
             {
-                if (availableSlots[i][0] == availableSlots[j][0])
+                if (slot_a[0] == slot_b[0] && slot_a != slot_b)
                 {
-                    int stackCount1 = PlayerInventory.Instance.StackCount(availableSlots[i]);
-                    int stackCount2 = PlayerInventory.Instance.StackCount(availableSlots[j]);
-                    for (int k = 1; k < spaceLeft_1; k++)
+                    IngredientType type = slot_a[0];
+                    int totalStack = PlayerInventory.Instance.StackCount(slot_b) + PlayerInventory.Instance.StackCount(slot_a);
+
+                    if (totalStack > 5)
                     {
-                        availableSlots[i][stackCount1 + (k - 1)] = availableSlots[j][stackCount2 - k];
-                        availableSlots[j][stackCount2 - k] = IngredientType.Empty;
+                        int remainder = totalStack - 5;
+
+                        ClearSlots(slot_a);
+                        ClearSlots(slot_b);
+
+                        FillSlots(slot_a, type, 5);
+                        FillSlots(slot_b, type, remainder);
                     }
+                    else if (totalStack == 5)
+                    {
+                        ClearSlots(slot_a);
+                        ClearSlots(slot_b);
+
+                        FillSlots(slot_a, type, 5);
+                    }
+                    else if (totalStack < 5)
+                    {
+                        ClearSlots(slot_a);
+                        ClearSlots(slot_b);
+
+                        FillSlots(slot_a, type, totalStack);
+                    }
+
+                    DataToVisual();
                 }
             }
         }
+    }
 
-        DataToVisual();
+    private void ClearSlots(IngredientType[] slot)
+    {
+        for (int i = 0; i < slot.Length; i++)
+        {
+            slot[i] = IngredientType.Empty;
+        }
+    }
+
+    private void FillSlots(IngredientType[] slot, IngredientType type, int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            slot[i] = type;
+        }
     }
 }
