@@ -180,9 +180,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9ffe0db42d9a79443b11e7a4c6011d71, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.56078434}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -455,6 +455,10 @@ MonoBehaviour:
   sceneLevel: 0
   level: 0
   levelProperties: {fileID: 11400000, guid: cba18eaaaf7b6114aaf04bdfcd8ba639, type: 2}
+  level2a: 0
+  level2b: 0
+  level3: 0
+  level4: 0
 --- !u!1 &395537247
 GameObject:
   m_ObjectHideFlags: 0
