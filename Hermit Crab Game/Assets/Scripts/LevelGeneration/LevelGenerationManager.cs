@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -41,6 +42,9 @@ public class LevelGenerationManager : MonoBehaviour
     [SerializeField] private int minSpawnAmount;
     [SerializeField] private int spawnAmount;
     [SerializeField] private GameObject[] ingredients;
+    [SerializeField] private List<GameObject> digIngredients = new List<GameObject>();
+    [SerializeField] private List<GameObject> shakeIngredients = new List<GameObject>();
+    [SerializeField] private List<GameObject> openIngredients = new List<GameObject>();
     private bool ingredientsPlaced = false;
 
     [Header("Object")]
@@ -53,7 +57,8 @@ public class LevelGenerationManager : MonoBehaviour
     [SerializeField] private int openAmount;
     [Space(10)]
     [SerializeField] private GameObject[] interactableObjects;
-    [SerializeField] private List<GameObject> selectedObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> taggedObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> stampedObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> digObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> shakeObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> openObjects = new List<GameObject>();
@@ -116,9 +121,9 @@ public class LevelGenerationManager : MonoBehaviour
 
         if (typeChecked)
         {
-            interactableObjects = GameObject.FindGameObjectsWithTag("interactableObject");
+            interactableObjects = GameObject.FindGameObjectsWithTag("interactableObject"); // add all interactable objects to an array
 
-            if (!objectsOrganised) OrganizeObjects();
+            if (!objectsOrganised) OrganizeObjectsAndIngredients();
 
             if (!objectsSelected) SelectObjectsMain();
 
@@ -156,52 +161,28 @@ public class LevelGenerationManager : MonoBehaviour
 
     private void SelectObjectsMain()
     {
-        int _spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount);
+        int _spawnAmount = Random.Range(minSpawnAmount, maxSpawnAmount); // random range for amount of ingredients to spawn
 
+        //amount to spawn for each type of ingredient
         float _digAmount = _spawnAmount * digPercentage;
         float _shakeAmount = _spawnAmount * shakePercentage;
         float _openAmount = _spawnAmount * openPercentage;
 
+        // makes it an integer
         digAmount = Mathf.RoundToInt(_digAmount);
         shakeAmount = Mathf.RoundToInt(_shakeAmount);
         openAmount = Mathf.RoundToInt(_openAmount);
 
         spawnAmount = digAmount + shakeAmount + openAmount; //recalculates spawnAmount so that it always adds up
 
-        SelectObjectSpecific(digObjects, digAmount);
-        SelectObjectSpecific(shakeObjects, shakeAmount);
-        SelectObjectSpecific(openObjects, openAmount);
+        TagSelectedObjects(digObjects, digAmount);
+        TagSelectedObjects(shakeObjects, shakeAmount);
+        TagSelectedObjects(openObjects, openAmount);
 
         objectsSelected = true;
     }
 
-    private void SelectObjectSpecific(List<GameObject> _objects, int amount)
-    {
-        int[] randomNumbers = new int[amount]; //make an array of random numbers
-
-        for (int j = 0; j < amount; j++)
-        {
-            bool exists = false;
-            int randNum = Random.Range(0, _objects.Count); //random number for objects
-
-            for (int i = 0; i < amount; i++)
-            {
-                if (randNum == randomNumbers[i])
-                {
-                    exists = true;
-                    break;
-                }
-            }
-            if (!exists) randomNumbers[j] = randNum;
-        }
-
-        for (int i = 0; i < amount; i++)
-        {
-            selectedObjects.Add(_objects[randomNumbers[i]]);
-        }
-    }
-
-    private void OrganizeObjects()
+    private void OrganizeObjectsAndIngredients() // organise the interactable objects into thier respective lists
     {
         foreach (GameObject _object in interactableObjects)
         {
@@ -219,26 +200,125 @@ public class LevelGenerationManager : MonoBehaviour
             }
         }
 
+        AmountOfIngredientTypes(); // sort the ingredients 
+
         objectsOrganised = true;
     }
+
     private void AddIngredients()
     {
-        foreach (GameObject _object in selectedObjects)
+        for (int i = 0; i < taggedObjects.Count; i++)
         {
-            ObjectLogic objectLogic = _object.GetComponent<ObjectLogic>();
-
-            foreach (GameObject ingredient in ingredients)
-            {
-                if (ingredient.GetComponent<IngredientLogic>().objectType == objectLogic.objectType)
-                {
-                    objectLogic.ingredient = ingredient;
-                    break;
-                }
-            }
+            ObjectLogic objectLogic = taggedObjects[i].GetComponent<ObjectLogic>();
+            objectLogic.ingredient = ChosenIngredient(objectLogic.objectType);
+            stampedObjects.Add(taggedObjects[i]);
         }
 
         ingredientsPlaced = true;
     }
 
+    private void TagSelectedObjects(List<GameObject> _objects, int amount)
+    {
+        int[] randomNumbers = new int[amount]; //make an array for random numbers
+
+        for (int j = 0; j < amount; j++) // add non-existent numbers to the array for random objects
+        {
+            bool exists = false;
+            int randNum = Random.Range(0, _objects.Count); //random number for objects
+
+            for (int i = 0; i < amount; i++)
+            {
+                if (randNum == randomNumbers[i])
+                {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) randomNumbers[j] = randNum;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+            taggedObjects.Add(_objects[randomNumbers[i]]);
+        }
+    }
+
+    private void AmountOfIngredientTypes()
+    {
+        foreach (GameObject ingredient in ingredients)
+        {
+            switch (ingredient.GetComponent<IngredientLogic>().objectType)
+            {
+                case ObjectType.Open:
+                    openIngredients.Add(ingredient);
+                    break;
+                case ObjectType.Shake:
+                    shakeIngredients.Add(ingredient);
+                    break;
+                case ObjectType.Dig:
+                    digIngredients.Add(ingredient);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+    }
+
+    private GameObject ChosenIngredient(ObjectType type)
+    {
+        int splitAmount;
+        switch (type)
+        {
+            case ObjectType.Open:
+                splitAmount = openAmount / openIngredients.Count;
+                return ChooseIngredient(type, splitAmount, openIngredients);
+            case ObjectType.Shake:
+                splitAmount = shakeAmount / shakeIngredients.Count;
+                return ChooseIngredient(type, splitAmount, shakeIngredients);
+            case ObjectType.Dig:
+                splitAmount = digAmount / digIngredients.Count;
+                return ChooseIngredient(type, splitAmount, digIngredients);
+            default:
+                return null;
+        }
+    }
+
+    private GameObject ChooseIngredient(ObjectType type, int splitAmount, List<GameObject> ingredientsList)
+    {
+        GameObject chosenIngredient = null;
+
+        foreach (GameObject ingredient in ingredientsList)
+        {
+            int ingredientCount = 0;
+
+            if (stampedObjects.Count == 0 && ingredientCount == 0)
+            {
+                ingredientCount++;
+                chosenIngredient = ingredientsList[0];
+            }
+            else
+            {
+                for (int i = 0; i < stampedObjects.Count; i++) // loop through stamped objects
+                {
+                    IngredientType objectIngredient = stampedObjects[i].GetComponent<ObjectLogic>().ingredient.GetComponent<IngredientLogic>().ingredient;
+                    IngredientType ingredientType = ingredient.GetComponent<IngredientLogic>().ingredient;
+
+                    if (objectIngredient == ingredientType) ingredientCount++;
+
+                }
+
+                if (ingredientCount <= splitAmount)
+                {
+                    chosenIngredient = ingredient;
+                    Debug.Log(ingredientCount);
+                    return chosenIngredient;
+                }
+
+            }
+        }
+
+        return chosenIngredient;
+    }
 }
 

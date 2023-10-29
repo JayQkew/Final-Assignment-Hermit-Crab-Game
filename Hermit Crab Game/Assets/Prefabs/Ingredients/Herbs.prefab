@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1942695593307779551}
   - component: {fileID: 7295399763611825683}
   m_Layer: 10
-  m_Name: Mushroom
+  m_Name: Herbs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5283019, g: 0.47431466, b: 0.2711285, a: 1}
+  m_Color: {r: 0.1776789, g: 0.4339623, b: 0.19560508, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b94921ba3fb5443b5bd38aae6dc920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 3
+  ingredient: 4
   objectType: 0
 --- !u!50 &1942695593307779551
 Rigidbody2D:
