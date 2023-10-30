@@ -11,6 +11,9 @@ public class TradeButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public GameObject forage;
     public GameObject trade;
 
+    public IngredientType forageType;
+    public IngredientType tradeType;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         throw new System.NotImplementedException();

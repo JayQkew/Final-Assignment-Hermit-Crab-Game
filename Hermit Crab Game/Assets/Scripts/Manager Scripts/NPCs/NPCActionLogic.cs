@@ -74,9 +74,14 @@ public class NPCActionLogic : MonoBehaviour
 
             logic.forage.GetComponent<Image>().sprite = npcLogic.npcBase.costIngredients[i].GetComponent<SpriteRenderer>().sprite;
             logic.forage.GetComponent<Image>().color = npcLogic.npcBase.costIngredients[i].GetComponent<SpriteRenderer>().color;
+            logic.forage = npcLogic.npcBase.costIngredients[i];
+            logic.forageType = logic.forage.GetComponent<IngredientLogic>().ingredient;
 
             logic.trade.GetComponent<Image>().sprite = npcLogic.npcBase.tradeIngredients[i].GetComponent<SpriteRenderer>().sprite;
             logic.trade.GetComponent<Image>().color = npcLogic.npcBase.tradeIngredients[i].GetComponent<SpriteRenderer>().color;
+            logic.trade = npcLogic.npcBase.tradeIngredients[i];
+            logic.tradeType = logic.trade.GetComponent<IngredientLogic>().ingredient;
+
         }
     }
     public void OpenActiveAction()
