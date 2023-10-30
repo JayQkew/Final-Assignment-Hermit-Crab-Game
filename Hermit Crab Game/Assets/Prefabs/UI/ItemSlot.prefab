@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
+  ui: {fileID: 3008714665527693797}
   selectIndicator: {fileID: 8070003689278970164}
 --- !u!1 &8070003689278970164
 GameObject:

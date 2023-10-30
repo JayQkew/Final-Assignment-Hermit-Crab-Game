@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9104311376946822793}
   - component: {fileID: 9104311376946822792}
   - component: {fileID: -3452514529444592484}
-  - component: {fileID: -7494712766976739167}
+  - component: {fileID: -5233769747229398423}
   m_Layer: 10
-  m_Name: Chillies
+  m_Name: Wors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.2588235, b: 0.6571496, a: 1}
+  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Color: {r: 0.4433962, g: 0.3384355, b: 0.24846919, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b94921ba3fb5443b5bd38aae6dc920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 7
-  objectType: 1
+  ingredient: 9
+  objectType: 3
 --- !u!50 &-3452514529444592484
 Rigidbody2D:
   serializedVersion: 4
@@ -122,8 +122,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!70 &-7494712766976739167
-CapsuleCollider2D:
+--- !u!58 &-5233769747229398423
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -136,5 +136,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 1

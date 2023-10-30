@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 public class ItemSlotLogic : MonoBehaviour, IPointerClickHandler
 {
     public bool selected = false;
+    public GameObject ui;
     [SerializeField] private GameObject selectIndicator;
-
 
     public void OnPointerClick(PointerEventData eventData)
     {

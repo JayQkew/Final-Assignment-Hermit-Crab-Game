@@ -20,7 +20,7 @@ public class InventoryLogic : MonoBehaviour
 
     private void Start()
     {
-        AddItemSlots();
+        //AddItemSlots();
         DataToVisual();
     }
 
@@ -42,7 +42,7 @@ public class InventoryLogic : MonoBehaviour
         {
             IngredientType ingredients = inventory.ingredientInventory[i][0];
             GameObject itemSlot = itemSlots[i];
-            GameObject ui = itemSlot.transform.GetChild(0).gameObject;
+            GameObject ui = itemSlot.GetComponent<ItemSlotLogic>().ui;
             GameObject text = itemSlot.transform.GetChild(1).gameObject;
 
             if (inventory.ingredientInventory[i][0] != IngredientType.Empty)

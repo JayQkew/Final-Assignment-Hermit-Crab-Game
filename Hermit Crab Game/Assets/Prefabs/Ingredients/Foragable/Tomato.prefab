@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9104311376946822793}
   - component: {fileID: 9104311376946822792}
   - component: {fileID: -3452514529444592484}
-  - component: {fileID: -7494712766976739167}
+  - component: {fileID: 2558608267449172462}
   m_Layer: 10
   m_Name: Tomato
   m_TagString: Untagged
@@ -122,8 +122,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!70 &-7494712766976739167
-CapsuleCollider2D:
+--- !u!58 &2558608267449172462
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -136,5 +136,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 1

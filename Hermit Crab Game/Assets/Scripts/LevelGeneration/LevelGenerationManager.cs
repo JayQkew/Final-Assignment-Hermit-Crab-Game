@@ -40,32 +40,39 @@ public class LevelGenerationManager : MonoBehaviour
     [Header("Ingredients")]
     [SerializeField] private int maxSpawnAmount;
     [SerializeField] private int minSpawnAmount;
-    [SerializeField] private int spawnAmount;
     [SerializeField] private GameObject[] ingredients;
-    [SerializeField] private List<GameObject> digIngredients = new List<GameObject>();
-    [SerializeField] private List<GameObject> shakeIngredients = new List<GameObject>();
-    [SerializeField] private List<GameObject> openIngredients = new List<GameObject>();
+    private int spawnAmount;
+    private List<GameObject> digIngredients = new List<GameObject>();
+    private List<GameObject> shakeIngredients = new List<GameObject>();
+    private List<GameObject> openIngredients = new List<GameObject>();
     private bool ingredientsPlaced = false;
 
     [Header("Object")]
-    [SerializeField] private float digPercentage; //use 0.___ for percentages
-    [SerializeField] private float shakePercentage;
-    [SerializeField] private float openPercentage;
+    [SerializeField, Tooltip("Make sure percentages add up to a total of 1")] private float digPercentage; //use 0.___ for percentages
+    [SerializeField, Tooltip("Make sure percentages add up to a total of 1")] private float shakePercentage;
+    [SerializeField, Tooltip("Make sure percentages add up to a total of 1")] private float openPercentage;
     [Space(10)]
-    [SerializeField] private int digAmount;
-    [SerializeField] private int shakeAmount;
-    [SerializeField] private int openAmount;
-    [Space(10)]
-    [SerializeField] private GameObject[] interactableObjects;
-    [SerializeField] private List<GameObject> taggedObjects = new List<GameObject>();
-    [SerializeField] private List<GameObject> stampedObjects = new List<GameObject>();
-    [SerializeField] private List<GameObject> digObjects = new List<GameObject>();
-    [SerializeField] private List<GameObject> shakeObjects = new List<GameObject>();
-    [SerializeField] private List<GameObject> openObjects = new List<GameObject>();
-    [SerializeField] private bool objectsSelected = false;
-    [SerializeField] private bool objectsOrganised = false;
+    private GameObject[] interactableObjects;
+    private int digAmount;
+    private int shakeAmount;
+    private int openAmount;
+    private List<GameObject> taggedObjects = new List<GameObject>();
+    private List<GameObject> stampedObjects = new List<GameObject>();
+    private List<GameObject> digObjects = new List<GameObject>();
+    private List<GameObject> shakeObjects = new List<GameObject>();
+    private List<GameObject> openObjects = new List<GameObject>();
+    private bool objectsSelected = false;
+    private bool objectsOrganised = false;
+    private bool ingredientsAllAdded = false;
     #endregion
 
+    #region NPC SPAWN
+    [Header("NPCs")]
+    [SerializeField] private GameObject[] npcSpawnPoints;
+    [SerializeField] private Transform npcParent;
+    [SerializeField, Tooltip("add npc prefabs here")] private GameObject[] npcs;
+    private bool npcsSpawned = false;
+    #endregion
 
     private void Awake()
     {
@@ -128,6 +135,15 @@ public class LevelGenerationManager : MonoBehaviour
             if (!objectsSelected) SelectObjectsMain();
 
             if (!ingredientsPlaced) AddIngredients();
+
+            ingredientsAllAdded = true;
+        }
+
+        if (ingredientsAllAdded)
+        {
+            npcSpawnPoints = GameObject.FindGameObjectsWithTag("npcSpawn");
+
+            if (!npcsSpawned) SpawnNPCs();
         }
 
     }
@@ -311,7 +327,6 @@ public class LevelGenerationManager : MonoBehaviour
                 if (ingredientCount <= splitAmount)
                 {
                     chosenIngredient = ingredient;
-                    Debug.Log(ingredientCount);
                     return chosenIngredient;
                 }
 
@@ -319,6 +334,20 @@ public class LevelGenerationManager : MonoBehaviour
         }
 
         return chosenIngredient;
+    }
+
+    private void SpawnNPCs()
+    {
+        int[] randomNumbers = new int[npcs.Length];
+
+        for (int i = 0; i < randomNumbers.Length; i++) randomNumbers[i] = Random.Range(0, npcSpawnPoints.Length - 1);
+
+        for(int i = 0; i < npcs.Length; i++)
+        {
+            Instantiate(npcs[i], npcSpawnPoints[i].transform.position, Quaternion.identity, npcParent);
+        }
+
+        npcsSpawned = true;
     }
 }
 

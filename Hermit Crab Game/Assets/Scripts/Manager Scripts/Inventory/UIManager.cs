@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     #region UI Elements:
     [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private GameObject npcUI;
     #endregion
 
     private void Awake()
@@ -34,6 +35,17 @@ public class UIManager : MonoBehaviour
         {
             InventoryLogic.Instance.SortInventory();
         }
+    }
+
+    public void NPCInteractionUI(bool open)
+    {
+        if (!open)
+        {
+            inventoryUI.SetActive(false);
+            npcUI.SetActive(true);
+            NPCActionLogic.Instance.OpenActiveAction();
+        }
+        else npcUI.SetActive(false);
     }
 
 }
