@@ -66,7 +66,7 @@ public class NPCActionLogic : MonoBehaviour
             tradeButtons.Add(_tradeButton);
         }
 
-        for (int i = 0;i < tradeButtons.Count; i++)
+        for (int i = 0; i < tradeButtons.Count; i++)
         {
             TradeButtonScript logic = tradeButtons[i].GetComponent<TradeButtonScript>();
 
@@ -126,24 +126,28 @@ public class NPCActionLogic : MonoBehaviour
                 converseUI.SetActive(false);
                 tradeUI.SetActive(false);
                 giveUI.SetActive(false);
+                UIManager.Instance.inventoryUI.SetActive(false);
                 break;
             case NPCActions.Converse:
                 interactUI.SetActive(false);
                 converseUI.SetActive(true);
                 tradeUI.SetActive(false);
                 giveUI.SetActive(false);
+                UIManager.Instance.inventoryUI.SetActive(false);
                 break;
             case NPCActions.Trade:
                 interactUI.SetActive(false);
                 converseUI.SetActive(false);
                 tradeUI.SetActive(true);
                 giveUI.SetActive(false);
+                UIManager.Instance.inventoryUI.SetActive(true);
                 break;
             case NPCActions.Give:
                 interactUI.SetActive(false);
                 converseUI.SetActive(false);
                 tradeUI.SetActive(false);
                 giveUI.SetActive(true);
+                UIManager.Instance.inventoryUI.SetActive(true);
                 break;
         }
     }
@@ -161,6 +165,7 @@ public class NPCActionLogic : MonoBehaviour
         converseUI.SetActive(false);
         tradeUI.SetActive(false);
         giveUI.SetActive(false);
+        UIManager.Instance.inventoryUI.SetActive(false);
     }
     #endregion
 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
-public class TradeButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class TradeButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerUpHandler
 {
     public TextMeshProUGUI amount;
     public GameObject forage;
@@ -40,5 +40,17 @@ public class TradeButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void OnPointerExit(PointerEventData eventData)
     {
         gameObject.GetComponent<Image>().color = startColour;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (!PlayerInventory.Instance.TradeCheck(forageType, _amount))
+        {
+            gameObject.GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = Color.green;
+        }
     }
 }

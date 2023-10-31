@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     #region UI Elements:
-    [SerializeField] private GameObject inventoryUI;
+    public GameObject inventoryUI;
     [SerializeField] private GameObject npcUI;
     #endregion
 
