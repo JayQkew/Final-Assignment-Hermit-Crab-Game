@@ -34,7 +34,8 @@ public class PlayerInteract : MonoBehaviour
 
             foreach (var hitObject in hitObjects)
             {
-                if (MouseHit() == hitObject && hitObject.GetComponent<IngredientLogic>() != null)
+                if (MouseHit() == hitObject && hitObject.GetComponent<IngredientLogic>() != null && 
+                    !PlayerInventory.Instance.FullInventoryCheck())
                 {
                     PlayerInventory.Instance.SortIngredient(hitObject);
                     hitObject.gameObject.SetActive(false);

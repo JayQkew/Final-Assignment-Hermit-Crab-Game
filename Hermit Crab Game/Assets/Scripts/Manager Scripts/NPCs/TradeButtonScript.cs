@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 public class TradeButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -11,21 +12,33 @@ public class TradeButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public GameObject forage;
     public GameObject trade;
 
+    public int _amount;
     public IngredientType forageType;
     public IngredientType tradeType;
 
+    private Color startColour;
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        PlayerInventory.Instance.Trade(forageType, _amount, trade);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        startColour = gameObject.GetComponent<Image>().color;
+
+        if (!PlayerInventory.Instance.TradeCheck(forageType, _amount))
+        {
+            gameObject.GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = Color.green;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        gameObject.GetComponent<Image>().color = startColour;
     }
 }

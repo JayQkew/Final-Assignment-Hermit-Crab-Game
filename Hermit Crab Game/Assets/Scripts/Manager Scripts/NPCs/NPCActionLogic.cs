@@ -71,6 +71,7 @@ public class NPCActionLogic : MonoBehaviour
             TradeButtonScript logic = tradeButtons[i].GetComponent<TradeButtonScript>();
 
             logic.amount.text = npcLogic.npcBase.costAmounts[i].ToString();
+            logic._amount = npcLogic.npcBase.costAmounts[i];
 
             logic.forage.GetComponent<Image>().sprite = npcLogic.npcBase.costIngredients[i].GetComponent<SpriteRenderer>().sprite;
             logic.forage.GetComponent<Image>().color = npcLogic.npcBase.costIngredients[i].GetComponent<SpriteRenderer>().color;
