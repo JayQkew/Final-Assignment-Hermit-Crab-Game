@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class NPCActionLogic : MonoBehaviour
     public static NPCActionLogic Instance { get; private set; }
 
     public NPCActions npcAction;
+    public GameObject activeNPC;
 
     [Header("Action UI")]
     [SerializeField] private GameObject interactUI;
@@ -63,6 +65,7 @@ public class NPCActionLogic : MonoBehaviour
         foreach (GameObject trade in npcLogic.npcBase.tradeIngredients)
         {
             GameObject _tradeButton = Instantiate(p_tradeButton, tradeParent);
+            _tradeButton.GetComponent<TradeButtonScript>().activeNPC = activeNPC;
             tradeButtons.Add(_tradeButton);
         }
 
@@ -167,6 +170,23 @@ public class NPCActionLogic : MonoBehaviour
         giveUI.SetActive(false);
         UIManager.Instance.inventoryUI.SetActive(false);
     }
+    #endregion
+
+    #region NPC ACTION, IP & DP FUNCTIONS
+    public void NPCChange(GameObject activeNPC, NPCActions action, int ipIncrease, int dpIncrease)
+    {
+        SO_NPCData npcData = activeNPC.GetComponent<NPCLogic>().npcData;
+        npcAction = action;
+        npcData.interactionPoints += ipIncrease;
+        npcData.dialoguePoints += dpIncrease;
+    }
+    public void NPCChange(GameObject activeNPC, NPCActions action, int ipIncrease)
+    {
+        npcAction = action;
+        activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints += ipIncrease;
+    }
+    public void IPChange(GameObject activeNPC, int ipIncrease) => activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints += ipIncrease;
+    public void DPChange(GameObject activeNPC, int dpIncrease) => activeNPC.GetComponent<NPCLogic>().npcData.dialoguePoints += dpIncrease;
     #endregion
 }
 

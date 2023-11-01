@@ -156,7 +156,7 @@ public class PlayerInventory : MonoBehaviour
                 {
                     if (ingredientsGiven != amount)
                     {
-                        slot[i-1] = IngredientType.Empty;
+                        slot[i - 1] = IngredientType.Empty;
                         ingredientsGiven++;
                     }
                 }
@@ -187,6 +187,20 @@ public class PlayerInventory : MonoBehaviour
         {
             GiveIngredients(forage, amount); // take away from inventory
             SortIngredient(trade);
+            switch (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcBase.npcName)
+            {
+                case NPCName.Monkey:
+                case NPCName.Meerkat:
+                case NPCName.Ostrich:
+                    if (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 1 ||
+                        NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 3)
+                    {
+                        NPCActionLogic.Instance.NPCChange(NPCActionLogic.Instance.activeNPC, NPCActions.Converse, 1, 1);
+                        NPCActionLogic.Instance.OpenActiveAction();
+                    }
+                    break;
+                default: break;
+            }
         }
         else Debug.Log("Cannot perform trade");
 

@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class TradeButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerUpHandler
 {
+    public GameObject activeNPC;
+
     public TextMeshProUGUI amount;
     public GameObject forage;
     public GameObject trade;

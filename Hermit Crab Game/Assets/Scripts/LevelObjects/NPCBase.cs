@@ -9,7 +9,6 @@ public class NPCBase
     public string name;
     public NPCName npcName;
     public string profession;
-    public int maxDialogue;
     public GameObject[] tradeIngredients;
     public GameObject[] costIngredients;
     public int[] costAmounts;
