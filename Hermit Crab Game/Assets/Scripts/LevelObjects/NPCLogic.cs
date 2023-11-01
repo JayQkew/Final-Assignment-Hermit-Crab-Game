@@ -8,11 +8,21 @@ public class NPCLogic : MonoBehaviour
 
     public NPCBase npcBase;
 
+    private void Start()
+    {
+        npcData.dialogueBool = new bool[npcBase.maxDialogue];
+    }
+
     public void Interact()
     {
         NPCActionLogic.Instance.npcAction = NPCActions.Interact; //this for now, will change when interactions become more indepth
         UIManager.Instance.NPCInteractionUI(false);
         NPCActionLogic.Instance.PersonaliseUI(this);
+    }
+
+    private void MonkeyNPC()
+    {
+
     }
 }
 

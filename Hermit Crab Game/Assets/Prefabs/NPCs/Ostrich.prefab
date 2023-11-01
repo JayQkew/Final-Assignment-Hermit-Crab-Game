@@ -66,6 +66,7 @@ MonoBehaviour:
   npcBase:
     tradeNpc: 1
     name: Ostrich
+    npcName: 4
     profession: Auntie
     tradeIngredients:
     - {fileID: 9104311376946822795, guid: be94cc6a362bb3d48b14f8b3f3978d1b, type: 3}
