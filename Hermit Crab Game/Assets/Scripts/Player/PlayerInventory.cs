@@ -57,7 +57,7 @@ public class PlayerInventory : MonoBehaviour
 
         for (int i = 0; i < inventory.ingredientInventory.Count; i++)
         {
-            // check if that slot is free
+            // check if first slot is free
             if (inventory.ingredientInventory[i][0] == IngredientType.Empty)
             {
                 inventory.ingredientInventory[i][0] = type;
@@ -85,7 +85,7 @@ public class PlayerInventory : MonoBehaviour
         else return false;
     }
 
-    private int StackCount(IngredientType[] itemSlot)
+    public int StackCount(IngredientType[] itemSlot)
     {
         int stackCount = 0;
 
@@ -100,6 +100,113 @@ public class PlayerInventory : MonoBehaviour
         return stackCount;
     }
 
+    public bool FullInventoryCheck()
+    {
+        int fullSlotCount = 0;
+
+        foreach (IngredientType[] slot in inventory.ingredientInventory)
+        {
+            if (slot[0] != IngredientType.Empty) fullSlotCount++;
+        }
+
+        if (fullSlotCount != 10) return false;
+        else return true;
+    }
+
+    public bool SpaceForIngredientCheck(IngredientType ingredient)
+    {
+        bool spaceAvailable = false;
+
+        foreach (IngredientType[] slot in inventory.ingredientInventory)
+        {
+            if (slot[0] == ingredient && StackCount(slot) != 5)
+            {
+                spaceAvailable = true;
+                break;
+            }
+            else
+            {
+                spaceAvailable = false;
+            }
+        }
+
+        return spaceAvailable;
+    }
+
+    private int IngredientCount(IngredientType ingredient)
+    {
+        int netIngredients = 0;
+        foreach (IngredientType[] slot in inventory.ingredientInventory)
+        {
+            if (slot[0] == ingredient) netIngredients += StackCount(slot);
+        }
+
+        return netIngredients;
+    }
+
+    private void GiveIngredients(IngredientType ingredient, int amount)
+    {
+        int ingredientsGiven = 0;
+
+        foreach (IngredientType[] slot in inventory.ingredientInventory)
+        {
+            if (slot[0] == ingredient)
+            {
+                for (int i = StackCount(slot); i >= 0; i--)
+                {
+                    if (ingredientsGiven != amount)
+                    {
+                        slot[i - 1] = IngredientType.Empty;
+                        ingredientsGiven++;
+                    }
+                }
+            }
+        }
+    }
+
+    public bool TradeCheck(IngredientType forage, int amount)
+    {
+        bool canTrade = false;
+
+        foreach (IngredientType[] slot in inventory.ingredientInventory)
+        {
+            if (slot[0] == forage && IngredientCount(slot[0]) >= amount && !FullInventoryCheck())
+            {
+                canTrade = true;
+                break;
+            }
+            else canTrade = false;
+        }
+
+        return canTrade;
+    }
+
+    public void Trade(IngredientType forage, int amount, GameObject trade)
+    {
+        if (TradeCheck(forage, amount) && !FullInventoryCheck() && IngredientCount(forage) >= amount)
+        {
+            GiveIngredients(forage, amount); // take away from inventory
+            SortIngredient(trade);
+            switch (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcBase.npcName)
+            {
+                case NPCName.Monkey:
+                case NPCName.Meerkat:
+                case NPCName.Ostrich:
+                    if (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 1 ||
+                        NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 3)
+                    {
+                        NPCActionLogic.Instance.NPCChange(NPCActionLogic.Instance.activeNPC, NPCActions.Converse, 1, 1);
+                        NPCActionLogic.Instance.OpenActiveAction();
+                    }
+                    break;
+                default: break;
+            }
+        }
+        else Debug.Log("Cannot perform trade");
+
+        InventoryLogic.Instance.DataToVisual();
+    }
+
     private void ClearInventory()
     {
         for (int i = 0; i < inventory.ingredientInventory.Count; i++)
@@ -109,5 +216,7 @@ public class PlayerInventory : MonoBehaviour
                 inventory.ingredientInventory[i][j] = IngredientType.Empty;
             }
         }
+        InventoryLogic.Instance.DataToVisual();
+
     }
 }

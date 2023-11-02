@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87239e6f10d47e84aa42efa31e83e3a3, type: 3}
+  m_Name: Inventory
+  m_EditorClassIdentifier: 
+  stackSize: 5
+  slot1: 0800000008000000080000000000000000000000
+  slot2: 0000000000000000000000000000000000000000
+  slot3: 0000000000000000000000000000000000000000
+  slot4: 0200000002000000020000000000000000000000
+  slot5: 1000000000000000000000000000000000000000
+  slot6: 0400000004000000040000000400000004000000
+  slot7: 0000000000000000000000000000000000000000
+  slot8: 0100000001000000010000000000000000000000
+  slot9: 0000000000000000000000000000000000000000
+  slot10: 0000000000000000000000000000000000000000
+  dish: {fileID: 0}
+  recipes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -73,5 +73,6 @@ public enum ObjectType
 {
     Open,
     Shake,
-    Dig
+    Dig,
+    Trade
 }

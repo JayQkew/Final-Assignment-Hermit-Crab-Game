@@ -16,28 +16,21 @@ public enum IngredientType
 {
     Empty,
 
+    Potato,
     Tomato,
     Onion,
-    Mushrooms,
-    Potato,
     Herbs,
-    Mielies,
-    Carrots,
-    Beans,
     Garlic,
+    Carrots,
     Chillies,
 
     Meat,
-    Vors,
-    Chicken,
-    Fish,
-    Spices,
+    Wors,
     MielieMeal,
-    Oil,
-    Butter,
     Bread,
-    Chakalaka,
-    Atchaar,
     Flour,
-    Sugar
+    Yeast,
+    Atchaar,
+    Curry,
+    Spices
 }
