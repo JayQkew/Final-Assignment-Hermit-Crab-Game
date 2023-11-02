@@ -1056,12 +1056,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   acceleration: 10
-  deceleration: 2
+  deceleration: 500
   currentVelocity: {x: 0, y: 0}
+  isWalking: 0
   maxSpeed: 10
   rb: {fileID: 314930188}
   movement: {x: 0, y: 0}
   stopTime: 0.8
+  anim: {fileID: 2042084820}
   playerSprite: {fileID: 314930189}
 --- !u!50 &314930188
 Rigidbody2D:
@@ -1246,9 +1248,13 @@ MonoBehaviour:
   p_seeker: {fileID: 8976168587624371631, guid: aaec42a726f762e4397da9830bd95aa5, type: 3}
   seekerParent: {fileID: 793919606}
   chunks: []
-  maxChunks: 9
+  maxChunks: 15
   p_chunk:
   - {fileID: 1377408044223017332, guid: a75554e55c40f4b44ae2b4cb11cdeed9, type: 3}
+  - {fileID: 1377408044223017332, guid: a06ca2b5f6f7ca145b7a62d0a16efda1, type: 3}
+  - {fileID: 1377408044223017332, guid: 27399136e69fa394caca45ec57ce3fba, type: 3}
+  - {fileID: 1377408044223017332, guid: 49d62d1ea37e0a34d8b258df5173b380, type: 3}
+  - {fileID: 1377408044223017332, guid: fb73f906c0116d84e8c17da53206ea22, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}

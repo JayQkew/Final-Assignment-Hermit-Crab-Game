@@ -54,20 +54,25 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentQueue == 0)
+        if (SceneManager.GetActiveScene().name == "LevelSelect")
         {
-            sentQueue = 1;
-        }
-        else if (sentQueue == 1)
-        {
-            sentQueue = 0;
+            if (sentQueue == 0)
+            {
+                sentQueue = 1;
+            }
+            else if (sentQueue == 1)
+            {
+                sentQueue = 0;
+            }
         }
 
-        if (sentences.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }
+            if (sentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+        
+        
 
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
@@ -85,6 +90,7 @@ public class DialogueManager : MonoBehaviour
             LevelManager.Instance.grannyIntro = true;
         }
             
+        StartCoroutine(LoadLevelSelect());
     }
 
     IEnumerator LoadLevelSelect()
