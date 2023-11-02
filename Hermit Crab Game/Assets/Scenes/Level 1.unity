@@ -393,10 +393,12 @@ MonoBehaviour:
   acceleration: 10
   deceleration: 2
   currentVelocity: {x: 0, y: 0}
+  isWalking: 0
   maxSpeed: 10
   rb: {fileID: 314930188}
   movement: {x: 0, y: 0}
   stopTime: 0.8
+  anim: {fileID: 0}
   playerSprite: {fileID: 314930189}
 --- !u!50 &314930188
 Rigidbody2D:
@@ -502,17 +504,16 @@ MonoBehaviour:
   chunks: []
   maxChunks: 9
   p_chunk:
-  - {fileID: 1377408044223017332, guid: ace6251328e24d74bafc762fef5b5461, type: 3}
   - {fileID: 1377408044223017332, guid: 47e088a36ef586949a90a8aae3325adf, type: 3}
   - {fileID: 1377408044223017332, guid: be93c510491af6043bad100485f56b52, type: 3}
   - {fileID: 1377408044223017332, guid: 8bb0839cb68515e4b8ff8bb5858d1408, type: 3}
   - {fileID: 1377408044223017332, guid: 3ad6c738cfa36ee4f94478984e21e0ad, type: 3}
+  - {fileID: 1377408044223017332, guid: ace6251328e24d74bafc762fef5b5461, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
   maxSpawnAmount: 45
   minSpawnAmount: 35
-  spawnAmount: 0
   ingredients:
   - {fileID: 1362279169152758846, guid: 1987f9a1f768c3b47a4a6e2dc0b86c63, type: 3}
   - {fileID: 9104311376946822795, guid: 405b5ce9541d236489314165c647c4ae, type: 3}
@@ -520,16 +521,9 @@ MonoBehaviour:
   digPercentage: 0.34
   shakePercentage: 0.33
   openPercentage: 0.33
-  digAmount: 0
-  shakeAmount: 0
-  openAmount: 0
-  interactableObjects: []
-  selectedObjects: []
-  digObjects: []
-  shakeObjects: []
-  openObjects: []
-  objectsSelected: 0
-  objectsOrganised: 0
+  npcSpawnPoints: []
+  npcParent: {fileID: 0}
+  npcs: []
 --- !u!1 &726550696
 GameObject:
   m_ObjectHideFlags: 0
