@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float acceleration;
     [SerializeField] private float deceleration;
     [SerializeField] private Vector2 currentVelocity = Vector2.zero;
+    [SerializeField] private bool isWalking;
 
 
     [SerializeField] private float maxSpeed;
@@ -17,8 +18,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 movement;
     [SerializeField] private float stopTime;
 
+    public Animator anim;
 
     public Transform playerSprite;
+
+    void Start()
+    {
+
+    }
 
     private void Update()
     {
@@ -28,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         MoveInput();
+
+        isWalking = currentVelocity.magnitude > 0.01f;
+        anim.SetBool("isWalking", isWalking);
 
         Flip(); // Flip the player's sprite based on movement direction
     }
