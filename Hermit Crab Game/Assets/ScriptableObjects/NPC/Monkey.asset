@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cdf125b79ee1841b8919fc80ffa38f, type: 3}
   m_Name: Monkey
   m_EditorClassIdentifier: 
-  interactionPoints: 0
-  dialoguePoints: 0
+  interactionPoints: 1
+  dialoguePoints: 1
   givenLoco: 0
   givenRecipe: 0
