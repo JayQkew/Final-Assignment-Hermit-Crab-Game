@@ -11,6 +11,7 @@ public class ButtonSelect : MonoBehaviour
     private SpriteRenderer childSpriteRenderer;
     private Color originalColor;
     public Color oudtshColor;
+    public Color houseColor;
 
     private void Start()
     {
@@ -58,6 +59,13 @@ public class ButtonSelect : MonoBehaviour
         {
             // Change the child sprite's color to yellow
             childSpriteRenderer.color = oudtshColor;
+            LevelManager.Instance.sceneLevel = 1;
+        }
+
+        if (gameObject.CompareTag("House"))
+        {
+            // Change the child sprite's color to yellow
+            childSpriteRenderer.color = houseColor;
             LevelManager.Instance.sceneLevel = 1;
         }
     }

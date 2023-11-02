@@ -14,10 +14,24 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    public int sentQueue;
+
+    public GameObject images; //Player and granny dialogue at level select (First time meeting)
+
     // Start is called before the first frame update
     void Awake()
     {
         sentences = new Queue<string>();
+
+        if(SceneManager.GetActiveScene().name == "LevelSelect" && LevelManager.Instance.grannyIntro == true)
+        {
+            images.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -40,6 +54,15 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        if (sentQueue == 0)
+        {
+            sentQueue = 1;
+        }
+        else if (sentQueue == 1)
+        {
+            sentQueue = 0;
+        }
+
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -49,6 +72,7 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
         dialogueText.text = sentence;
+        nameText.text = GameObject.Find("Player").GetComponent<DialogueTrigger>().dialogue.name;
     }
 
     void EndDialogue()
@@ -56,8 +80,11 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of conversation.");
         animator.SetBool("isOpen", false);
 
-        if(SceneManager.GetActiveScene().name == "Intro")
-        StartCoroutine(LoadLevelSelect());
+        if (SceneManager.GetActiveScene().name == "LevelSelect")
+        {
+            LevelManager.Instance.grannyIntro = true;
+        }
+            
     }
 
     IEnumerator LoadLevelSelect()
@@ -65,5 +92,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene("LevelSelect");
+
+        images.SetActive(false);
     }
 }

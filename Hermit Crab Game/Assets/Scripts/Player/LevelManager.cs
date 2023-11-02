@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public int sceneLevel;
 
     public bool level = false;
+    public bool grannyIntro = false;
 
     public LevelProperties levelProperties;
 
