@@ -29,6 +29,11 @@ public class NPCActionLogic : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        if (converseUI.activeSelf) DialogueManager.Instance.dialoguePlaying = true;
+    }
+
     public void PersonaliseUI(NPCLogic npcLogic)
     {
         ChangeNPCDisplay(npcLogic);

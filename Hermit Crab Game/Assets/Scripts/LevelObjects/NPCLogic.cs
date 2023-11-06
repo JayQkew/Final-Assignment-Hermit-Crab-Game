@@ -8,6 +8,8 @@ public class NPCLogic : MonoBehaviour
 
     public NPCBase npcBase;
 
+    public TextAsset[] npcDialogue;
+
     private void Start()
     {
     }
@@ -41,6 +43,35 @@ public class NPCLogic : MonoBehaviour
 
         UIManager.Instance.NPCInteractionUI(false);
         NPCActionLogic.Instance.PersonaliseUI(this);
+
+        DialogueManager.Instance.EnterDialogueMode(npcDialogue[npcData.dialoguePoints]); // change the array number depedning on the interactionPoints
+    }
+
+    public void CheckPoints()
+    {
+        switch (npcBase.npcName)
+        {
+            case NPCName.Ouma:
+                break;
+            case NPCName.Hadeda:
+                break;
+            case NPCName.Monkey:
+                MonkeyNPC();
+                break;
+            case NPCName.Meerkat:
+                MeerkatNPC();
+                break;
+            case NPCName.Ostrich:
+                OstrichNPC();
+                break;
+            case NPCName.Mamba:
+                break;
+            case NPCName.Penguin:
+                break;
+            case NPCName.GirlHermitCrab:
+                break;
+        }
+
     }
 
     private void MonkeyNPC()
