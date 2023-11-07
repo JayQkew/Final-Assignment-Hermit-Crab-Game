@@ -83,7 +83,7 @@ public class LevelManager : MonoBehaviour
         switch (sceneLevel)
         {
             case 0:
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene("Limbo Scene");
                 break;
             case 1:
                 if (level2a)

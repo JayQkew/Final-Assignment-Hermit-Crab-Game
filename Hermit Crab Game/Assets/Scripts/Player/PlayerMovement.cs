@@ -46,11 +46,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movement.x > 0)
         {
-            playerSprite.localScale = new Vector3(-1, 1, 1);
+            playerSprite.localScale = new Vector3(-0.5f, 0.5f, 1);
         }
         else if (movement.x < 0)
         {
-            playerSprite.localScale = new Vector3(1, 1, 1);
+            playerSprite.localScale = new Vector3(0.5f, 0.5f, 1);
         }
 
     }
