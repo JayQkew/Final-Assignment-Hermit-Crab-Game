@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     #region UI Elements:
     public GameObject inventoryUI;
+    public GameObject dishUI;
     [SerializeField] private GameObject npcUI;
     #endregion
 
@@ -26,6 +27,13 @@ public class UIManager : MonoBehaviour
                 inventoryUI.SetActive(true);
                 InventoryLogic.Instance.DataToVisual();
             }
+
+            if (dishUI.activeSelf) dishUI.SetActive(false);
+            else
+            {
+                dishUI.SetActive(true);
+                InventoryLogic.Instance.DataToVisual();
+            }
         }
         if (Input.GetKeyDown(KeyCode.X)) // Throw items one by one
         {
@@ -42,6 +50,7 @@ public class UIManager : MonoBehaviour
         if (!open)
         {
             inventoryUI.SetActive(false);
+            dishUI.SetActive(false);
             npcUI.SetActive(true);
             NPCActionLogic.Instance.OpenActiveAction();
         }

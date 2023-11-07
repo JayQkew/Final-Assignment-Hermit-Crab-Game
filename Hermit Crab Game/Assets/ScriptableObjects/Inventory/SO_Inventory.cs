@@ -20,7 +20,7 @@ public class SO_Inventory : ScriptableObject
 
     public List<IngredientType[]> ingredientInventory = new List<IngredientType[]>();
 
-    public GameObject dish;
+    public Dishes dish;
 
-    public GameObject[] recipes = new GameObject[6];
+    public Recipes[] recipes = new Recipes[9];
 }

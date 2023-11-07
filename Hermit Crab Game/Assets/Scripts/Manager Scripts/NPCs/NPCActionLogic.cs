@@ -122,6 +122,8 @@ public class NPCActionLogic : MonoBehaviour
                 giveUI.SetActive(true);
                 break;
         }
+
+        InventoryLogic.Instance.DataToVisual();
     }
     public void ChangeAction(NPCActions action)
     {
@@ -135,6 +137,7 @@ public class NPCActionLogic : MonoBehaviour
                 tradeUI.SetActive(false);
                 giveUI.SetActive(false);
                 UIManager.Instance.inventoryUI.SetActive(false);
+                UIManager.Instance.dishUI.SetActive(false);
                 break;
             case NPCActions.Converse:
                 interactUI.SetActive(false);
@@ -142,6 +145,7 @@ public class NPCActionLogic : MonoBehaviour
                 tradeUI.SetActive(false);
                 giveUI.SetActive(false);
                 UIManager.Instance.inventoryUI.SetActive(false);
+                UIManager.Instance.dishUI.SetActive(false);
                 break;
             case NPCActions.Trade:
                 interactUI.SetActive(false);
@@ -149,6 +153,7 @@ public class NPCActionLogic : MonoBehaviour
                 tradeUI.SetActive(true);
                 giveUI.SetActive(false);
                 UIManager.Instance.inventoryUI.SetActive(true);
+                UIManager.Instance.dishUI.SetActive(false);
                 break;
             case NPCActions.Give:
                 interactUI.SetActive(false);
@@ -156,6 +161,7 @@ public class NPCActionLogic : MonoBehaviour
                 tradeUI.SetActive(false);
                 giveUI.SetActive(true);
                 UIManager.Instance.inventoryUI.SetActive(true);
+                UIManager.Instance.dishUI.SetActive(true);
                 break;
         }
     }
@@ -174,24 +180,18 @@ public class NPCActionLogic : MonoBehaviour
         tradeUI.SetActive(false);
         giveUI.SetActive(false);
         UIManager.Instance.inventoryUI.SetActive(false);
+        UIManager.Instance.dishUI.SetActive(false);
     }
     #endregion
 
     #region NPC ACTION, IP & DP FUNCTIONS
-    public void NPCChange(GameObject activeNPC, NPCActions action, int ipIncrease, int dpIncrease)
+    public void NPCChange(NPCActions action, int ipIncrease)
     {
         SO_NPCData npcData = activeNPC.GetComponent<NPCLogic>().npcData;
         npcAction = action;
-        npcData.interactionPoints += ipIncrease;
-        npcData.dialoguePoints += dpIncrease;
+        npcData.interactionPoints = ipIncrease;
     }
-    public void NPCChange(GameObject activeNPC, NPCActions action, int ipIncrease)
-    {
-        npcAction = action;
-        activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints += ipIncrease;
-    }
-    public void IPChange(GameObject activeNPC, int ipIncrease) => activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints += ipIncrease;
-    public void DPChange(GameObject activeNPC, int dpIncrease) => activeNPC.GetComponent<NPCLogic>().npcData.dialoguePoints += dpIncrease;
+    public void IPChange(int ipIncrease) => activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints = ipIncrease;
     #endregion
 }
 
