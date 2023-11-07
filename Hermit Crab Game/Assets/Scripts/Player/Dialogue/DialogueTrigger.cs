@@ -17,11 +17,11 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "LevelSelect")
         {
-            if (GameObject.Find("DialogueManager").GetComponent<DialogueManager>().sentQueue == 0)
+            if (GameObject.Find("DialogueManager").GetComponent<Dialogue_Manager>().sentQueue == 0)
             {
                 dialogue.name = "Granny";
             }
-            else if (GameObject.Find("DialogueManager").GetComponent<DialogueManager>().sentQueue == 1)
+            else if (GameObject.Find("DialogueManager").GetComponent<Dialogue_Manager>().sentQueue == 1)
             {
                 dialogue.name = "Herbert";
             }
@@ -31,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
     }
 
     IEnumerator StartDialogue()

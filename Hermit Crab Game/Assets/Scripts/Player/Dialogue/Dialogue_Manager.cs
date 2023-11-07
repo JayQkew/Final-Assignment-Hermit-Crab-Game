@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class DialogueManager : MonoBehaviour
+public class Dialogue_Manager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
