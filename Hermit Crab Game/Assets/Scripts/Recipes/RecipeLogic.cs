@@ -5,6 +5,8 @@ using UnityEngine;
 public class RecipeLogic : MonoBehaviour
 {
     public Recipes recipe;
+    public RecipeBase recipeBase;
+    public GameObject dish;
 
 
 }

@@ -138,6 +138,7 @@ public class NPCActionLogic : MonoBehaviour
                 giveUI.SetActive(false);
                 UIManager.Instance.inventoryUI.SetActive(false);
                 UIManager.Instance.dishUI.SetActive(false);
+                UIManager.Instance.recipeBookUI.SetActive(false);
                 break;
             case NPCActions.Converse:
                 interactUI.SetActive(false);
@@ -146,6 +147,7 @@ public class NPCActionLogic : MonoBehaviour
                 giveUI.SetActive(false);
                 UIManager.Instance.inventoryUI.SetActive(false);
                 UIManager.Instance.dishUI.SetActive(false);
+                UIManager.Instance.recipeBookUI.SetActive(false);
                 break;
             case NPCActions.Trade:
                 interactUI.SetActive(false);
@@ -154,6 +156,7 @@ public class NPCActionLogic : MonoBehaviour
                 giveUI.SetActive(false);
                 UIManager.Instance.inventoryUI.SetActive(true);
                 UIManager.Instance.dishUI.SetActive(false);
+                UIManager.Instance.recipeBookUI.SetActive(true);
                 break;
             case NPCActions.Give:
                 interactUI.SetActive(false);
@@ -162,6 +165,7 @@ public class NPCActionLogic : MonoBehaviour
                 giveUI.SetActive(true);
                 UIManager.Instance.inventoryUI.SetActive(true);
                 UIManager.Instance.dishUI.SetActive(true);
+                UIManager.Instance.recipeBookUI.SetActive(true);
                 break;
         }
     }
@@ -181,6 +185,7 @@ public class NPCActionLogic : MonoBehaviour
         giveUI.SetActive(false);
         UIManager.Instance.inventoryUI.SetActive(false);
         UIManager.Instance.dishUI.SetActive(false);
+        UIManager.Instance.recipeBookUI.SetActive(false);
     }
     #endregion
 

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7326987303113813962}
+  - component: {fileID: -4510330729957572450}
   m_Layer: 0
   m_Name: PapN'WorsRecipe
   m_TagString: Untagged
@@ -31,3 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4510330729957572450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554289724787364473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bd3afdff1bc5645b669492f44f8d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipe: 3
+  recipeBase:
+    ingredientsNeeded: 0a0000000e0000000900000002000000040000000600000003000000
+    amountRequired: 02000000010000000100000002000000020000000300000002000000
+    recipeName: Pap n' Wors
+  dish: {fileID: 4872894024150434057, guid: 43d555098fb0d144e8aef4d9a78bb140, type: 3}

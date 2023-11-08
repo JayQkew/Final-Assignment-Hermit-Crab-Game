@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4140489043731469399}
+  - component: {fileID: 9094208872277247941}
   m_Layer: 0
   m_Name: OumaPotjieRecipe
   m_TagString: Untagged
@@ -31,3 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9094208872277247941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4161707600458290095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bd3afdff1bc5645b669492f44f8d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipe: 1
+  recipeBase:
+    ingredientsNeeded: 080000000300000004000000020000000500000001000000
+    amountRequired: 010000000100000002000000030000000200000003000000
+    recipeName: Oumas Potjie
+  dish: {fileID: 5408497306898676859, guid: 86bc04681dea3af45b377422631cf3e3, type: 3}

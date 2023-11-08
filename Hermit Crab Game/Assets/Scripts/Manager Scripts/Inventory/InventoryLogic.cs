@@ -45,6 +45,7 @@ public class InventoryLogic : MonoBehaviour
         }
 
         DishManager.Instance.UISpriteMatch(inventory.dish, DishManager.Instance.dishSlotUI);
+        RecipeBookManager.Instance.RecipeBookMatch();
     }
 
     private void UISpriteMatch(IngredientType ingredient, GameObject ui)
