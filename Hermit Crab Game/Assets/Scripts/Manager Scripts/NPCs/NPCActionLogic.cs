@@ -139,6 +139,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(false);
                 UIManager.Instance.dishUI.SetActive(false);
                 UIManager.Instance.recipeBookUI.SetActive(false);
+                UIManager.Instance.canOpenUI = false;
                 break;
             case NPCActions.Converse:
                 interactUI.SetActive(false);
@@ -148,6 +149,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(false);
                 UIManager.Instance.dishUI.SetActive(false);
                 UIManager.Instance.recipeBookUI.SetActive(false);
+                UIManager.Instance.canOpenUI = false;
                 break;
             case NPCActions.Trade:
                 interactUI.SetActive(false);
@@ -157,6 +159,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(true);
                 UIManager.Instance.dishUI.SetActive(false);
                 UIManager.Instance.recipeBookUI.SetActive(true);
+                UIManager.Instance.canOpenUI = false;
                 break;
             case NPCActions.Give:
                 interactUI.SetActive(false);
@@ -166,6 +169,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(true);
                 UIManager.Instance.dishUI.SetActive(true);
                 UIManager.Instance.recipeBookUI.SetActive(true);
+                UIManager.Instance.canOpenUI = false;
                 break;
         }
     }
@@ -176,7 +180,11 @@ public class NPCActionLogic : MonoBehaviour
     public void Conversation() => ChangeAction(NPCActions.Converse);
     public void Trade() => ChangeAction(NPCActions.Trade);
     public void Giving() => ChangeAction(NPCActions.Give);
-    public void Leave() => UIManager.Instance.NPCInteractionUI(true);
+    public void Leave()
+    {
+        UIManager.Instance.NPCInteractionUI(true);
+        UIManager.Instance.canOpenUI = true;
+    }
     public void Return()
     {
         interactUI.SetActive(true);
