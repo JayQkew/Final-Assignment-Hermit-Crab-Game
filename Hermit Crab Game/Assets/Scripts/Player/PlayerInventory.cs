@@ -203,6 +203,8 @@ public class PlayerInventory : MonoBehaviour
                         NPCActionLogic.Instance.OpenActiveAction();
                         DialogueManager.Instance.EnterDialogueMode(activeNPC.GetComponent<NPCLogic>().npcDialogue[activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints]);
                         DialogueManager.Instance.givingRecipe = true;
+                        UIManager.Instance.recipeBookUI.SetActive(false);
+                        UIManager.Instance.mapUI.SetActive(false);
                     }
                     break;
                 default: break;

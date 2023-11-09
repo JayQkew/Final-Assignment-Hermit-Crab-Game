@@ -43,6 +43,8 @@ public class DialogueManager : MonoBehaviour
     {
         UIManager.Instance.inventoryUI.SetActive(false);
         UIManager.Instance.dishUI.SetActive(false);
+        UIManager.Instance.recipeBookUI.SetActive(false);
+        UIManager.Instance.mapUI.SetActive(false);
         dialoguePlaying = true;
         currentDialogue = new Story(inkJSON.text);
         ContinueStory();
@@ -79,7 +81,7 @@ public class DialogueManager : MonoBehaviour
                 givingLoco = false;
             }
             ExitDialogueMode();
-        } 
+        }
     }
 
     public void HandleTags(List<string> tags)

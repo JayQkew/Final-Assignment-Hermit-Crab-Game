@@ -73,7 +73,7 @@ public class LevelGenerationManager : MonoBehaviour
     private bool npcsSpawned = false;
     #endregion
 
-    [SerializeField] private int runTime = 0;
+    [SerializeField] private int framesRan = 0;
 
     #region PLAYER
     [SerializeField] private GameObject[] playerSpawners;
@@ -94,9 +94,9 @@ public class LevelGenerationManager : MonoBehaviour
 
     private void Update()
     {
-        if (runTime < 501)
+        if (framesRan < 801)
         {
-            runTime++;
+            framesRan++;
         }
 
         if (playerSpawned &&
@@ -105,7 +105,7 @@ public class LevelGenerationManager : MonoBehaviour
             typeChecked &&
             ingredientsAllAdded &&
             npcsSpawned &&
-            runTime > 500)
+            framesRan > 800)
             return;
 
         if (chunks.Count < maxChunks)

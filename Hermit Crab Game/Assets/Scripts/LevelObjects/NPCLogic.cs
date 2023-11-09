@@ -17,14 +17,14 @@ public class NPCLogic : MonoBehaviour
 
         switch (npcBase.npcName)
         {
-            case NPCName.Ouma:
-                break;
-            case NPCName.Hadeda:
-                break;
             case NPCName.Monkey:
             case NPCName.Meerkat:
             case NPCName.Ostrich:
                 TradeNPCs();
+                break;
+            case NPCName.Ouma:
+                break;
+            case NPCName.Hadeda:
                 break;
             case NPCName.Mamba:
                 break;
@@ -68,6 +68,25 @@ public class NPCLogic : MonoBehaviour
 
     }
 
+    private void ChillNPCs()
+    {
+        switch (npcData.interactionPoints)
+        {
+            case 0:
+                NPCChange(NPCActions.Converse, 1);
+                break;
+            case 1:
+                ActionChange(NPCActions.Interact);
+                break;
+            case 2:
+                NPCChange(NPCActions.Interact, 1);
+                break;
+            case 4:
+                NPCChange(NPCActions.Interact, 1);
+                break;
+        }
+    }
+
     #region PUBLIC FUNCTIONS
     public void NPCChange(NPCActions action, int ipIncrease)
     {
@@ -88,14 +107,47 @@ public class NPCLogic : MonoBehaviour
             DialogueManager.Instance.givingLoco = true;
             DialogueManager.Instance.EnterDialogueMode(activeNPC.GetComponent<NPCLogic>().npcDialogue[activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints]);
             NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.givenLoco = true;
-            Debug.Log("fav dishhhh!!");
+            switch (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcBase.npcName)
+            {
+                case NPCName.Ouma:
+                    //ouma ending dialogue
+                    break;
+                case NPCName.Hadeda:
+                    MapManager.Instance.so_location.canFastTravel = true;
+                    MapManager.Instance.so_location.locations[0] = true;
+                    MapManager.Instance.so_location.locations[1] = true;
+                    MapManager.Instance.so_location.locations[2] = true;
+                    break;
+                case NPCName.Monkey:
+                    MapManager.Instance.so_location.locations[3] = true;
+                    break;
+                case NPCName.Meerkat:
+                    MapManager.Instance.so_location.locations[3] = true;
+                    break;
+                case NPCName.Ostrich:
+                    MapManager.Instance.so_location.locations[3] = true;
+                    break;
+                case NPCName.Mamba:
+                    // give new area and new recipe
+                    MapManager.Instance.so_location.locations[4] = true;
+                    PlayerInventory.Instance.RecieveRecipe(npcRecipe);
+                    break;
+                case NPCName.Penguin:
+                    PlayerInventory.Instance.RecieveRecipe(npcRecipe);
+                    break;
+                case NPCName.GirlHermitCrab:
+                    PlayerInventory.Instance.RecieveRecipe(npcRecipe);
+                    break;
+                default:
+                    break;
+            }
         }
         else if (dish != Dishes.None)
         {
             NPCChange(NPCActions.Converse, 4); //recieves any other dishes
             NPCActionLogic.Instance.OpenActiveAction();
             DialogueManager.Instance.EnterDialogueMode(activeNPC.GetComponent<NPCLogic>().npcDialogue[activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints]);
-            Debug.Log("meh its alright");
+
         }
     }
 

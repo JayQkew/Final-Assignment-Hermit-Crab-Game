@@ -1523,9 +1523,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.061676025, y: -0.38128853}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.9224014
 --- !u!114 &314930187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   npcs:
   - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
   - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
-  runTime: 0
+  framesRan: 0
   playerSpawners: []
   playerSpawnParent: {fileID: 1427258495}
 --- !u!1001 &422056932

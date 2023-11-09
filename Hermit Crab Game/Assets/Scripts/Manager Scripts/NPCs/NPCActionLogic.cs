@@ -139,6 +139,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(false);
                 UIManager.Instance.dishUI.SetActive(false);
                 UIManager.Instance.recipeBookUI.SetActive(false);
+                UIManager.Instance.mapUI.SetActive(false);
                 UIManager.Instance.canOpenUI = false;
                 break;
             case NPCActions.Converse:
@@ -149,6 +150,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(false);
                 UIManager.Instance.dishUI.SetActive(false);
                 UIManager.Instance.recipeBookUI.SetActive(false);
+                UIManager.Instance.mapUI.SetActive(false);
                 UIManager.Instance.canOpenUI = false;
                 break;
             case NPCActions.Trade:
@@ -159,6 +161,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(true);
                 UIManager.Instance.dishUI.SetActive(false);
                 UIManager.Instance.recipeBookUI.SetActive(true);
+                UIManager.Instance.mapUI.SetActive(false);
                 UIManager.Instance.canOpenUI = false;
                 break;
             case NPCActions.Give:
@@ -169,6 +172,7 @@ public class NPCActionLogic : MonoBehaviour
                 UIManager.Instance.inventoryUI.SetActive(true);
                 UIManager.Instance.dishUI.SetActive(true);
                 UIManager.Instance.recipeBookUI.SetActive(true);
+                UIManager.Instance.mapUI.SetActive(false);
                 UIManager.Instance.canOpenUI = false;
                 break;
         }
