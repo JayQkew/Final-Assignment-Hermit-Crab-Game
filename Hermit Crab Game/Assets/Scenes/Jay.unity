@@ -1541,10 +1541,12 @@ MonoBehaviour:
   acceleration: 10
   deceleration: 2
   currentVelocity: {x: 0, y: 0}
+  isWalking: 0
   maxSpeed: 10
   rb: {fileID: 314930188}
   movement: {x: 0, y: 0}
   stopTime: 0.8
+  anim: {fileID: 2042084820}
   playerSprite: {fileID: 314930189}
 --- !u!50 &314930188
 Rigidbody2D:
@@ -1576,7 +1578,7 @@ Transform:
   m_GameObject: {fileID: 314930184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1672575674}
@@ -1827,16 +1829,12 @@ MonoBehaviour:
   seekerParent: {fileID: 793919606}
   chunks: []
   maxChunks: 9
-  p_chunk_level_1:
-  - {fileID: 2258794315167547349, guid: 87936732c93b82f4cb96271612b33e63, type: 3}
-  - {fileID: 6527102429031107347, guid: b5bcb88ed55223d4aadd45573c2a5cff, type: 3}
-  - {fileID: 5372596374668825131, guid: ffa9f0345227032439bdaf8dbdf4421e, type: 3}
-  p_chunk_level_2:
-  - {fileID: 1377408044223017332, guid: a0080dd8e9d07394f881f87288127ad1, type: 3}
-  - {fileID: 1377408044223017332, guid: 86e752ab4c6454a46977fc8dca5c8fd7, type: 3}
-  - {fileID: 1377408044223017332, guid: 49d793d5665edb64c8e9d1ebe1b9cba6, type: 3}
-  - {fileID: 1377408044223017332, guid: 2cd5a06c83353854e955b823d87a5f62, type: 3}
-  - {fileID: 1377408044223017332, guid: 56e535a65de76294680b1b24c8967cab, type: 3}
+  p_chunk:
+  - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
+  - {fileID: 1377408044223017332, guid: ff88e7857980c8a4180b5c773b2ab590, type: 3}
+  - {fileID: 1377408044223017332, guid: 24ec5f86b3d96534d8524e6e6c287380, type: 3}
+  - {fileID: 1377408044223017332, guid: d3064a4c7dd318d4fb389ad4b987c0f3, type: 3}
+  - {fileID: 1377408044223017332, guid: 5bd7baa33f2ab0a40a4abe073b4d58c3, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}

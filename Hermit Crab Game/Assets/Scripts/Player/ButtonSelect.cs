@@ -11,9 +11,11 @@ public class ButtonSelect : MonoBehaviour
     private SpriteRenderer childSpriteRenderer;
     private Color originalColor;
     public Color oudtshColor;
+    public Color houseColor;
 
     private void Start()
     {
+
         // Get the child sprite's renderer
         childSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         oudtshColor.a = 100f;
@@ -23,6 +25,8 @@ public class ButtonSelect : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        LevelManager.Instance.level = true;
+
         if (gameObject.CompareTag("Knysna"))
         {
             // Change the child sprite's color to yellow
@@ -57,10 +61,19 @@ public class ButtonSelect : MonoBehaviour
             childSpriteRenderer.color = oudtshColor;
             LevelManager.Instance.sceneLevel = 1;
         }
+
+        if (gameObject.CompareTag("House"))
+        {
+            // Change the child sprite's color to yellow
+            childSpriteRenderer.color = houseColor;
+            LevelManager.Instance.sceneLevel = 1;
+        }
     }
 
     private void OnMouseExit()
     {
+        LevelManager.Instance.level = false;
+
         // Change the child sprite's color back to the original color
         childSpriteRenderer.color = originalColor;
     }

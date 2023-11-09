@@ -9,22 +9,16 @@ public class LevelManager : MonoBehaviour
 
     public int sceneLevel;
 
-    public Transform[] locations;
+    public bool level = false;
+    public bool grannyIntro = false;
 
-    public Transform player;
+    public LevelProperties levelProperties;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    //Locked Levels
+    public bool level2a;
+    public bool level2b;
+    public bool level3;
+    public bool level4;
 
     // Start is called before the first frame update
     void Start()
@@ -37,29 +31,8 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.Find("Player").transform;
-
         if (SceneManager.GetActiveScene().name == "LevelSelect")
         {
-            switch (sceneLevel)
-            {
-                case 0:
-                    player.position = new Vector2(locations[0].position.x, locations[0].position.y);
-                    break;
-                case 1:
-                    player.position = new Vector2(locations[1].position.x, locations[1].position.y);
-                    break;
-                case 2:
-                    player.position = new Vector2(locations[2].position.x, locations[2].position.y);
-                    break;
-                case 3:
-                    player.position = new Vector2(locations[3].position.x, locations[3].position.y);
-                    break;
-                case 4:
-                    player.position = new Vector2(locations[4].position.x, locations[4].position.y);
-                    break;
-            }
-
             if (Input.GetKeyDown(KeyCode.D))
             {
                 if (sceneLevel < 4)
@@ -89,8 +62,9 @@ public class LevelManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "LevelSelect")
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetMouseButtonDown(0) && level)
             {
+                Debug.Log("Left mouse button pressed");
                 SelectLevel();
             }
         }
@@ -109,19 +83,23 @@ public class LevelManager : MonoBehaviour
         switch (sceneLevel)
         {
             case 0:
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene("Limbo Scene");
                 break;
             case 1:
-                SceneManager.LoadScene("Level 2");
+                if (level2a)
+                SceneManager.LoadScene("Level 2a");
                 break;
             case 2:
-                SceneManager.LoadScene("Level 3");
+                if(level2b)
+                SceneManager.LoadScene("Level 2b");
                 break;
             case 3:
-                SceneManager.LoadScene("Level 4");
+                if(level3)
+                SceneManager.LoadScene("Level 3");
                 break;
             case 4:
-                SceneManager.LoadScene("Level 5");
+                if (level4)
+                SceneManager.LoadScene("Level 4");
                 break;
         }
     }
@@ -129,5 +107,39 @@ public class LevelManager : MonoBehaviour
     public void LevelSelect()
     {
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    // Example function to unlock the next level
+    public void TryToUnlockNextLevel(int currentLevel)
+    {
+        if (levelProperties.CanUnlockNextLevel(currentLevel))
+        {
+            levelProperties.UnlockNextLevel();
+            Debug.Log("Next level unlocked!");
+        }
+        else
+        {
+            Debug.Log("Can't unlock the next level yet. Complete more requests.");
+        }
+    }
+
+    // Example function to reset the level progression
+    public void ResetLevelProgress()
+    {
+                levelProperties.ResetProgress();
+                Debug.Log("Level progression reset.");
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
