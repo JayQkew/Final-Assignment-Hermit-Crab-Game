@@ -73,6 +73,14 @@ public class LevelGenerationManager : MonoBehaviour
     private bool npcsSpawned = false;
     #endregion
 
+    [SerializeField] private int runTime = 0;
+
+    #region PLAYER
+    [SerializeField] private GameObject[] playerSpawners;
+    [SerializeField] private Transform playerSpawnParent;
+    private bool playerSpawned = false;
+    #endregion
+
     private void Awake()
     {
         Instance = this;
@@ -86,6 +94,20 @@ public class LevelGenerationManager : MonoBehaviour
 
     private void Update()
     {
+        if (runTime < 501)
+        {
+            runTime++;
+        }
+
+        if (playerSpawned &&
+            wallsPlaced &&
+            spaceChecked &&
+            typeChecked &&
+            ingredientsAllAdded &&
+            npcsSpawned &&
+            runTime > 500)
+            return;
+
         if (chunks.Count < maxChunks)
         {
             foreach (GameObject seeker in seekers)
@@ -141,11 +163,26 @@ public class LevelGenerationManager : MonoBehaviour
         if (ingredientsAllAdded)
         {
             npcSpawnPoints = GameObject.FindGameObjectsWithTag("npcSpawn");
+            playerSpawners = GameObject.FindGameObjectsWithTag("playerSpawn");
 
             if (!npcsSpawned) SpawnNPCs();
+            if (!playerSpawned) PlayerSpawn();
         }
 
+
+
     }
+
+    private void PlayerSpawn()
+    {
+        int randNumber = Random.Range(0, playerSpawners.Length);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        player.transform.position = playerSpawners[randNumber].transform.position;
+
+        playerSpawned = true;
+    }
+
     public void SeekerSpawn(Vector3 pos)
     {
         if (seekers.Count < maxSeeker)
@@ -333,7 +370,7 @@ public class LevelGenerationManager : MonoBehaviour
 
         for (int i = 0; i < randomNumbers.Length; i++) randomNumbers[i] = Random.Range(0, npcSpawnPoints.Length - 1);
 
-        for(int i = 0; i < npcs.Length; i++)
+        for (int i = 0; i < npcs.Length; i++)
         {
             Instantiate(npcs[i], npcSpawnPoints[i].transform.position, Quaternion.identity, npcParent);
         }
