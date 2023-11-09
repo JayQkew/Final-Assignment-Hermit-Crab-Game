@@ -25,7 +25,7 @@ public class InventoryLogic : MonoBehaviour
 
     public void DataToVisual()
     {
-        for (int i = 0; i < inventory.ingredientInventory.Count; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
             IngredientType ingredients = inventory.ingredientInventory[i][0];
             GameObject itemSlot = itemSlots[i];

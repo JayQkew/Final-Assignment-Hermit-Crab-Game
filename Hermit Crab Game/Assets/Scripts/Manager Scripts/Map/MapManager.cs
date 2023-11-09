@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class MapManager : MonoBehaviour
 
     public GameObject[] locations;
 
+    public string selectecLocationName = "";
     [SerializeField] private GameObject map;
+    
 
     private void Awake()
     {
@@ -30,4 +33,12 @@ public class MapManager : MonoBehaviour
             else locations[i].SetActive(false); 
         }
     }
+
+    public void GoToSelectedLocation()
+    {
+        if (selectecLocationName != "" &&
+            selectecLocationName != SceneManager.GetActiveScene().name) 
+            SceneManager.LoadScene(selectecLocationName);
+    }
+
 }
