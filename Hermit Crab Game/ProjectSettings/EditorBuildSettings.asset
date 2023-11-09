@@ -6,27 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: 491b65493144ad64c9e65ad9d792952c
+  - enabled: 1
+    path: Assets/Scenes/Washed up.unity
+    guid: b48363534c014f14097a967bb8944744
+  - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 59c274aeb4f9c994f9b4c6593dcd9119
   - enabled: 1
     path: Assets/Scenes/Limbo Scene.unity
     guid: 9f7c4781033951c4ab65ecb7bf07ff89
-  - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Level 2a.unity
-    guid: afd6f043b96d3bc498aa740b733834d0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Level 2b.unity
     guid: 9ad4e025868844b448efe9198620e2c4
-  - enabled: 1
-    path: Assets/Scenes/Level 3.unity
-    guid: 8657add3f4d84174ab7a0c9f719ec121
-  - enabled: 1
-    path: Assets/Scenes/Level 4.unity
-    guid: de5142fb0a57cbf4eaf57e04503e99d5
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/LevelSelect.unity
     guid: a51b42e30a696ae49a2a67471344e070
   - enabled: 1
