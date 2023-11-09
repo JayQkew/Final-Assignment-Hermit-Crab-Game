@@ -20,7 +20,7 @@ public class DishManager : MonoBehaviour
     {
         if (NPCActionLogic.Instance.npcAction != NPCActions.Give)
         {
-            giveButton.SetActive(false);
+            if(giveButton.activeSelf) giveButton.SetActive(false);
             return;
         }
 

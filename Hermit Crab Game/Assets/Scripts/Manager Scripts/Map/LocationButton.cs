@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class LocationButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public SO_Locations location;
+    public bool selected = false;
     private bool dataChecked = false;
 
+    [SerializeField] private string locationName;
     [SerializeField] private Color startColour;
     [SerializeField] private Color hoverColour;
 
@@ -22,9 +26,33 @@ public class LocationButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
     private void Start()
     {
         startColour = GetComponent<Image>().color;
+        locationName = gameObject.name.Trim();
+    }
+
+    private void Update()
+    {
+        if (!selected) return;
+
+        infoPanel.SetActive(true);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        MapManager.Instance.selectecLocationName = "";
+
+        foreach (GameObject locoButton in MapManager.Instance.locations)
+        {
+            if (locoButton != gameObject)
+            {
+                locoButton.GetComponent<LocationButton>().selected = false;
+            }
+            else
+            {
+                MapManager.Instance.selectecLocationName = locationName;
+                selected = true;
+            }
+        }
+
+        GetComponent<Image>().color = hoverColour;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

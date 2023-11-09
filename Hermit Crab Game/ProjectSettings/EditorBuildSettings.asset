@@ -9,21 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Jay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 8566b8e7032b4c64081f97790e40abe1
+    path: Assets/Scenes/MosselBay.unity
+    guid: b24c44b905c60114da3d507e9089d373
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: 12363bdeb45162c488198484ffb6d8d0
+    path: Assets/Scenes/George.unity
+    guid: 8b889412ba9f69147b20203f0d324b03
   - enabled: 1
-    path: Assets/Scenes/Level 3.unity
-    guid: 2c4debeea0a42904895e1ddb59fec8ed
-  - enabled: 1
-    path: Assets/Scenes/Level 4.unity
-    guid: 160ddd8267262964ca92ae99f3425491
-  - enabled: 1
-    path: Assets/Scenes/Level 5.unity
-    guid: 5cc4707f84a92ba408e7aacdac4d793e
-  - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
-    guid: a51b42e30a696ae49a2a67471344e070
+    path: Assets/Scenes/Oudtshoorn.unity
+    guid: b483e5d581ae3244dac0cb50c44518ec
   m_configObjects: {}
