@@ -11,6 +11,11 @@ public class SceneScript : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    void Awake()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void Quit()
     {
         Application.Quit();
