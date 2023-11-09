@@ -82,6 +82,7 @@ MonoBehaviour:
     characterSprite: {fileID: 0}
   npcDialogue:
   - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  npcRecipe: 3
 --- !u!1 &6419782846058429308
 GameObject:
   m_ObjectHideFlags: 0

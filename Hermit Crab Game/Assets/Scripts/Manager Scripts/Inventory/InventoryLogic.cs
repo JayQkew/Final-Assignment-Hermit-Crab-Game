@@ -8,8 +8,7 @@ public class InventoryLogic : MonoBehaviour
 {
     public static InventoryLogic Instance { get; private set; }
 
-    [SerializeField] private SO_Inventory inventory;
-    [SerializeField] private Transform inventoryParent;
+    public SO_Inventory inventory;
     [SerializeField] private GameObject[] itemSlots = new GameObject[10];
     [SerializeField] private GameObject[] p_ingredient;
 
@@ -22,18 +21,6 @@ public class InventoryLogic : MonoBehaviour
     {
         //AddItemSlots();
         DataToVisual();
-    }
-
-    private void Update()
-    {
-    }
-
-    private void AddItemSlots()
-    {
-        for (int i = 0; i < inventoryParent.childCount; i++)
-        {
-            itemSlots[i] = inventoryParent.GetChild(i).gameObject;
-        }
     }
 
     public void DataToVisual()
@@ -56,6 +43,9 @@ public class InventoryLogic : MonoBehaviour
                 ui.GetComponent<Image>().color = Color.white;
             }
         }
+
+        DishManager.Instance.UISpriteMatch(inventory.dish, DishManager.Instance.dishSlotUI);
+        RecipeBookManager.Instance.RecipeBookMatch();
     }
 
     private void UISpriteMatch(IngredientType ingredient, GameObject ui)

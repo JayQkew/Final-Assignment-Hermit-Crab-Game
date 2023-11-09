@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Ostrich
   m_EditorClassIdentifier: 
   interactionPoints: 0
-  dialoguePoints: 0
   givenLoco: 0
   givenRecipe: 0

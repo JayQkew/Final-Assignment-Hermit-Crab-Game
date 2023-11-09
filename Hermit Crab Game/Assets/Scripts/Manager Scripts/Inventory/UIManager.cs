@@ -7,7 +7,13 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     #region UI Elements:
+    public bool playerUIActive;
+    public bool canOpenUI = true;
+
     public GameObject inventoryUI;
+    public GameObject dishUI;
+    public GameObject recipeBookUI;
+    public GameObject mapUI;
     [SerializeField] private GameObject npcUI;
     #endregion
 
@@ -18,13 +24,46 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab)) // show inventory
+        if (Input.GetKeyDown(KeyCode.Tab) && canOpenUI) // show inventory
         {
-            if (inventoryUI.activeSelf) inventoryUI.SetActive(false);
-            else
+            if (playerUIActive)
+            {
+                inventoryUI.SetActive(false);
+                dishUI.SetActive(false);
+                recipeBookUI.SetActive(false);
+                InventoryLogic.Instance.DataToVisual();
+                playerUIActive = false;
+            }
+            else if (!playerUIActive)
             {
                 inventoryUI.SetActive(true);
+                dishUI.SetActive(true);
+                recipeBookUI.SetActive(true);
                 InventoryLogic.Instance.DataToVisual();
+                playerUIActive = true;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.M) && 
+            canOpenUI &&
+            MapManager.Instance.so_location.canFastTravel)
+        {
+            if (mapUI.activeSelf)
+            {
+                mapUI.SetActive(false);
+                inventoryUI.SetActive(true);
+                dishUI.SetActive(true);
+                recipeBookUI.SetActive(true);
+                InventoryLogic.Instance.DataToVisual();
+                playerUIActive = true;
+            }
+            else
+            {
+                mapUI.SetActive(true);
+                inventoryUI.SetActive(false);
+                dishUI.SetActive(false);
+                recipeBookUI.SetActive(false);
+                InventoryLogic.Instance.DataToVisual();
+                playerUIActive = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.X)) // Throw items one by one
@@ -42,6 +81,8 @@ public class UIManager : MonoBehaviour
         if (!open)
         {
             inventoryUI.SetActive(false);
+            dishUI.SetActive(false);
+            recipeBookUI.SetActive(false);
             npcUI.SetActive(true);
             NPCActionLogic.Instance.OpenActiveAction();
         }

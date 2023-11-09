@@ -6,7 +6,6 @@ using UnityEngine;
 public class SO_NPCData : ScriptableObject
 {
     public int interactionPoints = 0;
-    public int dialoguePoints = 0;
 
     public bool givenLoco = false;
     public bool givenRecipe = false;

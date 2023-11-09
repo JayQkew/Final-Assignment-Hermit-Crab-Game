@@ -4,34 +4,11 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    LevelGenerationManager level;
+    public static PlayerManager Instance { get; private set; }
+    public SO_Map locations;
 
-    public Transform player;
-
-      // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        level = GameObject.Find("LevelGenerationManager").GetComponent<LevelGenerationManager>();
-
-        // StartCoroutine(SpawnPlayer());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    IEnumerator SpawnPlayer()
-    {
-        yield return new WaitForSeconds(1.5f);
-
-        // Can Add Some Load Screen Logic
-
-        int randChunk = Random.Range(0, LevelGenerationManager.Instance.chunks.Count);
-
-        Transform chunk = level.chunks[randChunk].transform;
-
-        player.position = chunk.position;
+        Instance = this;
     }
 }

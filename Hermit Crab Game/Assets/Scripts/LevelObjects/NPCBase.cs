@@ -6,9 +6,7 @@ using UnityEngine;
 public class NPCBase
 {
     public bool tradeNpc;
-    public string name;
     public NPCName npcName;
-    public string profession;
     public GameObject[] tradeIngredients;
     public GameObject[] costIngredients;
     public int[] costAmounts;

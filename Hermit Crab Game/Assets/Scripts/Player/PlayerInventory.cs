@@ -192,11 +192,17 @@ public class PlayerInventory : MonoBehaviour
                 case NPCName.Monkey:
                 case NPCName.Meerkat:
                 case NPCName.Ostrich:
-                    if (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 1 ||
-                        NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 3)
+                    if ((NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 1 &&
+                        !NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.givenRecipe) ||
+                        (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints == 4 &&
+                        !NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.givenRecipe))
                     {
-                        NPCActionLogic.Instance.NPCChange(NPCActionLogic.Instance.activeNPC, NPCActions.Converse, 1, 1);
+                        GameObject activeNPC = NPCActionLogic.Instance.activeNPC;
+                        NPCActionLogic.Instance.NPCChange(NPCActions.Converse, 3);
+                        RecieveRecipe(activeNPC.GetComponent<NPCLogic>().npcRecipe);
                         NPCActionLogic.Instance.OpenActiveAction();
+                        DialogueManager.Instance.EnterDialogueMode(activeNPC.GetComponent<NPCLogic>().npcDialogue[activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints]);
+                        DialogueManager.Instance.givingRecipe = true;
                     }
                     break;
                 default: break;
@@ -218,5 +224,19 @@ public class PlayerInventory : MonoBehaviour
         }
         InventoryLogic.Instance.DataToVisual();
 
+    }
+
+    public void RecieveRecipe(Recipes recipe)
+    {
+        for (int i = 0; i < inventory.recipes.Length; i++)
+        {
+            if (inventory.recipes[i] == Recipes.None)
+            {
+                inventory.recipes[i] = recipe;
+                NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcRecipe = Recipes.None;
+                NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcData.givenRecipe = true;
+                break;
+            }
+        }
     }
 }

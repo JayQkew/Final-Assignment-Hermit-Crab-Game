@@ -8,6 +8,9 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
+    public bool givingRecipe = false;
+    public bool givingLoco = false;
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI nameText;
@@ -38,6 +41,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        UIManager.Instance.inventoryUI.SetActive(false);
+        UIManager.Instance.dishUI.SetActive(false);
         dialoguePlaying = true;
         currentDialogue = new Story(inkJSON.text);
         ContinueStory();
@@ -49,6 +54,8 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         nameText.text = "";
         NPCActionLogic.Instance.ChangeAction(NPCActions.Interact);
+        NPCActionLogic.Instance.IPChange(1);
+        NPCActionLogic.Instance.OpenActiveAction();
     }
 
     public void ContinueStory()
@@ -58,7 +65,21 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text = currentDialogue.Continue(); // give us the next line of dialogue
             HandleTags(currentDialogue.currentTags);
         }
-        else ExitDialogueMode();
+        else
+        {
+            if (givingRecipe)
+            {
+                PlayerInventory.Instance.RecieveRecipe(NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcRecipe);
+                givingRecipe = false;
+            }
+            if (givingLoco)
+            {
+                // reveal the new locaiton
+                // use NPCLogic function
+                givingLoco = false;
+            }
+            ExitDialogueMode();
+        } 
     }
 
     public void HandleTags(List<string> tags)
