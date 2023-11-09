@@ -7,33 +7,62 @@ using UnityEngine.SceneManagement;
 public class LimboSceneManager : MonoBehaviour
 {
     public Text questionText;
-    public GameObject question; 
+    public GameObject question;
+
+    bool house;
+    bool mossel;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))
         {
-            if(gameObject.tag == "House")
+            question.SetActive(true);
+            if (gameObject.tag == "House")
             {
+                house = true;
+                mossel = false;
                 questionText.text = "Enter the house?";
             }
 
             if (gameObject.tag == "Mossel")
             {
+                mossel=true;
+                house = false;
                 questionText.text = "GO TO MOSSEL BAY?";
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+
+        if (collider.CompareTag("Player"))
+        {
+            question.SetActive(false);
+
+        }
+    }
+
+    public void Button()
+    {
+        if (house)
+        {
+            LoadHouse();
+        }               else if (mossel)
+        {
+            LoadMossel();
         }
     }
 
@@ -47,3 +76,4 @@ public class LimboSceneManager : MonoBehaviour
         SceneManager.LoadScene("House");
     }
 }
+

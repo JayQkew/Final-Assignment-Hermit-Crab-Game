@@ -1824,13 +1824,13 @@ MonoBehaviour:
   p_seeker: {fileID: 8976168587624371631, guid: aaec42a726f762e4397da9830bd95aa5, type: 3}
   seekerParent: {fileID: 793919606}
   chunks: []
-  maxChunks: 15
+  maxChunks: 50
   p_chunk:
-  - {fileID: 1377408044223017332, guid: a75554e55c40f4b44ae2b4cb11cdeed9, type: 3}
-  - {fileID: 1377408044223017332, guid: a06ca2b5f6f7ca145b7a62d0a16efda1, type: 3}
-  - {fileID: 1377408044223017332, guid: 27399136e69fa394caca45ec57ce3fba, type: 3}
-  - {fileID: 1377408044223017332, guid: 49d62d1ea37e0a34d8b258df5173b380, type: 3}
-  - {fileID: 1377408044223017332, guid: fb73f906c0116d84e8c17da53206ea22, type: 3}
+  - {fileID: 1377408044223017332, guid: 2614c71bcb16eed419a517a6349ced58, type: 3}
+  - {fileID: 1377408044223017332, guid: eab0a6573715c504bb410c5f4a35c693, type: 3}
+  - {fileID: 1377408044223017332, guid: a2d47c751c8dddf47a05864edce8d6d1, type: 3}
+  - {fileID: 1377408044223017332, guid: 091e2d5c4894afa42903f10af082144c, type: 3}
+  - {fileID: 1377408044223017332, guid: cff1fd138bc8ce642af30e6be45be22e, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
