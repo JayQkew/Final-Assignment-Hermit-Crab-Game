@@ -17,6 +17,7 @@ TagManager:
   - npcSpawn
   - npc
   - playerSpawn
+  - cookButton
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Player
   - interactable
   - ingredients
-  - 
+  - page
   - 
   - 
   - 

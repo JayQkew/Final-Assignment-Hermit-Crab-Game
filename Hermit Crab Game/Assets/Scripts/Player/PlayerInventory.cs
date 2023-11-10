@@ -144,25 +144,6 @@ public class PlayerInventory : MonoBehaviour
         return netIngredients;
     }
 
-    private void GiveIngredients(IngredientType ingredient, int amount)
-    {
-        int ingredientsGiven = 0;
-
-        foreach (IngredientType[] slot in inventory.ingredientInventory)
-        {
-            if (slot[0] == ingredient)
-            {
-                for (int i = StackCount(slot); i >= 0; i--)
-                {
-                    if (ingredientsGiven != amount)
-                    {
-                        slot[i - 1] = IngredientType.Empty;
-                        ingredientsGiven++;
-                    }
-                }
-            }
-        }
-    }
 
     public bool TradeCheck(IngredientType forage, int amount)
     {
@@ -241,4 +222,47 @@ public class PlayerInventory : MonoBehaviour
             }
         }
     }
+
+    public void CookedDish(Dishes dish)
+    {
+        inventory.dish = dish;
+        InventoryLogic.Instance.DataToVisual();
+    }
+
+    public void GiveIngredients(IngredientType ingredient, int amount)
+    {
+        int ingredientsGiven = 0;
+
+        foreach (IngredientType[] slot in inventory.ingredientInventory)
+        {
+            if (slot[0] == ingredient)
+            {
+                for (int i = StackCount(slot); i >= 0; i--)
+                {
+                    if (ingredientsGiven != amount)
+                    {
+                        slot[i - 1] = IngredientType.Empty;
+                        ingredientsGiven++;
+                    }
+                }
+            }
+        }
+    }
+
+    public bool IngredientsAmountCheck(IngredientType ingredient, int amount)
+    {
+        bool hasEnough = false;
+
+        foreach (IngredientType[] slot in inventory.ingredientInventory)
+        {
+            if (slot[0] == ingredient)
+            {
+                if (IngredientCount(ingredient) >= amount) hasEnough = true;
+                else hasEnough = false;
+            }
+        }
+
+        return hasEnough;
+    }
+
 }

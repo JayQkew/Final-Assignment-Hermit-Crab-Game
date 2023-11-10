@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public GameObject recipeBookUI;
     public GameObject mapUI;
     [SerializeField] private GameObject npcUI;
+
+    public GameObject recipeBookButton;
+
     #endregion
 
     private void Awake()
@@ -89,4 +92,10 @@ public class UIManager : MonoBehaviour
         else npcUI.SetActive(false);
     }
 
+    public void RecipeSelectMode()
+    {
+        recipeBookButton.GetComponent<RecipeBookButton>().OpenRecipeBook();
+        inventoryUI.SetActive(true);
+        dishUI.SetActive(true);
+    }
 }

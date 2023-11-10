@@ -16,6 +16,10 @@ public class LimboSceneManager : MonoBehaviour
     public bool onTrigger;
     public bool touchingCollider;
 
+    [Header("Limbo")]
+    public bool doorEnter;
+    public bool touchWall;
+
     private void Awake()
     {
         Instance = this;
@@ -24,6 +28,7 @@ public class LimboSceneManager : MonoBehaviour
     {
         if (onDoorStep && touchingHouse) LoadHouse();
         else if (onTrigger && touchingCollider) LoadMossel();
+        else if (doorEnter && touchWall) LoadLimbo();
     }
 
 
@@ -35,6 +40,11 @@ public class LimboSceneManager : MonoBehaviour
     void LoadHouse()
     {
         SceneManager.LoadScene("House");
+    }
+
+    void LoadLimbo()
+    {
+        SceneManager.LoadScene("Limbo");
     }
 }
 
