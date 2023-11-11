@@ -10,6 +10,7 @@ public class NPCLogic : MonoBehaviour
 
     public Recipes npcRecipe;
     public Dishes favDish;
+    public bool bribed;
 
     public void Interact()
     {
@@ -22,22 +23,24 @@ public class NPCLogic : MonoBehaviour
             case NPCName.Ostrich:
                 TradeNPCs();
                 break;
-            case NPCName.Ouma:
-                break;
             case NPCName.Hadeda:
-                break;
             case NPCName.Mamba:
+            case NPCName.GirlHermitCrab:
+                ChillNPCs();
+                break;
+            case NPCName.Ouma:
+                Ouma();
                 break;
             case NPCName.Penguin:
-                break;
-            case NPCName.GirlHermitCrab:
+                Penguin();
                 break;
         }
 
         UIManager.Instance.NPCInteractionUI(false);
         NPCActionLogic.Instance.PersonaliseUI(this);
 
-        DialogueManager.Instance.EnterDialogueMode(npcDialogue[npcData.interactionPoints]); // change the array number depedning on the interactionPoints
+        DialogueManager.Instance.EnterDialogueMode(npcDialogue[npcData.interactionPoints - 1]); // change the array number depedning on the interactionPoints
+        Debug.Log("Interaction points: " + npcData.interactionPoints);
     }
 
     private void TradeNPCs()
@@ -60,6 +63,7 @@ public class NPCLogic : MonoBehaviour
                 break;
             case 4:
                 NPCChange(NPCActions.Interact, 1);
+                //normal food
                 break;
             default:
                 NPCChange(NPCActions.Interact, 0);
@@ -80,9 +84,87 @@ public class NPCLogic : MonoBehaviour
                 break;
             case 2:
                 NPCChange(NPCActions.Interact, 1);
+                // give recipe/loco
                 break;
             case 4:
                 NPCChange(NPCActions.Interact, 1);
+                // normal food
+                break;
+        }
+    }
+
+    private void Penguin()
+    {
+        switch (npcData.interactionPoints)
+        {
+            case 0:
+                NPCChange(NPCActions.Converse, 1);
+                break;
+            case 1:
+                NPCChange(NPCActions.Converse, 1);
+                //bribe
+                break;
+            case 2:
+                NPCChange(NPCActions.Converse, 1);
+                // fave food -> give recipe
+                break;
+            case 4:
+                NPCChange(NPCActions.Converse, 1);
+                break;
+            // normal food
+            case 5:
+                NPCChange(NPCActions.Converse, 1);
+                //failed bride
+                break;
+        }
+    }
+
+    private void Ouma()
+    {
+        switch (npcData.interactionPoints)
+        {
+            case 0:
+                NPCChange(NPCActions.Converse, 1); //meet in house -> tells plaer to meet outside
+                break;
+            case 1:
+                NPCChange(NPCActions.Converse, 2); // meet at limbo -> tells player to forage
+                break;
+            case 2:
+                NPCChange(NPCActions.Converse, 3); // at house when player finishes foraging -> teaches player how to cook + gives recipe + player goes to forage
+
+                PlayerInventory.Instance.ClearInventory();
+
+                PlayerInventory.Instance.inventory.slot1[0] = IngredientType.Meat;
+
+                PlayerInventory.Instance.inventory.slot2[0] = IngredientType.Onion;
+
+                PlayerInventory.Instance.inventory.slot3[0] = IngredientType.Herbs;
+                PlayerInventory.Instance.inventory.slot3[1] = IngredientType.Herbs;
+
+                PlayerInventory.Instance.inventory.slot4[0] = IngredientType.Tomato;
+                PlayerInventory.Instance.inventory.slot4[1] = IngredientType.Tomato;
+                PlayerInventory.Instance.inventory.slot4[2] = IngredientType.Tomato;
+                PlayerInventory.Instance.inventory.slot4[3] = IngredientType.Tomato;
+
+                PlayerInventory.Instance.inventory.slot5[0] = IngredientType.Garlic;
+                PlayerInventory.Instance.inventory.slot5[1] = IngredientType.Garlic;
+
+                PlayerInventory.Instance.inventory.slot6[0] = IngredientType.Potato;
+                PlayerInventory.Instance.inventory.slot6[1] = IngredientType.Potato;
+                PlayerInventory.Instance.inventory.slot6[2] = IngredientType.Potato;
+
+                PlayerInventory.Instance.inventory.hasRecipeBook = true;
+                UIManager.Instance.canOpenUI = true;
+                PlayerInventory.Instance.RecieveRecipe(npcRecipe);
+                npcData.givenRecipe = true;
+                InventoryLogic.Instance.DataToVisual();
+                break;
+            case 4:
+                NPCChange(NPCActions.Converse, 1); // 
+                break;
+            case 5:
+                NPCChange(NPCActions.Converse, 1);
+                //failed bride
                 break;
         }
     }
@@ -128,7 +210,6 @@ public class NPCLogic : MonoBehaviour
                     MapManager.Instance.so_location.locations[3] = true;
                     break;
                 case NPCName.Mamba:
-                    // give new area and new recipe
                     MapManager.Instance.so_location.locations[4] = true;
                     PlayerInventory.Instance.RecieveRecipe(npcRecipe);
                     break;
@@ -151,10 +232,6 @@ public class NPCLogic : MonoBehaviour
         }
     }
 
-    public void RevealLoco()
-    {
-
-    }
     #endregion
 }
 

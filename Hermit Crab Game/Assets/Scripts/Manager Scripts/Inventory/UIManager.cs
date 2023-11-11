@@ -41,12 +41,15 @@ public class UIManager : MonoBehaviour
             {
                 inventoryUI.SetActive(true);
                 dishUI.SetActive(true);
-                recipeBookUI.SetActive(true);
+                if (PlayerInventory.Instance.inventory.hasRecipeBook)
+                {
+                    recipeBookUI.SetActive(true);
+                }
                 InventoryLogic.Instance.DataToVisual();
                 playerUIActive = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.M) && 
+        if (Input.GetKeyDown(KeyCode.M) &&
             canOpenUI &&
             MapManager.Instance.so_location.canFastTravel)
         {

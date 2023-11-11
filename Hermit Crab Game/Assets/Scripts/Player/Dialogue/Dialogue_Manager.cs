@@ -97,7 +97,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene("Limbo Scene");
+        SceneManager.LoadScene("Tutorial 1");
 
         images.SetActive(false);
     }

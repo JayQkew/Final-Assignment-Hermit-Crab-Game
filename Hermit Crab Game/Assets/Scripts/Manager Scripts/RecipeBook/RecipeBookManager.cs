@@ -10,7 +10,7 @@ public class RecipeBookManager : MonoBehaviour
     public GameObject activePage;
     [SerializeField] private GameObject recipeBookPanel;
     [SerializeField] private GameObject recipeBookButton;
-    [SerializeField] private GameObject[] pages;
+    public GameObject[] pages;
 
     private void Awake()
     {

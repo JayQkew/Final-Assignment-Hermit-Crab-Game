@@ -15,12 +15,17 @@ public class RecipeBookButton : MonoBehaviour, IPointerClickHandler, IPointerEnt
     public void OpenRecipeBook()
     {
         recipeBookPanel.SetActive(true);
+        foreach (GameObject page in RecipeBookManager.Instance.pages)
+        {
+            page.GetComponent<PageLogic>().SetPage();
+        }
         gameObject.SetActive(false);
 
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         OpenRecipeBook();
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)

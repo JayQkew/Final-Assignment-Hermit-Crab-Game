@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcData: {fileID: 11400000, guid: 7561f9897e6920b4cb6d401f07b9ff7c, type: 2}
   npcBase:
-    tradeNpc: 1
+    tradeNpc: 0
     npcName: 1
     tradeIngredients: []
     costIngredients: []
@@ -77,6 +77,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
   npcRecipe: 0
   favDish: 1
+  bribed: 0
 --- !u!1 &6419782846058429308
 GameObject:
   m_ObjectHideFlags: 0

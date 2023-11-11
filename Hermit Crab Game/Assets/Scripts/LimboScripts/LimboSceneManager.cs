@@ -26,9 +26,26 @@ public class LimboSceneManager : MonoBehaviour
     }
     private void Update()
     {
-        if (onDoorStep && touchingHouse) LoadHouse();
-        else if (onTrigger && touchingCollider) LoadMossel();
-        else if (doorEnter && touchWall) LoadLimbo();
+        if (SceneManager.GetActiveScene().name == "Tutorial 3")
+        {
+            if (onTrigger && touchingCollider) LoadTutorial4();
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial 2")
+        {
+            if (doorEnter && touchWall) LoadTutorial3();
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial 1")
+        {
+            if (onDoorStep && touchingHouse) LoadTutorial2();
+        }
+        else
+        {
+            if (onDoorStep && touchingHouse) LoadHouse();
+            else if (onTrigger && touchingCollider) LoadMossel();
+            else if (doorEnter && touchWall) LoadLimbo();
+        }
+
+
     }
 
 
@@ -46,5 +63,20 @@ public class LimboSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("Limbo");
     }
+
+    void LoadTutorial4()
+    {
+        SceneManager.LoadScene("Tutorial 4");
+    }
+
+    void LoadTutorial3()
+    {
+        SceneManager.LoadScene("Tutorial 3");
+    }
+    void LoadTutorial2()
+    {
+        SceneManager.LoadScene("Tutorial 2");
+    }
+
 }
 

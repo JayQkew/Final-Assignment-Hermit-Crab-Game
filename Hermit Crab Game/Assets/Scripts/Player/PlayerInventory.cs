@@ -196,7 +196,7 @@ public class PlayerInventory : MonoBehaviour
         InventoryLogic.Instance.DataToVisual();
     }
 
-    private void ClearInventory()
+    public void ClearInventory()
     {
         for (int i = 0; i < inventory.ingredientInventory.Count; i++)
         {
@@ -235,7 +235,7 @@ public class PlayerInventory : MonoBehaviour
 
         foreach (IngredientType[] slot in inventory.ingredientInventory)
         {
-            if (slot[0] == ingredient)
+            if (slot[0] == ingredient /*|| slot[0] == IngredientType.Empty*/)
             {
                 for (int i = StackCount(slot); i >= 0; i--)
                 {

@@ -22,5 +22,6 @@ public class SO_Inventory : ScriptableObject
 
     public Dishes dish;
 
+    public bool hasRecipeBook = false;
     public Recipes[] recipes = new Recipes[9];
 }

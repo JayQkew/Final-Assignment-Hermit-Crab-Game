@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NPCActionLogic : MonoBehaviour
@@ -123,7 +124,7 @@ public class NPCActionLogic : MonoBehaviour
                 break;
         }
 
-        InventoryLogic.Instance.DataToVisual();
+            InventoryLogic.Instance.DataToVisual();
     }
     public void ChangeAction(NPCActions action)
     {
@@ -198,6 +199,18 @@ public class NPCActionLogic : MonoBehaviour
         UIManager.Instance.inventoryUI.SetActive(false);
         UIManager.Instance.dishUI.SetActive(false);
         UIManager.Instance.recipeBookUI.SetActive(false);
+
+        if (activeNPC.GetComponent<NPCLogic>().npcBase.npcName == NPCName.Penguin)
+        {
+            if (!activeNPC.GetComponent<NPCLogic>().bribed)
+            {
+                PlayerInventory.Instance.ClearInventory();
+                NPCChange(NPCActions.Converse, 5);
+                OpenActiveAction();
+                interactUI.SetActive(false);
+                converseUI.SetActive(true);
+            }
+        }
     }
     #endregion
 

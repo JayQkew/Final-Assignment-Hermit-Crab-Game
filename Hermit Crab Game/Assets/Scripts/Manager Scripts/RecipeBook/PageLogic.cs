@@ -44,11 +44,13 @@ public class PageLogic : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != "House") return;
+
+            if (selected) cookButton.transform.GetChild(0).gameObject.SetActive(true);
+            else cookButton.transform.GetChild(0).gameObject.SetActive(false);
 
 
-        if (selected) cookButton.transform.GetChild(0).gameObject.SetActive(true);
-        else cookButton.transform.GetChild(0).gameObject.SetActive(false);
+        SetPage();
+
     }
 
     public void SetPage()
@@ -140,6 +142,23 @@ public class PageLogic : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         if (SceneManager.GetActiveScene().name == "House" && pageRecipe != null)
+        {
+            if (CanMakeRecipe() && PlayerInventory.Instance.inventory.dish == Dishes.None)
+            {
+                if (selected)
+                {
+                    selected = false;
+                    RecipeBookManager.Instance.activePage = null;
+                }
+                else
+                {
+                    selected = true;
+                    RecipeBookManager.Instance.activePage = gameObject;
+                }
+            }
+            else GetComponent<Image>().color = Color.red;
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial 5" && pageRecipe != null)
         {
             if (CanMakeRecipe() && PlayerInventory.Instance.inventory.dish == Dishes.None)
             {
