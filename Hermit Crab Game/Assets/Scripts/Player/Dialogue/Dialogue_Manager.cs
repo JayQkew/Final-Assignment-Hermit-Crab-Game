@@ -16,7 +16,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     public int sentQueue;
 
-    public GameObject images; //Player and granny dialogue at level select (First time meeting)
+    //public GameObject images; //Player and granny dialogue at level select (First time meeting)
 
     // Start is called before the first frame update
     void Awake()
@@ -25,7 +25,7 @@ public class Dialogue_Manager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "LevelSelect" && LevelManager.Instance.grannyIntro == true)
         {
-            images.SetActive(false);
+            //images.SetActive(false);
         }
     }
 
@@ -77,7 +77,7 @@ public class Dialogue_Manager : MonoBehaviour
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
         dialogueText.text = sentence;
-        nameText.text = GameObject.Find("Player").GetComponent<DialogueTrigger>().dialogue.name;
+        nameText.text = GameObject.Find("Hermit Crab").GetComponent<DialogueTrigger>().dialogue.name;
     }
 
     void EndDialogue()
@@ -99,6 +99,6 @@ public class Dialogue_Manager : MonoBehaviour
 
         SceneManager.LoadScene("Tutorial 1");
 
-        images.SetActive(false);
+       // images.SetActive(false);
     }
 }

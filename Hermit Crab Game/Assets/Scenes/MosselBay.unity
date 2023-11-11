@@ -1830,25 +1830,24 @@ MonoBehaviour:
   chunks: []
   maxChunks: 9
   p_chunk:
-  - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
-  - {fileID: 1377408044223017332, guid: ff88e7857980c8a4180b5c773b2ab590, type: 3}
-  - {fileID: 1377408044223017332, guid: 24ec5f86b3d96534d8524e6e6c287380, type: 3}
-  - {fileID: 1377408044223017332, guid: d3064a4c7dd318d4fb389ad4b987c0f3, type: 3}
-  - {fileID: 1377408044223017332, guid: 5bd7baa33f2ab0a40a4abe073b4d58c3, type: 3}
+  - {fileID: 1377408044223017332, guid: 6407999bffd214b4e8dd6ddae34bd025, type: 3}
+  - {fileID: 1377408044223017332, guid: 47e088a36ef586949a90a8aae3325adf, type: 3}
+  - {fileID: 1377408044223017332, guid: be93c510491af6043bad100485f56b52, type: 3}
+  - {fileID: 1377408044223017332, guid: 8bb0839cb68515e4b8ff8bb5858d1408, type: 3}
+  - {fileID: 1377408044223017332, guid: 3ad6c738cfa36ee4f94478984e21e0ad, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
   maxSpawnAmount: 45
   minSpawnAmount: 35
   ingredients:
-  - {fileID: 1362279169152758846, guid: 1987f9a1f768c3b47a4a6e2dc0b86c63, type: 3}
   - {fileID: 9104311376946822795, guid: 405b5ce9541d236489314165c647c4ae, type: 3}
   - {fileID: 1036283469977623290, guid: 3518ba46b6e6d8b4a953e1d7c4d6e701, type: 3}
   - {fileID: 3166085514468062330, guid: 89c0c7258e0ceb84aab8efec910fd56e, type: 3}
-  - {fileID: 9104311376946822795, guid: 65d85510994d52d4cac9e46b5a150a1a, type: 3}
-  digPercentage: 0.34
-  shakePercentage: 0.33
-  openPercentage: 0.33
+  - {fileID: 1362279169152758846, guid: ef4e196a7c42d1b49ba86a8c554c6ade, type: 3}
+  digPercentage: 0.25
+  shakePercentage: 0.5
+  openPercentage: 0.25
   npcSpawnPoints: []
   npcParent: {fileID: 1206895207}
   npcs:
