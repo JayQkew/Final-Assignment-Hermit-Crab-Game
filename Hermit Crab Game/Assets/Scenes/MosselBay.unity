@@ -1862,6 +1862,9 @@ MonoBehaviour:
   npcs:
   - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
   - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
+  framesRan: 0
+  playerSpawners: []
+  playerSpawnParent: {fileID: 0}
 --- !u!1001 &422056932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7228,6 +7231,7 @@ MonoBehaviour:
   recipeBookUI: {fileID: 994259887}
   mapUI: {fileID: 1786947935}
   npcUI: {fileID: 1481083187}
+  recipeBookButton: {fileID: 568828558}
 --- !u!1 &1402253123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10108,6 +10112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c1e4d20abe2f647ac72a5e57618d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePage: {fileID: 0}
   recipeBookPanel: {fileID: 975207738}
   recipeBookButton: {fileID: 568828558}
   pages:
