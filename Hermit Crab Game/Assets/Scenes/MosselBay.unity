@@ -1830,11 +1830,11 @@ MonoBehaviour:
   chunks: []
   maxChunks: 9
   p_chunk:
-  - {fileID: 1377408044223017332, guid: 6407999bffd214b4e8dd6ddae34bd025, type: 3}
-  - {fileID: 1377408044223017332, guid: 47e088a36ef586949a90a8aae3325adf, type: 3}
-  - {fileID: 1377408044223017332, guid: be93c510491af6043bad100485f56b52, type: 3}
-  - {fileID: 1377408044223017332, guid: 8bb0839cb68515e4b8ff8bb5858d1408, type: 3}
-  - {fileID: 1377408044223017332, guid: 3ad6c738cfa36ee4f94478984e21e0ad, type: 3}
+  - {fileID: 1377408044223017332, guid: b65e82ac4238a5e4ba597cdddbd9c12b, type: 3}
+  - {fileID: 1377408044223017332, guid: fe0718cd6e66c6c4aa74bb8264308648, type: 3}
+  - {fileID: 1377408044223017332, guid: c838df7dad158fd4d99d59e2366edf49, type: 3}
+  - {fileID: 1377408044223017332, guid: 8ce44e2f586fc794f9a19fb0859e5767, type: 3}
+  - {fileID: 1377408044223017332, guid: ac4f55bd7bb2ab0429eb34dae004a0a2, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
@@ -1851,8 +1851,8 @@ MonoBehaviour:
   npcSpawnPoints: []
   npcParent: {fileID: 1206895207}
   npcs:
-  - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
-  - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
+  - {fileID: 3587729843173392245, guid: 5a81ef7ed4c544b4691c143807805240, type: 3}
+  - {fileID: 3587729843173392245, guid: f12e5eb67c959724c84593621375da91, type: 3}
   framesRan: 0
   playerSpawners: []
   playerSpawnParent: {fileID: 0}
