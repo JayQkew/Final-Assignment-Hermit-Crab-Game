@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class DishManager : MonoBehaviour
 {
@@ -33,7 +34,12 @@ public class DishManager : MonoBehaviour
 
         foreach (GameObject _dish in p_dishes)
         {
-            if (_dish.GetComponent<DishLogic>().dish == dish)
+            if (PlayerInventory.Instance.inventory.dish == Dishes.None)
+            {
+                image.sprite = null;
+                image.color = Color.white;
+            }
+            else if (_dish.GetComponent<DishLogic>().dish == dish)
             {
                 image.sprite = _dish.GetComponent<SpriteRenderer>().sprite;
                 image.color = _dish.GetComponent<SpriteRenderer>().color;

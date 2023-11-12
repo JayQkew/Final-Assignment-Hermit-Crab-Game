@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public GameObject recipeBookUI;
     public GameObject mapUI;
     [SerializeField] private GameObject npcUI;
+
+    public GameObject recipeBookButton;
+
     #endregion
 
     private void Awake()
@@ -38,12 +41,15 @@ public class UIManager : MonoBehaviour
             {
                 inventoryUI.SetActive(true);
                 dishUI.SetActive(true);
-                recipeBookUI.SetActive(true);
+                if (PlayerInventory.Instance.inventory.hasRecipeBook)
+                {
+                    recipeBookUI.SetActive(true);
+                }
                 InventoryLogic.Instance.DataToVisual();
                 playerUIActive = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.M) && 
+        if (Input.GetKeyDown(KeyCode.M) &&
             canOpenUI &&
             MapManager.Instance.so_location.canFastTravel)
         {
@@ -89,4 +95,10 @@ public class UIManager : MonoBehaviour
         else npcUI.SetActive(false);
     }
 
+    public void RecipeSelectMode()
+    {
+        recipeBookButton.GetComponent<RecipeBookButton>().OpenRecipeBook();
+        inventoryUI.SetActive(true);
+        dishUI.SetActive(true);
+    }
 }

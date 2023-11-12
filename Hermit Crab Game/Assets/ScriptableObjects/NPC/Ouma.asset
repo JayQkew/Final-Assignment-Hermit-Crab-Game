@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1cdf125b79ee1841b8919fc80ffa38f, type: 3}
   m_Name: Ouma
   m_EditorClassIdentifier: 
-  tradeNpc: 0
-  interactions: 0
-  tradeIngredients: []
-  costIngredietns: []
-  costAmount: 
-  recipe: []
+  interactionPoints: 3
+  givenLoco: 0
+  givenRecipe: 1

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -43,9 +44,11 @@ public class DialogueManager : MonoBehaviour
     {
         UIManager.Instance.inventoryUI.SetActive(false);
         UIManager.Instance.dishUI.SetActive(false);
+        UIManager.Instance.recipeBookUI.SetActive(false);
+        UIManager.Instance.mapUI.SetActive(false);
         dialoguePlaying = true;
         currentDialogue = new Story(inkJSON.text);
-        ContinueStory();
+        //ContinueStory();
     }
 
     public void ExitDialogueMode()
@@ -53,9 +56,16 @@ public class DialogueManager : MonoBehaviour
         dialoguePlaying = false;
         dialogueText.text = "";
         nameText.text = "";
+
+        if (SceneManager.GetActiveScene().name == "Tutorial 2")
+        {
+            SceneManager.LoadScene("Tutorial 3");
+        }
+
         NPCActionLogic.Instance.ChangeAction(NPCActions.Interact);
-        NPCActionLogic.Instance.IPChange(1);
+        //NPCActionLogic.Instance.IPChange(1);
         NPCActionLogic.Instance.OpenActiveAction();
+
     }
 
     public void ContinueStory()
@@ -79,7 +89,7 @@ public class DialogueManager : MonoBehaviour
                 givingLoco = false;
             }
             ExitDialogueMode();
-        } 
+        }
     }
 
     public void HandleTags(List<string> tags)

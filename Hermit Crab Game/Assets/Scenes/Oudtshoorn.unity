@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 11400000, guid: 6f4424f345a656243ba47b06bb71ca21, type: 2}
+  selected: 0
+  locationName: 
   startColour: {r: 0, g: 0, b: 0, a: 0}
   hoverColour: {r: 0.48235294, g: 0.48235294, b: 0.7176471, a: 1}
   infoPanel: {fileID: 863763161}
@@ -1168,6 +1170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 11400000, guid: cc387b28eae0e9f4ba33dc80f856c8a2, type: 2}
+  selected: 0
+  locationName: 
   startColour: {r: 0, g: 0, b: 0, a: 0}
   hoverColour: {r: 0.48235294, g: 0.48235294, b: 0.7176471, a: 1}
   infoPanel: {fileID: 652302954}
@@ -1824,32 +1828,34 @@ MonoBehaviour:
   p_seeker: {fileID: 8976168587624371631, guid: aaec42a726f762e4397da9830bd95aa5, type: 3}
   seekerParent: {fileID: 793919606}
   chunks: []
-  maxChunks: 9
+  maxChunks: 14
   p_chunk:
-  - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
-  - {fileID: 1377408044223017332, guid: ff88e7857980c8a4180b5c773b2ab590, type: 3}
-  - {fileID: 1377408044223017332, guid: 24ec5f86b3d96534d8524e6e6c287380, type: 3}
-  - {fileID: 1377408044223017332, guid: d3064a4c7dd318d4fb389ad4b987c0f3, type: 3}
-  - {fileID: 1377408044223017332, guid: 5bd7baa33f2ab0a40a4abe073b4d58c3, type: 3}
+  - {fileID: 1377408044223017332, guid: a75554e55c40f4b44ae2b4cb11cdeed9, type: 3}
+  - {fileID: 1377408044223017332, guid: a06ca2b5f6f7ca145b7a62d0a16efda1, type: 3}
+  - {fileID: 1377408044223017332, guid: 27399136e69fa394caca45ec57ce3fba, type: 3}
+  - {fileID: 1377408044223017332, guid: 49d62d1ea37e0a34d8b258df5173b380, type: 3}
+  - {fileID: 1377408044223017332, guid: fb73f906c0116d84e8c17da53206ea22, type: 3}
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
-  maxSpawnAmount: 45
-  minSpawnAmount: 35
+  maxSpawnAmount: 65
+  minSpawnAmount: 50
   ingredients:
-  - {fileID: 1362279169152758846, guid: 1987f9a1f768c3b47a4a6e2dc0b86c63, type: 3}
   - {fileID: 9104311376946822795, guid: 405b5ce9541d236489314165c647c4ae, type: 3}
-  - {fileID: 1036283469977623290, guid: 3518ba46b6e6d8b4a953e1d7c4d6e701, type: 3}
-  - {fileID: 3166085514468062330, guid: 89c0c7258e0ceb84aab8efec910fd56e, type: 3}
-  - {fileID: 9104311376946822795, guid: 65d85510994d52d4cac9e46b5a150a1a, type: 3}
-  digPercentage: 0.34
-  shakePercentage: 0.33
-  openPercentage: 0.33
+  - {fileID: 9104311376946822795, guid: 7393d8b6770abb44ba7adda709cd3d9e, type: 3}
+  - {fileID: 9104311376946822795, guid: ab0c6a0ec2d433d40997910ab6e9f6a6, type: 3}
+  - {fileID: 1362279169152758846, guid: ef4e196a7c42d1b49ba86a8c554c6ade, type: 3}
+  digPercentage: 0.25
+  shakePercentage: 0.5
+  openPercentage: 0.25
   npcSpawnPoints: []
   npcParent: {fileID: 1206895207}
   npcs:
   - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
   - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
+  framesRan: 0
+  playerSpawners: []
+  playerSpawnParent: {fileID: 0}
 --- !u!1001 &422056932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2518,6 +2524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 11400000, guid: eedd40a699be3e0468d36ab15096cfce, type: 2}
+  selected: 0
+  locationName: 
   startColour: {r: 0, g: 0, b: 0, a: 0}
   hoverColour: {r: 0.48235294, g: 0.48235294, b: 0.7176471, a: 1}
   infoPanel: {fileID: 1722094256}
@@ -3133,6 +3141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 11400000, guid: 4ca357320106f2e4f8377c5f37e63d65, type: 2}
+  selected: 0
+  locationName: 
   startColour: {r: 0, g: 0, b: 0, a: 0}
   hoverColour: {r: 0.4829477, g: 0.4829477, b: 0.7169812, a: 1}
   infoPanel: {fileID: 591012001}
@@ -4047,6 +4057,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {fileID: 11400000, guid: 264a902334ea39d499db8d3d069c9dfb, type: 2}
+  selected: 0
+  locationName: 
   startColour: {r: 0, g: 0, b: 0, a: 0}
   hoverColour: {r: 0.48235294, g: 0.48235294, b: 0.7176471, a: 1}
   infoPanel: {fileID: 170613642}
@@ -7194,6 +7206,7 @@ MonoBehaviour:
   recipeBookUI: {fileID: 994259887}
   mapUI: {fileID: 1786947935}
   npcUI: {fileID: 1481083187}
+  recipeBookButton: {fileID: 0}
 --- !u!1 &1402253123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10026,6 +10039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c1e4d20abe2f647ac72a5e57618d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePage: {fileID: 0}
   recipeBookPanel: {fileID: 975207738}
   recipeBookButton: {fileID: 568828558}
   pages:
@@ -10057,6 +10071,7 @@ MonoBehaviour:
   - {fileID: 252767059}
   - {fileID: 36896512}
   - {fileID: 574769565}
+  selectecLocationName: 
   map: {fileID: 1786947935}
 --- !u!1 &1973231047
 GameObject:

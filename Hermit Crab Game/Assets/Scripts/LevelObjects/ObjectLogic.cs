@@ -8,15 +8,7 @@ public class ObjectLogic : MonoBehaviour
     public ObjectType objectType;
     public GameObject ingredient;
 
-    [Header("Breakable Object")]
-    [SerializeField] private int currentHP;
-    [SerializeField] private int maxHP;
-
     //public GameObject wallParticle;
-
-    private void Start()
-    {
-    }
 
     public void Interact()
     {
@@ -30,6 +22,9 @@ public class ObjectLogic : MonoBehaviour
                 break;
             case ObjectType.Dig:
                 Dig();
+                break;
+            case ObjectType.Cook:
+                Cook();
                 break;
         }
     }
@@ -61,12 +56,10 @@ public class ObjectLogic : MonoBehaviour
         }
     }
 
-    void DestroyItem()
+    private void Cook()
     {
-        //GameObject particle = Instantiate(wallParticle, gameObject.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        UIManager.Instance.RecipeSelectMode();
     }
-
 }
 
 public enum ObjectType
@@ -74,5 +67,6 @@ public enum ObjectType
     Open,
     Shake,
     Dig,
-    Trade
+    Trade,
+    Cook
 }

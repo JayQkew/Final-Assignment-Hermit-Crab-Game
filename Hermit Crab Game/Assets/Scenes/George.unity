@@ -1828,7 +1828,7 @@ MonoBehaviour:
   p_seeker: {fileID: 8976168587624371631, guid: aaec42a726f762e4397da9830bd95aa5, type: 3}
   seekerParent: {fileID: 793919606}
   chunks: []
-  maxChunks: 9
+  maxChunks: 14
   p_chunk:
   - {fileID: 1377408044223017332, guid: a26be5970430c1a41bfa44cf98a63363, type: 3}
   - {fileID: 1377408044223017332, guid: ff88e7857980c8a4180b5c773b2ab590, type: 3}
@@ -1838,22 +1838,24 @@ MonoBehaviour:
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
-  maxSpawnAmount: 45
-  minSpawnAmount: 35
+  maxSpawnAmount: 65
+  minSpawnAmount: 50
   ingredients:
-  - {fileID: 1362279169152758846, guid: 1987f9a1f768c3b47a4a6e2dc0b86c63, type: 3}
   - {fileID: 9104311376946822795, guid: 405b5ce9541d236489314165c647c4ae, type: 3}
-  - {fileID: 1036283469977623290, guid: 3518ba46b6e6d8b4a953e1d7c4d6e701, type: 3}
-  - {fileID: 3166085514468062330, guid: 89c0c7258e0ceb84aab8efec910fd56e, type: 3}
   - {fileID: 9104311376946822795, guid: 65d85510994d52d4cac9e46b5a150a1a, type: 3}
-  digPercentage: 0.34
-  shakePercentage: 0.33
-  openPercentage: 0.33
+  - {fileID: 9104311376946822795, guid: ab0c6a0ec2d433d40997910ab6e9f6a6, type: 3}
+  - {fileID: 1362279169152758846, guid: ef4e196a7c42d1b49ba86a8c554c6ade, type: 3}
+  digPercentage: 0.5
+  shakePercentage: 0.25
+  openPercentage: 0.25
   npcSpawnPoints: []
   npcParent: {fileID: 1206895207}
   npcs:
   - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
   - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
+  framesRan: 0
+  playerSpawners: []
+  playerSpawnParent: {fileID: 0}
 --- !u!1001 &422056932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7204,6 +7206,7 @@ MonoBehaviour:
   recipeBookUI: {fileID: 994259887}
   mapUI: {fileID: 1786947935}
   npcUI: {fileID: 1481083187}
+  recipeBookButton: {fileID: 0}
 --- !u!1 &1402253123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10036,6 +10039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c1e4d20abe2f647ac72a5e57618d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePage: {fileID: 0}
   recipeBookPanel: {fileID: 975207738}
   recipeBookButton: {fileID: 568828558}
   pages:

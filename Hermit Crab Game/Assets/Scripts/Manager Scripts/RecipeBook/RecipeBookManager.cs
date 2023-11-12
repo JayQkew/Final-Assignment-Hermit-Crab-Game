@@ -7,9 +7,10 @@ public class RecipeBookManager : MonoBehaviour
 {
     public static RecipeBookManager Instance { get; private set; }
 
+    public GameObject activePage;
     [SerializeField] private GameObject recipeBookPanel;
     [SerializeField] private GameObject recipeBookButton;
-    [SerializeField] private GameObject[] pages;
+    public GameObject[] pages;
 
     private void Awake()
     {
@@ -29,6 +30,9 @@ public class RecipeBookManager : MonoBehaviour
         foreach (GameObject page in pages)
         {
             page.GetComponent<PageLogic>().SetPage();
+            page.GetComponent<PageLogic>().ActiveCheck();
+            if (page.transform.GetSiblingIndex() != 8) page.SetActive(false);
+            else page.SetActive(true);
         }
     }
 
@@ -62,6 +66,9 @@ public class RecipeBookManager : MonoBehaviour
         foreach (GameObject page in pages)
         {
             page.GetComponent<PageLogic>().ActiveCheck();
+            page.GetComponent<PageLogic>().selected = false;
+            if (page.transform.GetSiblingIndex() != 8) page.SetActive(false);
+            else page.SetActive(true);
         }
     }
 }
