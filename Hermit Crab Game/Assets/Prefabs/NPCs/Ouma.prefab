@@ -74,8 +74,9 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
   - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
   - {fileID: 4900000, guid: aec47074f9e80e149984eee56c5964d4, type: 3}
-  - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
-  - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  - {fileID: 0}
+  - {fileID: 4900000, guid: dfed5e8579e45694b84f9fbbb43ee70b, type: 3}
+  - {fileID: 4900000, guid: 73187e1e520b6af4cb506c427d0d1137, type: 3}
   npcRecipe: 1
   favDish: 9
   bribed: 0

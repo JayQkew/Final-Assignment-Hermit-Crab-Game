@@ -159,11 +159,14 @@ public class NPCLogic : MonoBehaviour
                 npcData.givenRecipe = true;
                 InventoryLogic.Instance.DataToVisual();
                 break;
+            case 3:
+                ActionChange(NPCActions.Interact);
+                break;
             case 4:
-                NPCChange(NPCActions.Converse, 1); // 
+                NPCChange(NPCActions.Converse, 3);  
                 break;
             case 5:
-                NPCChange(NPCActions.Converse, 1);
+                NPCChange(NPCActions.Converse, 3);
                 //failed bride
                 break;
         }
@@ -184,7 +187,8 @@ public class NPCLogic : MonoBehaviour
 
         if (dish == favDish)
         {
-            NPCChange(NPCActions.Converse, 2);
+            if (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcBase.npcName == NPCName.Ouma) NPCChange(NPCActions.Converse, 5);
+            else NPCChange(NPCActions.Converse, 2);
             NPCActionLogic.Instance.OpenActiveAction();
             DialogueManager.Instance.givingLoco = true;
             DialogueManager.Instance.EnterDialogueMode(activeNPC.GetComponent<NPCLogic>().npcDialogue[activeNPC.GetComponent<NPCLogic>().npcData.interactionPoints]);
@@ -192,7 +196,6 @@ public class NPCLogic : MonoBehaviour
             switch (NPCActionLogic.Instance.activeNPC.GetComponent<NPCLogic>().npcBase.npcName)
             {
                 case NPCName.Ouma:
-                    //ouma ending dialogue
                     break;
                 case NPCName.Hadeda:
                     MapManager.Instance.so_location.canFastTravel = true;
