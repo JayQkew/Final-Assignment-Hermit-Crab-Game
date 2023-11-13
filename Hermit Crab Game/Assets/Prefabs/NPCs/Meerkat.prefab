@@ -65,9 +65,7 @@ MonoBehaviour:
   npcData: {fileID: 11400000, guid: 491984e8ce14af8449093c71ec3a68cf, type: 2}
   npcBase:
     tradeNpc: 1
-    name: Meerkat
     npcName: 3
-    profession: Spaza Shop Owner
     tradeIngredients:
     - {fileID: 9104311376946822795, guid: 389f7d9587107a64186671705cf45617, type: 3}
     - {fileID: 9104311376946822795, guid: 6fe25ae85249d2249be09c35f41dc369, type: 3}
@@ -81,8 +79,14 @@ MonoBehaviour:
     costAmounts: 04000000040000000400000004000000
     characterSprite: {fileID: 0}
   npcDialogue:
-  - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  - {fileID: 4900000, guid: 0911e62a7113a6747972f3bb95ec3d91, type: 3}
+  - {fileID: 4900000, guid: 0911e62a7113a6747972f3bb95ec3d91, type: 3}
+  - {fileID: 4900000, guid: db33feffbd226e641bac6519d6687faa, type: 3}
+  - {fileID: 4900000, guid: 11d5dfc29a76a774ea7f35b5341555f8, type: 3}
+  - {fileID: 4900000, guid: 206448410cb4610409e4c35409d68b3e, type: 3}
   npcRecipe: 3
+  favDish: 4
+  bribed: 0
 --- !u!1 &6419782846058429308
 GameObject:
   m_ObjectHideFlags: 0

@@ -65,9 +65,7 @@ MonoBehaviour:
   npcData: {fileID: 11400000, guid: 19eb566a751bf654398c317acd227e4b, type: 2}
   npcBase:
     tradeNpc: 1
-    name: Ostrich
     npcName: 4
-    profession: Auntie
     tradeIngredients:
     - {fileID: 9104311376946822795, guid: be94cc6a362bb3d48b14f8b3f3978d1b, type: 3}
     - {fileID: 9104311376946822795, guid: 054f87161a65f3940a86cecd66ad51cb, type: 3}
@@ -79,13 +77,14 @@ MonoBehaviour:
     costAmounts: 030000000400000003000000
     characterSprite: {fileID: 0}
   npcDialogue:
-  - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  - {fileID: 4900000, guid: 39744e53b8282f94abd6c603192a2a2b, type: 3}
   - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
-  - {fileID: 4900000, guid: aec47074f9e80e149984eee56c5964d4, type: 3}
-  - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
-  - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  - {fileID: 4900000, guid: 5796f1d14bd428244ac0e3ba8097106e, type: 3}
+  - {fileID: 4900000, guid: 898671b52d1f8184a816ad8a6f63121b, type: 3}
+  - {fileID: 4900000, guid: dfcf5aee7ccfdfa41888a0e60526d2b8, type: 3}
   npcRecipe: 4
   favDish: 2
+  bribed: 0
 --- !u!1 &6419782846058429308
 GameObject:
   m_ObjectHideFlags: 0
