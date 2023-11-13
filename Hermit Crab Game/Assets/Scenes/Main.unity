@@ -1541,10 +1541,12 @@ MonoBehaviour:
   acceleration: 10
   deceleration: 2
   currentVelocity: {x: 0, y: 0}
+  isWalking: 0
   maxSpeed: 10
   rb: {fileID: 314930188}
   movement: {x: 0, y: 0}
   stopTime: 0.8
+  anim: {fileID: 0}
   playerSprite: {fileID: 314930189}
 --- !u!50 &314930188
 Rigidbody2D:
@@ -1827,16 +1829,7 @@ MonoBehaviour:
   seekerParent: {fileID: 793919606}
   chunks: []
   maxChunks: 9
-  p_chunk_level_1:
-  - {fileID: 2258794315167547349, guid: 87936732c93b82f4cb96271612b33e63, type: 3}
-  - {fileID: 6527102429031107347, guid: b5bcb88ed55223d4aadd45573c2a5cff, type: 3}
-  - {fileID: 5372596374668825131, guid: ffa9f0345227032439bdaf8dbdf4421e, type: 3}
-  p_chunk_level_2:
-  - {fileID: 1377408044223017332, guid: a0080dd8e9d07394f881f87288127ad1, type: 3}
-  - {fileID: 1377408044223017332, guid: 86e752ab4c6454a46977fc8dca5c8fd7, type: 3}
-  - {fileID: 1377408044223017332, guid: 49d793d5665edb64c8e9d1ebe1b9cba6, type: 3}
-  - {fileID: 1377408044223017332, guid: 2cd5a06c83353854e955b823d87a5f62, type: 3}
-  - {fileID: 1377408044223017332, guid: 56e535a65de76294680b1b24c8967cab, type: 3}
+  p_chunk: []
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
@@ -1856,6 +1849,9 @@ MonoBehaviour:
   npcs:
   - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
   - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
+  framesRan: 0
+  playerSpawners: []
+  playerSpawnParent: {fileID: 0}
 --- !u!1001 &422056932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7206,6 +7202,7 @@ MonoBehaviour:
   recipeBookUI: {fileID: 994259887}
   mapUI: {fileID: 1786947935}
   npcUI: {fileID: 1481083187}
+  recipeBookButton: {fileID: 0}
 --- !u!1 &1402253123
 GameObject:
   m_ObjectHideFlags: 0
@@ -8664,7 +8661,7 @@ Transform:
   m_GameObject: {fileID: 1672575673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.287, y: 0.204, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2042084822}
@@ -10038,6 +10035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c1e4d20abe2f647ac72a5e57618d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePage: {fileID: 0}
   recipeBookPanel: {fileID: 975207738}
   recipeBookButton: {fileID: 568828558}
   pages:
