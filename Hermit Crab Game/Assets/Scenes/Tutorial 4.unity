@@ -1851,9 +1851,7 @@ MonoBehaviour:
   openPercentage: 0.33
   npcSpawnPoints: []
   npcParent: {fileID: 1206895207}
-  npcs:
-  - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
-  - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
+  npcs: []
   framesRan: 0
   playerSpawners: []
   playerSpawnParent: {fileID: 0}
