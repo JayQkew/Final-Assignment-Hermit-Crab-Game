@@ -44,7 +44,7 @@ public class NPCActionLogic : MonoBehaviour
 
     private void ChangeNPCDisplay(NPCLogic npcLogic)
     {
-        Sprite characterSprite = npcLogic.gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+        Sprite characterSprite = npcLogic.GUI.GetComponentInChildren<SpriteRenderer>().sprite;
         Color spriteColour = npcLogic.gameObject.GetComponentInChildren<SpriteRenderer>().color;
 
         foreach (GameObject display in npcDisplay)

@@ -81,6 +81,7 @@ MonoBehaviour:
     characterSprite: {fileID: 0}
   npcDialogue:
   - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  GUI: {fileID: 3926324416522056235}
   npcRecipe: 3
   favDish: 0
   bribed: 0

@@ -7,6 +7,7 @@ public class NPCLogic : MonoBehaviour
     public SO_NPCData npcData;
     public NPCBase npcBase;
     public TextAsset[] npcDialogue;
+    public GameObject GUI;
 
     public Recipes npcRecipe;
     public Dishes favDish;
