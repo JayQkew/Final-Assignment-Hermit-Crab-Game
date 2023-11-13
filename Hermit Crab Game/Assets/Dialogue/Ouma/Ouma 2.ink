@@ -1,26 +1,17 @@
--> main
+->main
 
 === main ===
-Ouma, I am ready for you to taste my potjie dish! #character:herbie
+Good job boytjie! I have the rest of the ingredients here. And here's an old recipe book I found lying around, you can have it. I've already added my potjiekos recipe in there for you. #character:Ouma
 
-hmmm... #character:ouma
+Wow... thank you Ouma! #character:Herbert
 
-I taste some lemme new flavors in here. There is something very special about this potjie boytjie. Maybe it’s better than mine, yoh. #character:herbie
+Now we'll learn how to cook! You just have to INTERACT with the cooking utensils and select the recipe you want to cook in your recipe book. You can then press the cook button and you're done! #character:Ouma
 
-Really Ouma? #character:ouma
+Is it just that easy? #character:Herbert
 
-Ja boytjie, you are well on your way to cooking like a true South African crab. #character:herbie
+Just that easy! I think it'll be a good idea if you share the dishes you cook with the people from around here. They'll love it! I'm sure! #character:Ouma
 
-Dankie Ouma. #character:herbie
+Sounds like a plan. #character:Herbert
 
-Know when I am ready to retire, my boytjie, this whole place will be yours and you will carry on my legacy as the South African cuisine crab #character:ouma
-
-I have come to love and respect this great country's food and culture so much. You have taught me the true meaning of adventure is connecting with people. And you know what they say, the way to the heart is through the stomach. #character:herbie
-
-I am so proud of you Herbert. #character:ouma
-
-Nee, call me boytjie. #character:herbie
-
-Ja, die boytjie with a potjie #character:ouma
-
-->END
+Ok! Now get going! #character:Ouma
+-> END
