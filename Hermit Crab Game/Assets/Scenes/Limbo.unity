@@ -6444,6 +6444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   house: 0
   mossel: 1
+  inHouse: 0
 --- !u!1 &270214898
 GameObject:
   m_ObjectHideFlags: 0
@@ -9341,6 +9342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   house: 1
   mossel: 0
+  inHouse: 0
 --- !u!1 &801879733
 GameObject:
   m_ObjectHideFlags: 0
@@ -9616,6 +9618,8 @@ MonoBehaviour:
   touchingHouse: 0
   onTrigger: 0
   touchingCollider: 0
+  doorEnter: 0
+  touchWall: 0
 --- !u!1 &855611710
 GameObject:
   m_ObjectHideFlags: 0
@@ -16211,6 +16215,7 @@ MonoBehaviour:
   recipeBookUI: {fileID: 994259887}
   mapUI: {fileID: 1786947935}
   npcUI: {fileID: 1481083187}
+  recipeBookButton: {fileID: 0}
 --- !u!1 &1402253123
 GameObject:
   m_ObjectHideFlags: 0
@@ -23640,7 +23645,7 @@ Transform:
   m_GameObject: {fileID: 1672575673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.287, y: 0.204, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2042084822}
@@ -23917,6 +23922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   house: 0
   mossel: 1
+  inHouse: 0
 --- !u!61 &1777068797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24331,6 +24337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   house: 1
   mossel: 0
+  inHouse: 0
 --- !u!224 &1843529929 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6026051542748601116, guid: 5ceb7446d692b614da75214915da9f0b, type: 3}
@@ -25261,6 +25268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c1e4d20abe2f647ac72a5e57618d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePage: {fileID: 0}
   recipeBookPanel: {fileID: 975207738}
   recipeBookButton: {fileID: 568828558}
   pages:

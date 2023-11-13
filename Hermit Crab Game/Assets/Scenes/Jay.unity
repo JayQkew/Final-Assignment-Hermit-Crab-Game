@@ -7208,6 +7208,7 @@ MonoBehaviour:
   recipeBookUI: {fileID: 994259887}
   mapUI: {fileID: 1786947935}
   npcUI: {fileID: 1481083187}
+  recipeBookButton: {fileID: 0}
 --- !u!1 &1402253123
 GameObject:
   m_ObjectHideFlags: 0
@@ -8697,7 +8698,7 @@ Transform:
   m_GameObject: {fileID: 1672575673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.287, y: 0.204, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2042084822}
@@ -10071,6 +10072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c1e4d20abe2f647ac72a5e57618d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePage: {fileID: 0}
   recipeBookPanel: {fileID: 975207738}
   recipeBookButton: {fileID: 568828558}
   pages:

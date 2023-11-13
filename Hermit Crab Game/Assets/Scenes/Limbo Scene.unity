@@ -5665,8 +5665,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4429f1c7cecda49b3a99ebbfe23400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 1278770019}
-  question: {fileID: 1278770017}
+  onDoorStep: 0
+  touchingHouse: 0
+  onTrigger: 0
+  touchingCollider: 0
+  doorEnter: 0
+  touchWall: 0
 --- !u!61 &1452909441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6273,7 +6277,7 @@ Transform:
   m_GameObject: {fileID: 1672575673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.287, y: 0.204, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2042084822}
@@ -6600,8 +6604,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4429f1c7cecda49b3a99ebbfe23400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 1278770019}
-  question: {fileID: 1278770017}
+  onDoorStep: 0
+  touchingHouse: 0
+  onTrigger: 0
+  touchingCollider: 0
+  doorEnter: 0
+  touchWall: 0
 --- !u!1 &1820599274
 GameObject:
   m_ObjectHideFlags: 0
