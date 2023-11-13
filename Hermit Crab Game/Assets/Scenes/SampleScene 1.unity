@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2362a5e9c0b44704c8a8da40f281f6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  locations: {fileID: 0}
 --- !u!1 &191993715
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,11 +337,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2042084820}
-  attackPoint: {fileID: 1520257695}
-  attackRange: 0.5
-  wallLayer:
+  rayRadius: 0
+  interactableObject:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
+  interactionPoint: {fileID: 0}
+  interactionRange: 0.5
+  hitObjects: []
 --- !u!58 &314930186
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -371,7 +373,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  acceleration: 0
+  deceleration: 0
+  currentVelocity: {x: 0, y: 0}
+  isWalking: 0
+  maxSpeed: 0
   rb: {fileID: 314930188}
+  movement: {x: 0, y: 0}
+  stopTime: 0
+  anim: {fileID: 0}
   playerSprite: {fileID: 314930189}
 --- !u!50 &314930188
 Rigidbody2D:
@@ -470,6 +480,18 @@ MonoBehaviour:
   chunkParent: {fileID: 1318652102}
   walls: []
   wallParent: {fileID: 1973231048}
+  maxSpawnAmount: 0
+  minSpawnAmount: 0
+  ingredients: []
+  digPercentage: 0
+  shakePercentage: 0
+  openPercentage: 0
+  npcSpawnPoints: []
+  npcParent: {fileID: 0}
+  npcs: []
+  framesRan: 0
+  playerSpawners: []
+  playerSpawnParent: {fileID: 0}
 --- !u!1 &726550696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,7 +1113,7 @@ Transform:
   m_GameObject: {fileID: 1672575673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.287, y: 0.204, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2042084822}
