@@ -65,9 +65,7 @@ MonoBehaviour:
   npcData: {fileID: 11400000, guid: ab8f38be8888ca94486708ba8d977efc, type: 2}
   npcBase:
     tradeNpc: 1
-    name: Monkey
     npcName: 2
-    profession: Braai Master
     tradeIngredients:
     - {fileID: 9104311376946822795, guid: a827d001a15052045b475be9fabc51c5, type: 3}
     - {fileID: 9104311376946822795, guid: 176c7c5f7127f2d45b8c084b313f883f, type: 3}
@@ -77,13 +75,14 @@ MonoBehaviour:
     costAmounts: 0300000003000000
     characterSprite: {fileID: 0}
   npcDialogue:
-  - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
-  - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
-  - {fileID: 4900000, guid: aec47074f9e80e149984eee56c5964d4, type: 3}
-  - {fileID: 4900000, guid: aec47074f9e80e149984eee56c5964d4, type: 3}
-  - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  - {fileID: 4900000, guid: 23ac5618c1899c1409941a2d5c400225, type: 3}
+  - {fileID: 4900000, guid: 23ac5618c1899c1409941a2d5c400225, type: 3}
+  - {fileID: 4900000, guid: 757fb7b7893930548b2c182fb0393ab8, type: 3}
+  - {fileID: 4900000, guid: eabe3b0b4a2357c45a54682392258699, type: 3}
+  - {fileID: 4900000, guid: 8fb7d7cdfc1ff3e4387561a913d3ba52, type: 3}
   npcRecipe: 2
   favDish: 5
+  bribed: 0
 --- !u!1 &6419782846058429308
 GameObject:
   m_ObjectHideFlags: 0
