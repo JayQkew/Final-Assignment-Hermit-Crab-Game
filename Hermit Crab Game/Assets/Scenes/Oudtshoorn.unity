@@ -1851,7 +1851,7 @@ MonoBehaviour:
   npcSpawnPoints: []
   npcParent: {fileID: 1206895207}
   npcs:
-  - {fileID: 3587729843173392245, guid: a0a3b642a6d3f7e47a3f2f09d3ed4c40, type: 3}
+  - {fileID: 3587729843173392245, guid: 3a8b768b4d4892a40b1f1cf01ee569d3, type: 3}
   - {fileID: 3587729843173392245, guid: 0dd05f50cfd968944a2e0aad29369ec3, type: 3}
   framesRan: 0
   playerSpawners: []
