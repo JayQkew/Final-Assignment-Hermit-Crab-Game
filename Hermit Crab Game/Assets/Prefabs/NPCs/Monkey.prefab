@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30f9b41697ae3941acdc099fafd3340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Monkey
   npcData: {fileID: 11400000, guid: ab8f38be8888ca94486708ba8d977efc, type: 2}
   npcBase:
     tradeNpc: 1

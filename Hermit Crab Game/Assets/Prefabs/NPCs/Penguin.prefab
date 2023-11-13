@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30f9b41697ae3941acdc099fafd3340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Penguin
   npcData: {fileID: 11400000, guid: a98b48e379078144f8d294246cefd788, type: 2}
   npcBase:
     tradeNpc: 0
