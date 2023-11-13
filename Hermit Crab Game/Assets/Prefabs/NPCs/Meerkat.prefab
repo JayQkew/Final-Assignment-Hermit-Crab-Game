@@ -81,6 +81,7 @@ MonoBehaviour:
     characterSprite: {fileID: 0}
   npcDialogue:
   - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  GUI: {fileID: 3926324416522056235}
   npcRecipe: 3
   favDish: 0
   bribed: 0
@@ -190,7 +191,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.81932276, b: 0.6264151, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

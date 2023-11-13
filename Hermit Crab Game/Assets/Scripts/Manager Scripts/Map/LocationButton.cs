@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LocationButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
@@ -47,7 +48,14 @@ public class LocationButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
             }
             else
             {
-                MapManager.Instance.selectecLocationName = locationName;
+                if (locationName == "MosselBay")
+                {
+                    MapManager.Instance.selectecLocationName = "Limbo";
+                }
+                else
+                {
+                    MapManager.Instance.selectecLocationName = locationName;
+                }
                 selected = true;
             }
         }

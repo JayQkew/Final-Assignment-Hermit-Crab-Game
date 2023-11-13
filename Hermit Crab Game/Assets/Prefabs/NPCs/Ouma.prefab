@@ -200,7 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30f9b41697ae3941acdc099fafd3340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Ouma
   npcData: {fileID: 11400000, guid: 40a7cb6ac55fb994f95838eeadee48a4, type: 2}
   npcBase:
     tradeNpc: 0
@@ -216,6 +215,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 4900000, guid: dfed5e8579e45694b84f9fbbb43ee70b, type: 3}
   - {fileID: 4900000, guid: 73187e1e520b6af4cb506c427d0d1137, type: 3}
+  GUI: {fileID: 692948847941662710}
   npcRecipe: 1
   favDish: 9
   bribed: 0
@@ -293,7 +293,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.3970254, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

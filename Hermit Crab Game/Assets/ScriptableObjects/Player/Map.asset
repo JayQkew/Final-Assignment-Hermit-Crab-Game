@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f740c2d68f1b21c459109a9dd50974c0, type: 3}
   m_Name: Map
   m_EditorClassIdentifier: 
-  canFastTravel: 1
+  canFastTravel: 0
   locations: 0101010000

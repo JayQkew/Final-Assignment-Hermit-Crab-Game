@@ -1,16 +1,18 @@
 -> main
 
 === main ===
-Sho boytjie, you are getting baie baie good at this. Nothing like my dom son. Maybe if I want to retire soon I’ll hand down my restaurant to you. #character:ouma
+OK boytjie! Are you listeing? #character:Ouma
 
-Oh no Ouma, I really enjoy working for you here but I am not good enough to run this place. I only know how to cook one dish. #character:herbie
+Yes Ouma! #character:Herbert
 
-Nee man boytjie. Here is an empty recipe book. The test of a true cook is to take a recipe and make it their own. Here is my famous potjie recipe… learn how to make this very same recipe the boytjie way and I will know that you’re ready. #character:ouma
+To the right of me is Mossel Bay, its where we get our fresh ingredients from. You will find ingredients hidden within objects. When you INTERACT (left-click) with an object there will be a chance that an ingredient will pop out! #character:Ouma
 
-How will I do that Ouma? #character:herbie
+So do all objects have ingredients in them? #character:Herbert
 
-Be social hawu. Meet people, befriend fellow South Africans. You can learn something new from everyone you meet. We have the best food in the world. #character:ouma
+Not all of them boytje! But thats foraging you see? It takes a lot of patience and you cannot leave any stone unturned! #character:Ouma
 
-Okay, I will make you proud Ouma. #character:herbie
+Understood! #character:Herbert
+
+Now you get going boytjie! #character:Ouma
 
 -> END

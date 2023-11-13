@@ -109,6 +109,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: b223e09eb0a2ac445a1d674480a498d0, type: 3}
   - {fileID: 0}
   - {fileID: 4900000, guid: fb78efec48b17b84cb686867750c8c5e, type: 3}
+  GUI: {fileID: 1861097881392226352}
   npcRecipe: 0
   favDish: 1
   bribed: 0
@@ -186,7 +187,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.195283, g: 0.21698111, b: 0.20660917, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
