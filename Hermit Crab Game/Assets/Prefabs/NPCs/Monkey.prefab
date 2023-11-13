@@ -62,12 +62,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30f9b41697ae3941acdc099fafd3340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Monkey
   npcData: {fileID: 11400000, guid: ab8f38be8888ca94486708ba8d977efc, type: 2}
   npcBase:
     tradeNpc: 1
-    name: Monkey
     npcName: 2
-    profession: Braai Master
     tradeIngredients:
     - {fileID: 9104311376946822795, guid: a827d001a15052045b475be9fabc51c5, type: 3}
     - {fileID: 9104311376946822795, guid: 176c7c5f7127f2d45b8c084b313f883f, type: 3}
@@ -84,6 +83,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
   npcRecipe: 2
   favDish: 5
+  bribed: 0
 --- !u!1 &6419782846058429308
 GameObject:
   m_ObjectHideFlags: 0
