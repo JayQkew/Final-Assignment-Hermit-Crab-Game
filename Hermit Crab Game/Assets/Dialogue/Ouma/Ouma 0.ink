@@ -17,16 +17,16 @@ Yoh, the ocean can be quite the wonders guide. You may have ended up right where
 
 What do you mean Miss? #character:Herbert
 
-Aggg please! Call me Ouma! How about you stay with me for a while, boytjie? You can help me gather some special ingredients from the coast to help me cook my potjie. #character:ouma
+Aggg please! Call me Ouma! How about you stay with me for a while, boytjie? You can help me gather some special ingredients from the coast to help me cook my potjie. #character:Ouma
 
-... I mean... theres not much else I can do, so why not... #character:herbie
+... I mean... theres not much else I can do, so why not... #character:Herbert
 
-Great choice boytjie! Lets get you started right away! And you can keep my potjie pot for your shell. Had I know where it was, I wouldnt have gotten a new one! #character:ouma
+Great choice boytjie! Lets get you started right away! And you can keep my potjie pot for your shell. Had I know where it was, I wouldnt have gotten a new one! #character:Ouma
 
-Thank you Ou-Ouma. #character:herbie
+Thank you Ou-Ouma. #character:Herbert
 
-Nie “thank you” nie! It's “dankie”! #character:ouma
+Nie “thank you” nie! It's “dankie”! #character:Ouma
 
-Oh… um… dankie Ouma! #character:herbie
+Oh… um… dankie Ouma! #character:Herbert
 
 -> END
