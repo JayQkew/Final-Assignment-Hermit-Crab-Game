@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660031aa8d4b9074ba7bbd9bb3236321, type: 3}
   m_Name: CookingStatus
   m_EditorClassIdentifier: 
-  cooking: 1
+  cooking: 0
