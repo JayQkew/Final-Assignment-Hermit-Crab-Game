@@ -107,7 +107,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 8d6a4a502e7f71a49978ad597b8ba2fa, type: 3}
   - {fileID: 0}
   - {fileID: 4900000, guid: 7b6d728e4bf9e954d8665a3bbd0b2fca, type: 3}
-  - {fileID: 4900000, guid: 15a6e298b1720df4aa788b7b100a57be, type: 3}
+  - {fileID: 0}
   - {fileID: 4900000, guid: 9754a9ff80fd87b4f8be80d430283f52, type: 3}
   GUI: {fileID: 1164777919504458845}
   npcRecipe: 3

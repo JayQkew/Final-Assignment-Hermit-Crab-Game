@@ -80,7 +80,11 @@ MonoBehaviour:
     costAmounts: 04000000040000000400000004000000
     characterSprite: {fileID: 0}
   npcDialogue:
-  - {fileID: 4900000, guid: 657f2090e6ee1dd4c892c4eafd45ae8b, type: 3}
+  - {fileID: 4900000, guid: 0911e62a7113a6747972f3bb95ec3d91, type: 3}
+  - {fileID: 0}
+  - {fileID: 4900000, guid: db33feffbd226e641bac6519d6687faa, type: 3}
+  - {fileID: 4900000, guid: 11d5dfc29a76a774ea7f35b5341555f8, type: 3}
+  - {fileID: 4900000, guid: 206448410cb4610409e4c35409d68b3e, type: 3}
   GUI: {fileID: 3926324416522056235}
   npcRecipe: 3
   favDish: 0

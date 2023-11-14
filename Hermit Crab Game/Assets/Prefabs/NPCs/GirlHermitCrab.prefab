@@ -105,9 +105,9 @@ MonoBehaviour:
     characterSprite: {fileID: 0}
   npcDialogue:
   - {fileID: 4900000, guid: 40b24fd142984b2428b11e72ba9f7540, type: 3}
-  - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
+  - {fileID: 0}
   - {fileID: 4900000, guid: 0b20fc547d9385546bba535b9299c1ec, type: 3}
-  - {fileID: 4900000, guid: e067fc37cca92f546a02bb5f37292581, type: 3}
+  - {fileID: 0}
   - {fileID: 4900000, guid: 578235ae44340974b89ddf7239e698fb, type: 3}
   GUI: {fileID: 6419782846058429308}
   npcRecipe: 9
